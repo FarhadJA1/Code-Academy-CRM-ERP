@@ -1,9 +1,10 @@
+import { display } from '@mui/system'
 import React from 'react'
-
 function Dashboard() {
   return (
-    <div>
-      <p>aaa</p>
+<div>
+     <p>Dashboard</p>
+
     </div>
   )
 }
