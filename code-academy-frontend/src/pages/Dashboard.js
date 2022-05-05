@@ -1,9 +1,10 @@
-import { display } from '@mui/system'
+
 import React from 'react'
+import '../assets/style/Dashboard.scss'
 function Dashboard() {
   return (
-<div>
-     <p>Dashboard</p>
+    <div className='dashboard'>
+      <p>Dashboard</p>
 
     </div>
   )
