@@ -1,10 +1,12 @@
 import React from 'react'
 import '../../assets/style/Navigation/Header.scss'
+import Language from '../Navbar/Language'
+import Profile from '../Navbar/Profile'
 function Header() {
   return (
     <div className='header'>
-      <p>Header</p>
-      <h6>aaa</h6>
+      <Language/>
+      <Profile/>
     </div>
   )
 }

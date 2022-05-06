@@ -4,10 +4,12 @@ import Navigation from './components/Shared/Navigation';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import Header from './components/Shared/Header';
-import Reports from './pages/Reports';
+
 import Finance from './pages/Finance';
 import Email from './pages/Email';
 import Chat from './pages/Chat';
+import './assets/fonts/Ubuntu-Light.ttf';
+import './assets/fonts/Ubuntu-Bold.ttf';
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Dashboard />} />
-            <Route path='/reports' element={<Reports />} />
+            <Route path='/reports' element={<Dashboard />} />
             <Route path='/finance' element={<Finance />} />
             <Route path='/email' element={<Email />} />
             <Route path='/chat' element={<Chat />} />
