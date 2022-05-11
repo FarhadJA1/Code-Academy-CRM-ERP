@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{161FF668-9AC6-4010-8A70-C5EF42445922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{161FF668-9AC6-4010-8A70-C5EF42445922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{EA48539A-1E96-4F3E-B594-F1934773B4E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{EA48539A-1E96-4F3E-B594-F1934773B4E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repo", "Repo\Repo.csproj", "{B4DC4778-1D32-4996-A198-42FBB3EDCDD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EA48539A-1E96-4F3E-B594-F1934773B4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA48539A-1E96-4F3E-B594-F1934773B4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA48539A-1E96-4F3E-B594-F1934773B4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DC4778-1D32-4996-A198-42FBB3EDCDD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DC4778-1D32-4996-A198-42FBB3EDCDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DC4778-1D32-4996-A198-42FBB3EDCDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DC4778-1D32-4996-A198-42FBB3EDCDD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
