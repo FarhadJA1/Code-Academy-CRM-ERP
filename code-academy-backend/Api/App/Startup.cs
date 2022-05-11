@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Repo;
 using Repo.Data;
+using Service;
+using Service.Mappings;
 
 namespace App
 {
@@ -25,7 +27,9 @@ namespace App
         {
 
             services.AddControllers().AddFluentValidation();
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddRepositoryLayer();
+            services.AddServiceLayer();
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

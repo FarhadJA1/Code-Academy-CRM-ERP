@@ -77,3 +77,5 @@ C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Repo.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Repo.pdb
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Domain.pdb
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Service.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Service.pdb

@@ -10,3 +10,8 @@ C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\obj\Debug\ne
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\obj\Debug\net5.0\Service.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\obj\Debug\net5.0\ref\Service.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\obj\Debug\net5.0\Service.pdb
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\bin\Debug\net5.0\Domain.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\bin\Debug\net5.0\Repo.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\bin\Debug\net5.0\Domain.pdb
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\bin\Debug\net5.0\Repo.pdb
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\Service\obj\Debug\net5.0\Service.csproj.CopyComplete

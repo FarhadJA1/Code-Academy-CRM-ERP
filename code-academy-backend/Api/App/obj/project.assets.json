@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "AutoMapper/11.0.0": {
+      "AutoMapper/11.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0"
@@ -1758,19 +1758,35 @@
         "runtime": {
           "bin/placeholder/Repo.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "Domain": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Repo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "AutoMapper/11.0.0": {
-      "sha512": "+596AnKykYCk9RxXCEF4GYuapSebQtFVvIA1oVG1rrRkCLAC7AkWehJ0brCfYUbdDW3v1H/p0W3hob7JoXGjMw==",
+    "AutoMapper/11.0.1": {
+      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
       "type": "package",
-      "path": "automapper/11.0.0",
+      "path": "automapper/11.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "automapper.11.0.0.nupkg.sha512",
+        "automapper.11.0.1.nupkg.sha512",
         "automapper.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
@@ -6330,6 +6346,11 @@
       "type": "project",
       "path": "../Repo/Repo.csproj",
       "msbuildProject": "../Repo/Repo.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6340,6 +6361,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 5.0.17",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.17",
       "Repo >= 1.0.0",
+      "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -6372,6 +6394,9 @@
           "projectReferences": {
             "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\Repo\\Repo.csproj": {
               "projectPath": "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\Repo\\Repo.csproj"
+            },
+            "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\Service\\Service.csproj"
             }
           }
         }

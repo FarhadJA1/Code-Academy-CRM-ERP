@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hrkdld0obpjsL4FCEqKCzWVEcCpMCgrQDAoi88fBcg2GKY+SUViQg3edJQPUuIwfaeDWSvFAcfaPHuchJVv7Og==",
+  "dgSpecHash": "69lunbzOFkMp2JpJdAvMcT8FeoxiN/YPOXkonTuu3JSDVY4ztLWG5NH6i4mANS7bByFbe6+PYlRN+7pfjzwKYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\App\\App.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.1\\fluentvalidation.aspnetcore.11.0.1.nupkg.sha512",
