@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "oIfU49bUhD6f2o2pWCmChzXEZ4NBDU1weuq01j24GHxzx3BPsZk3zHLVyay/Ri8NgVT9c1uRWIuoWRq5xJ/YvA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\FinalProject\\code-academy-backend\\Api\\Service\\Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

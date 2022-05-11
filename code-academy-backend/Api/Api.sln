@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repo", "Repo\Repo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{868EBB11-7AF0-45DE-BDC0-4A06A06448D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{8086A251-C2B3-487A-8026-DC326D47D1DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{868EBB11-7AF0-45DE-BDC0-4A06A06448D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{868EBB11-7AF0-45DE-BDC0-4A06A06448D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{868EBB11-7AF0-45DE-BDC0-4A06A06448D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8086A251-C2B3-487A-8026-DC326D47D1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8086A251-C2B3-487A-8026-DC326D47D1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8086A251-C2B3-487A-8026-DC326D47D1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8086A251-C2B3-487A-8026-DC326D47D1DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
