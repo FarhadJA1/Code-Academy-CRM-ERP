@@ -1,15 +1,18 @@
-﻿using Domain.Common;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Service.DTOs.Group
 {
-    public class Group:BaseEntity
+    public class GroupGetDto
     {
-        public int GroupTypeId { get; set; }
+        public int Id { get; set; }
         public GroupType GroupType { get; set; }
         public string GroupCode { get; set; }
         public List<Student> Students { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }
-
     }
 }

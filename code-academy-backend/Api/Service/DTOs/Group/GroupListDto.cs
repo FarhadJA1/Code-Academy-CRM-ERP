@@ -8,6 +8,7 @@ namespace Service.DTOs.Group
 {
     public class GroupListDto
     {
+        public int Id { get; set; }
         public string GroupCode { get; set; }
     }
     

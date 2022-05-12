@@ -46,7 +46,7 @@ namespace Repo.Repositories
 
         public async Task<List<T>> GetAllAsync()
         {
-            List<T> entityList = await entities.ToListAsync();
+            List<T> entityList = await entities.OrderByDescending(m=>m.Id).Where(m=>m.SoftDelete==false).ToListAsync();
             if (entityList is null) throw new NullReferenceException();
             return entityList;
         }
@@ -72,5 +72,6 @@ namespace Repo.Repositories
             entities.Update(entity);
             await _context.SaveChangesAsync();
         }
+        
     }
 }

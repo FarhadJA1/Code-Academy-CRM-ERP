@@ -9,6 +9,8 @@ namespace Service.Mappings
         public MappingProfile()
         {
             CreateMap<Group, GroupListDto>();
+            CreateMap<Group, GroupGetDto>();
+            CreateMap<Group, GroupCreateDto>().ReverseMap();
         }
     }
 }

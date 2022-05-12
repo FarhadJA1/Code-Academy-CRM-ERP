@@ -9,6 +9,7 @@ namespace Repo.Repositories.Interfaces
 {
     public interface IGroupRepository:IRepository<Group>
     {
-
+        Task<Group> GetWithDetails(int id);
+        Task<Group> GetLastGroup();
     }
 }
