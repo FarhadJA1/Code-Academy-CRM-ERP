@@ -6,13 +6,12 @@ function Operations() {
   return (
     <div className='container nav-operations'>
       <div className="row mt-3">
-                <h6 className='nav-title'>OPERATIONS</h6>
-                <Link className='nav-link' to={'/groups'}>
-                    <GroupsIcon className='nav-icon'/>
-                    <span>Groups</span>
-                </Link>
-                
-            </div>
+        <h6 className='nav-title'>OPERATIONS</h6>
+        <Link className='nav-link' to={'/groups'}>
+          <GroupsIcon className='nav-icon' />
+          <span>Groups</span>
+        </Link>
+      </div>
     </div>
   )
 }

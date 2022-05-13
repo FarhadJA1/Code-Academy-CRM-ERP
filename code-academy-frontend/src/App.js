@@ -10,6 +10,8 @@ import Email from './pages/Email';
 import Chat from './pages/Chat';
 import './assets/fonts/Ubuntu-Light.ttf';
 import './assets/fonts/Ubuntu-Bold.ttf';
+import Group from './pages/Group';
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
             <Route path='/finance' element={<Finance />} />
             <Route path='/email' element={<Email />} />
             <Route path='/chat' element={<Chat />} />
+            <Route path='/groups' element={<Group />} />
           </Routes>
         </div>
 
