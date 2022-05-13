@@ -26,8 +26,8 @@ function Profile() {
                 </li>
 
                 <li className='logout'>
-                <i class="fas fa-outdent"></i> Logout
-                
+                    <i class="fas fa-outdent"></i> Logout
+
                 </li>
 
             </ul>
