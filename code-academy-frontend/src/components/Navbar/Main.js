@@ -7,11 +7,11 @@ function Main() {
             <div className="row mt-3">
                 <h6 className='nav-title'>MAIN</h6>
                 <Link className='nav-link' to={'/reports'}>
-                    <i class="fas fa-chart-line"></i>
+                    <i className="fas fa-chart-line"></i>
                     <span>Analitics</span>
                 </Link>
                 <Link className='nav-link' to={'/finance'}>
-                    <i class="fas fa-balance-scale-left"></i>
+                    <i className="fas fa-balance-scale-left"></i>
                     <span>Financial Report</span>
                 </Link>
             </div>

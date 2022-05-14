@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import{ useEffect,useState } from 'react'
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -13,8 +13,9 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import axios from 'axios';
 
-function createData(groupCode, education, startDate, expireDate) {
+function createData(groupCode, education, startDate, expireDate,teacher,students) {
   return {
 
     groupCode,
@@ -24,8 +25,8 @@ function createData(groupCode, education, startDate, expireDate) {
 
     history: [
       {
-        teacher: '2020-01-05',
-        students: '11091700',
+        teacher,
+        students,
 
       },
 
@@ -35,10 +36,21 @@ function createData(groupCode, education, startDate, expireDate) {
 
 function Row(props) {
   const { row } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [groups,setGroups]=useState([]);
+  useEffect(() => {
+    axios
+      .get("https://localhost:44380/api/Group/GetAll")
+      .then(data => {
+        setGroups(data.data)
+      })
+      .catch(error => console.log(error));
 
+  });
   return (
+    
     <React.Fragment>
+      
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
         <TableCell>
           <IconButton
@@ -49,8 +61,9 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
+        
         <TableCell component="th" scope="row">
-          {row.groupCode}
+          {groups.groupCode}
         </TableCell>
         <TableCell align="right">{row.education}</TableCell>
         <TableCell align="right">{row.startDate}</TableCell>
@@ -86,6 +99,9 @@ function Row(props) {
           </Collapse>
         </TableCell>
       </TableRow>
+
+      
+      
     </React.Fragment>
 
 
@@ -113,7 +129,7 @@ export default function CollapsibleTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row key={row} row={row} />
           ))}
         </TableBody>
       </Table>

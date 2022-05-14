@@ -1,0 +1,11 @@
+.create-btn-area{
+    display: flex;
+    justify-content: end;
+    .create-btn{
+        box-shadow: none;
+        &:focus{
+           
+            box-shadow: none;
+        }
+    }
+}

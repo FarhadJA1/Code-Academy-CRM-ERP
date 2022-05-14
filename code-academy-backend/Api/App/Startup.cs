@@ -55,7 +55,13 @@ namespace App
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
+            app.UseCors(builder =>
+             builder.AllowAnyOrigin()
+             .AllowAnyHeader()
+             .AllowAnyMethod());
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
