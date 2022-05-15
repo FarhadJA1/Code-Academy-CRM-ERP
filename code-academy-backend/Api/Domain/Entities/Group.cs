@@ -11,7 +11,6 @@ namespace Domain.Entities
         public string GroupCode { get; set; }
         public List<Student> Students { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }
-
         public DateTime CreateDate { get; set; }
         public DateTime ExpireDate { get; set; }
 

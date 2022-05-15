@@ -14,5 +14,6 @@ namespace Service.DTOs.Group
         public string GroupCode { get; set; }
         public List<Student> Students { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }
+
     }
 }
