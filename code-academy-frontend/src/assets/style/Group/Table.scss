@@ -1,0 +1,17 @@
+.group-table{
+    text-align: center;
+    .group-btn{
+        box-shadow: none !important;
+        margin-right: 10px;
+        &:focus{
+           
+            box-shadow: none !important;
+        }
+    }
+    .group-add{
+        margin-right: 10px;
+        transition: all 0.6s;
+        position: relative;
+       
+    }
+}

@@ -9,6 +9,7 @@ function Group() {
       <CreateButton/>
       <Table/>
       
+      
     </div>
   )
 }
