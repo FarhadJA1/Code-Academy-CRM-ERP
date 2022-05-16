@@ -3,8 +3,9 @@
     .group-btn{
         box-shadow: none !important;
         margin-right: 10px;
+        transition: all 0.6s;
         &:focus{
-           
+            transition: all 0.6s;
             box-shadow: none !important;
         }
     }
@@ -12,6 +13,5 @@
         margin-right: 10px;
         transition: all 0.6s;
         position: relative;
-       
     }
 }

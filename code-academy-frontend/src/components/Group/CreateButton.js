@@ -6,6 +6,18 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 function CreateButton() {
+  function getGroupTypes(params) {
+    axios
+      .post("https://localhost:44380/api/Group/Create", {
+
+      })
+      .then(data => {
+
+      })
+      .catch(error => console.log(error));
+  }  
+
+
   function saveData() {
     axios
       .post("https://localhost:44380/api/Group/Create", {
@@ -25,7 +37,7 @@ function CreateButton() {
   return (
     <div className="create-btn-area">
       <div className="my-3 me-5">
-        <button type="button" className="btn btn-outline-success create-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" className="btn btn-outline-dark create-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Create Group
         </button>
       </div>
@@ -36,7 +48,7 @@ function CreateButton() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">Please, enter group details:</h5>
+              <h5 className="modal-title" id="staticBackdropLabel">Please, select education details:</h5>
               <button type="button" className="btn-close create-btn" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body create-modal">
