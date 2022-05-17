@@ -11,7 +11,6 @@ function From() {
 
                     <div className="col-lg-8 details">
                         <p className='detail-text'>From call</p>
-                        <span className='underline'></span>
                         <p className='detail-sum'>23.7k</p>
                     </div>
                 </div>

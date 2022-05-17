@@ -5,7 +5,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+
 function CreateButton() {
+  
   function getGroupTypes(params) {
     axios
       .post("https://localhost:44380/api/Group/Create", {

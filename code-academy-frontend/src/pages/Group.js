@@ -1,6 +1,6 @@
-import  GroupTable  from '../components/Group/GroupTable'
 import React from 'react'
 import CreateButton from '../components/Group/CreateButton'
+import GroupTable from '../components/Group/GroupTable'
 
 
 function Group() {
