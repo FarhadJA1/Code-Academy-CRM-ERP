@@ -4,7 +4,6 @@ import axios from 'axios'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -24,18 +23,25 @@ function GroupTable() {
   const [open, setOpen] = useState(false);
   const [groups,setGroups]= useState([]);
   let count = 1
+  
   useEffect(() => {
     async function GetDatas() {
       const response = await axios.get("https://localhost:44380/api/Group/GetAll")
       .catch(error => console.log(error));
       setGroups(response.data);
+      console.log(groups);
     }
     GetDatas();
   }, 
   []);
-
+  function OpenAdditional() {
+    let button = document.getElementById("table-button");
+    let table = document.getElementById("table-additional");
+    let buttonKey = button.getAttribute("data-id");
+    console.log(buttonKey);
+  }
+ 
   
-
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -52,28 +58,31 @@ function GroupTable() {
         </TableHead>
         <TableBody>
           {groups.map(group =>(            
-            <React.Fragment>
+            <React.Fragment key={group.id}>
               <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-                <TableCell>
+                <TableCell >
                   <IconButton
                     aria-label="expand row"
                     size="small"
-                    onClick={(e) => setOpen(!open)}
+                    id='table-button'
+                    onClick={() => OpenAdditional()}
+                    data-id={group.id}
                   >
                     {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                   </IconButton>
                 </TableCell>
                 <TableCell className='col-lg-2' align="center">{count++}</TableCell>
                 <TableCell className='col-lg-2' align="center">{group.groupCode}</TableCell>
-                <TableCell className='col-lg-2' align="center">10</TableCell>
-                <TableCell className='col-lg-2' align="center">1</TableCell>
-                <TableCell className='col-lg-2' align="center">1</TableCell>
-                <TableCell className='col-lg-2' align="center">1</TableCell>
+                <TableCell className='col-lg-2' align="center">{group.expireDate}</TableCell>
+                <TableCell className='col-lg-2' align="center">{group.createDate}</TableCell>
+                <TableCell className='col-lg-2' align="center">{group.teacher}</TableCell>
+                <TableCell className='col-lg-2' align="center">{group.students.length}</TableCell>
               </TableRow>
-              <TableRow className='addition'>
+              <TableRow  className='addition'>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                  <Collapse in={open} timeout="auto" unmountOnExit>
-                    <Box sx={{ margin: 1 }}>
+                  <Collapse id="table-additional"  in={open} timeout="auto" unmountOnExit>
+                    <Box  sx={{ margin: 1 }}>
+
                       <Typography className='addition-title' variant="h6" gutterBottom component="div">
                         IN ADDITIONAL
                       </Typography>
