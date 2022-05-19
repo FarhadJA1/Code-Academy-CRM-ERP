@@ -18,6 +18,14 @@ function Table() {
       .catch(error => console.log(error));   
 
   });
+  // useEffect(() => {
+  //   async function GetDatas() {
+  //     const response = await axios.get("https://localhost:44380/api/Group/GetAll")
+  //     .catch(error => console.log(error));
+  //     setGroups(response.data);      
+  //   }
+  //   GetDatas();
+  // }, 
     return (
     <div className='group-table'>
       <table className="table">
