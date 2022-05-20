@@ -8,8 +8,6 @@ function Group() {
     <div>
       <CreateButton/>
       <GroupTable/>
-      
-      
     </div>
   )
 }

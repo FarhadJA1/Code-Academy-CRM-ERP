@@ -16,8 +16,8 @@ function AddTeacher() {
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" className="btn btn-outline-primary group-btn">Save</button>
+                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
                         </div>
                     </div>
                 </div>

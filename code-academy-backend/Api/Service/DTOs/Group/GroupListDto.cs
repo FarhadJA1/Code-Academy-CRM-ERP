@@ -17,8 +17,7 @@ namespace Service.DTOs.Group
         public List<Student> Students { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime ExpireDate { get; set; }
-        
+        public DateTime ExpireDate { get; set; }       
 
     }
     

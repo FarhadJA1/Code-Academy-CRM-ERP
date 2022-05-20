@@ -1,16 +1,16 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import '../src/assets/style/App.scss'
 import Navigation from './components/Shared/Navigation';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import Header from './components/Shared/Header';
-
 import Finance from './pages/Finance';
 import Email from './pages/Email';
 import Chat from './pages/Chat';
 import './assets/fonts/Ubuntu-Light.ttf';
 import './assets/fonts/Ubuntu-Bold.ttf';
 import Group from './pages/Group';
+import Education from './pages/Education';
 
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
             <Route path='/email' element={<Email />} />
             <Route path='/chat' element={<Chat />} />
             <Route path='/groups' element={<Group />} />
+            <Route path='/education' element={<Education />} />
           </Routes>
         </div>
 

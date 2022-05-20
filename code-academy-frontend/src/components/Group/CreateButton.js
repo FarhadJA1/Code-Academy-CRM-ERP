@@ -11,7 +11,7 @@ function CreateButton() {
   function getGroupTypes(params) {
     axios
       .post("https://localhost:44380/api/Group/Create", {
-
+          
       })
       .then(data => {
 
