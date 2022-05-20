@@ -1,140 +1,60 @@
-.table{
-    .table-header{
-        text-align: center;
-    }
-    
-    .addition {
-    
-        .addition-title {
-            display: inline-block;
-            position: relative;        
-        }
-    
-        .addition-title:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #f4df3f;
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-        }
-    
-        .addition-title:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-    
-        .addition-row {
-            border: none !important;
-               
-        }
-        
-    
-        .group-btn {
-            box-shadow: none !important;        
-            transition: all 0.6s;
-            width: 17%;
-            height: 10%;
-            font-size: 12px;
-    
-            &:focus {
-                transition: all 0.6s;
-                box-shadow: none !important;
-            }
-            .group-btn-icon{
-                font-size: 18px;
-            }
-        }
-    
-        .group-add {        
-            transition: all 0.6s;
-            position: relative;
-            width: 17%;
-            height: 10%;
-            font-size: 12px;
-            
-        }
-        .add-classroom{
-            width: 22%;
-        }
-        
-    }
-}
-@import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+.table {
+  .table-header {
+    text-align: center;
+  }
 
-.pcs:after { content: " pcs"; }
-.cur:before { content: "$"; }
-.per:after { content: "%"; }
-// --------------------------
+  .table-button-area {
+    display: flex;
+    justify-content: center;
 
+    .group-btn {
+      box-shadow: none !important;
+      transition: all 0.6s;
+      font-size: 12px;
 
-// Table
-table {
-  width: 100%;
-  th { text-align: left; border-bottom: 1px solid #ccc;}
-  th, td { padding: .4em; }
-}
-
-// fold table 
-table.fold-table {
-  > tbody {
-    // view segment
-    > tr.view {
-      td, th {cursor: pointer;}
-      td:first-child, 
-      th:first-child { 
-        position: relative;
-        padding-left:20px;
-        &:before {
-          position: absolute;
-          top:50%; left:5px;
-          width: 9px; height: 16px;
-          margin-top: -8px;
-          font: 16px fontawesome;
-          color: #999;
-          content: "\f0d7";
-          transition: all .3s ease;
-        }
+      &:focus {
+        transition: all 0.6s;
+        box-shadow: none !important;
       }
-      &:nth-child(4n-1) { background: #eee; }
-      &:hover { background: #000; }
-      &.open {
-        background: tomato;
-        color: white;
-        td:first-child, th:first-child {
-          &:before {
-            transform: rotate(-180deg);
-            color: #333;
-          }
-        }
-      }
-    }
-  
-    // fold segment
-    > tr.fold {
-      display: none;
-      &.open { display:table-row; }
+
     }
   }
-}
 
+  .addition {
 
+    .addition-title {
+      display: inline-block;
+      position: relative;
+    }
 
-// fold content 
-.fold-content {
-  padding: .5em;
-  h3 { margin-top:0; }
-  > table {
-    border: 2px solid #ccc;
-    > tbody {
-      tr:nth-child(even) {
-        background: #eee;
+    .addition-title:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #f4df3f;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .addition-title:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .group-btn {
+      box-shadow: none !important;
+      transition: all 0.6s;
+      font-size: 12px;
+
+      &:focus {
+        transition: all 0.6s;
+        box-shadow: none !important;
       }
     }
+
   }
 }
-

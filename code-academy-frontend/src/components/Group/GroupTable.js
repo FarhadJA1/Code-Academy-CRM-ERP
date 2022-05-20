@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios'
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import '../../assets/style/Group/GroupTable.scss'
+import InfoButton from './InfoButton';
+import DeleteButton from './DeleteButton';
+import EditButton from './EditButton';
+import AddButton from './AddButton';
 
 
 
@@ -16,16 +16,13 @@ function GroupTable() {
       .catch(error => console.log(error));
     setGroups(response.data);
   }
- 
+
 
   const [groups, setGroups] = useState([]);
   let count = 1
   useEffect(() => {
     GetDatas();
   }, []);
-
-  
-
 
 
   return (
@@ -52,10 +49,10 @@ function GroupTable() {
             <td align='center'>{group.teacher}</td>
             <td align='center'>{group.students.length}</td>
             <th className='table-header table-button-area' scope="col">
-              <button type="button" className="btn btn-outline-info group-btn"><InfoOutlinedIcon /></button>
-              <button type="button" className="btn btn-outline-danger group-btn mx-2"><DeleteOutlineOutlinedIcon /></button>
-              <button type="button" className="btn btn-outline-warning group-btn"><EditOutlinedIcon /></button>
-              <button type="button" className="btn btn-outline-success group-btn ms-2"><AddCircleOutlineOutlinedIcon /></button>
+              <InfoButton />
+              <DeleteButton />
+              <EditButton />
+              <AddButton />
             </th>
           </tr>
 

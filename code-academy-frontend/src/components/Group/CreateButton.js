@@ -39,19 +39,19 @@ function CreateButton() {
   return (
     <div className="create-btn-area">
       <div className="my-3 me-5">
-        <button type="button" className="btn btn-outline-success create-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" className="btn btn-outline-success create-btn" data-bs-toggle="modal" data-bs-target="#createModal">
           Create Group
         </button>
       </div>
 
 
 
-      <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">Please, select education details:</h5>
-              <button type="button" className="btn-close create-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h5 className="modal-title addition-title" id="staticBackdropLabel">Please, select education details:</h5>
+              <button type="button" className="btn-close create-btn group-btn" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body create-modal">
               <div>
@@ -74,8 +74,8 @@ function CreateButton() {
               </div>
             </div>
             <div className="modal-footer">
-              <button onClick={saveData()} type="button" className="btn btn-outline-primary create-btn">Save</button>
-              <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning">Cancel</button>
+              <button onClick={()=>saveData()} type="button" className="btn btn-outline-primary create-btn">Save</button>
+              <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
             </div>
           </div>
         </div>
