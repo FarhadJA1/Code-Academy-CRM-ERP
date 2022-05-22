@@ -1,11 +1,43 @@
-.create-education-btn-area {
-    display: flex;
-    justify-content: end;
+.education {
+    .create-education-btn-area {
+        display: flex;
+        justify-content: end;
 
-    .create-education-textarea {
-        .create-education-input {
-            width: 100% !important;
+        .create-education-btn {
+            box-shadow: none;
+            transition: all 0.6s;
+
+            &:focus {
+                transition: all 0.6s;
+                box-shadow: none;
+            }
         }
 
+        .create-education-textarea {
+            .create-education-input {
+                width: 100% !important;
+            }
+        }
+    }
+
+    .table-header {
+        text-align: center;
+    }
+
+    .table-button-area {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .education-button {
+        box-shadow: none !important;
+        transition: all 0.6s;
+        font-size: 12px;
+
+        &:focus {
+            transition: all 0.6s;
+            box-shadow: none !important;
+        }
     }
 }

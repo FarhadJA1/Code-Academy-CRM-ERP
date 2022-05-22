@@ -15,14 +15,14 @@ function CreateGroupType() {
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Please, enter education type:</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close education-button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body row">
               <TextField id="outlined-basic" label="Education type" variant="outlined" />
             </div>
             <div class="modal-footer">
-              <button type="button" className="btn btn-outline-primary">Save</button>
-              <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning">Cancel</button>
+              <button type="button" className="btn btn-outline-primary education-button">Save</button>
+              <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning education-button">Cancel</button>
             </div>
           </div>
         </div>

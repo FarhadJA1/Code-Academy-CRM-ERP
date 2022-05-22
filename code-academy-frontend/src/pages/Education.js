@@ -4,7 +4,7 @@ import CreateGroupType from '../components/Education/CreateGroupType'
 import EducationTable from '../components/Education/EducationTable'
 function Education() {
     return (
-        <div>
+        <div className='education'>
             <CreateGroupType />
             <EducationTable />
         </div>
