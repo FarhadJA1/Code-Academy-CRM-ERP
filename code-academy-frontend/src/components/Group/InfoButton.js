@@ -17,7 +17,7 @@ function InfoButton() {
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-primary save-btn group-btn">Go Back</button>
+                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-primary group-btn">Go Back</button>
                             
                         </div>
                     </div>

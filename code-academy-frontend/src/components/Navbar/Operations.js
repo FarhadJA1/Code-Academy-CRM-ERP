@@ -16,6 +16,10 @@ function Operations() {
           <SchoolOutlinedIcon className='nav-icon' />
           <span>Education</span>
         </Link>
+        <Link className='nav-link' to={'/teachers'}>
+          <i class="fas fa-chalkboard-teacher nav-icon"></i>
+          <span>Teachers</span>
+        </Link>
 
       </div>
     </div>

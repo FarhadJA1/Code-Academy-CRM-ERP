@@ -3,7 +3,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { TextField } from '@mui/material'
 function EditEducation() {
     return (
-        <div>
+        <div className='addition'>
 
             <button type="button" className="btn btn-outline-warning education-button" data-bs-toggle="modal" data-bs-target="#edit-education"><EditOutlinedIcon /></button>
 
@@ -12,7 +12,7 @@ function EditEducation() {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Education Type</h5>
+                            <h5 class="modal-title addition-title" id="exampleModalLabel">Edit Education Type</h5>
                             <button type="button" class="btn-close education-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body row">

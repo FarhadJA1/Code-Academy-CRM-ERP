@@ -6,7 +6,7 @@ import AddTeacher from './AddTeacher';
 import '../../assets/style/Group/AddButtons.scss'
 function AddButton() {
     return (
-        <div className='ms-1'>
+        <div className='ms-1 addition'>
             <button type="button" className="btn btn-outline-success group-btn" data-bs-toggle="modal" data-bs-target="#addModal"><AddCircleOutlineOutlinedIcon /></button>
 
             <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

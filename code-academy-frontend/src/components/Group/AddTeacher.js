@@ -2,14 +2,14 @@ import React from 'react'
 
 function AddTeacher() {
     return (
-        <div className='row'>
+        <div className='row addition'>
             <button type="button" className="btn btn-outline-success group-btn" data-bs-toggle="modal" data-bs-target="#addTeacher">Add Teacher</button>
 
             <div class="modal fade" id="addTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Teacher</h5>
+                            <h5 class="modal-title addition-title" id="exampleModalLabel">Add Teacher</h5>
                             <button type="button" class="btn-close group-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

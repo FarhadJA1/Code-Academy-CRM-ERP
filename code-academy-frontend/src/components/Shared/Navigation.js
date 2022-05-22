@@ -15,6 +15,7 @@ function Navigation() {
             <Main/>
             <Social/>
             <Operations/>
+            
         </div>
 
     )

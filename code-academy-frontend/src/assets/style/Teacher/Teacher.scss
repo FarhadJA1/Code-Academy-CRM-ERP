@@ -1,0 +1,39 @@
+.teacher {
+
+    .teacher-button {
+        box-shadow: none !important;
+        transition: all 0.6s;
+        font-size: 12px;
+
+        &:focus {
+            transition: all 0.6s;
+            box-shadow: none !important;
+        }
+    }
+}
+
+.create-header {
+
+    display: inline-block;
+    position: relative;
+
+
+    .create-header:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #f4df3f;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+
+    .create-header:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+}

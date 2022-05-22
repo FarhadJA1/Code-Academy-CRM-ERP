@@ -11,6 +11,7 @@ import './assets/fonts/Ubuntu-Light.ttf';
 import './assets/fonts/Ubuntu-Bold.ttf';
 import Group from './pages/Group';
 import Education from './pages/Education';
+import Teacher from './pages/Teacher';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path='/chat' element={<Chat />} />
             <Route path='/groups' element={<Group />} />
             <Route path='/education' element={<Education />} />
+            <Route path='/teachers' element={<Teacher />} />
           </Routes>
         </div>
 

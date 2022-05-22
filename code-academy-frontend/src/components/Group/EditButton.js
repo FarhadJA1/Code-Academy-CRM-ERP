@@ -2,7 +2,7 @@ import React from 'react'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 function EditButton() {
     return (
-        <div className='edit-button'>
+        <div className='edit-button addition'>
             <button type="button" className="btn btn-outline-warning group-btn" data-bs-toggle="modal" data-bs-target="#editModal"><EditOutlinedIcon /></button>
 
 

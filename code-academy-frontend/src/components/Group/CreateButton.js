@@ -37,8 +37,8 @@ function CreateButton() {
   };
 
   return (
-    <div className="create-btn-area">
-      <div className="my-3 me-5">
+    <div className="create-btn-area addition">
+      <div className="my-3 me-3">
         <button type="button" className="btn btn-outline-success create-btn" data-bs-toggle="modal" data-bs-target="#createModal">
           Create Group
         </button>

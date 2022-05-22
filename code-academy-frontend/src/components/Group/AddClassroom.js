@@ -2,7 +2,7 @@ import React from 'react'
 
 function AddClassroom() {
     return (
-        <div className='row my-2 add-buttons-area'>
+        <div className='row my-2 add-buttons-area addition'>
             <button type="button" className="btn btn-outline-success add-button" data-bs-toggle="modal" data-bs-target="#addClassroom">Add Classroom</button>
 
 
@@ -10,7 +10,7 @@ function AddClassroom() {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Classroom</h5>
+                            <h5 class="modal-title addition-title" id="exampleModalLabel">Add Classroom</h5>
                             <button type="button" class="btn-close  add-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

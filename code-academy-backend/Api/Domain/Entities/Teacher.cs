@@ -13,8 +13,7 @@ namespace Domain.Entities
         public string Surname { get; set; }
         public string Email { get; set; }
         public DateTime Birthday { get; set; }        
-        public int Salary { get; set; }
-        public byte[] Image { get; set; }
+        public int Salary { get; set; }        
         public int Phone { get; set; }
         public DateTime CreateDate { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }

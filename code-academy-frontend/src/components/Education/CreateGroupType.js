@@ -3,7 +3,7 @@ import React from 'react'
 
 function CreateGroupType() {
   return (
-    <div>
+    <div className='addition'>
       <div className="my-3 me-3 create-education-btn-area">
         <button type="button" className="btn btn-outline-success create-education-btn" data-bs-toggle="modal" data-bs-target="#createEducation">
           Create Education Type
