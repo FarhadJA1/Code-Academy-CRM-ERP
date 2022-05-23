@@ -13,6 +13,9 @@ import Education from './pages/Education';
 import Teacher from './pages/Teacher';
 import PayType from './pages/PayType';
 import Resource from './pages/Resource';
+import Students from './pages/Students';
+import Classroom from './pages/Classroom';
+import Term from './pages/Term';
 
 
 function App() {
@@ -36,6 +39,9 @@ function App() {
             <Route path='/teachers' element={<Teacher />} />
             <Route path='/paytype' element={<PayType />} />
             <Route path='/resource' element={<Resource />} />
+            <Route path='/students' element={<Students />} />
+            <Route path='/classroom' element={<Classroom />} />
+            <Route path='/tern' element={<Term />} />
           </Routes>
         </div>
 

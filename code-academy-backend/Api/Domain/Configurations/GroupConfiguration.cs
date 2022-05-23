@@ -14,6 +14,7 @@ namespace Domain.Configurations
         public void Configure(EntityTypeBuilder<Group> builder)
         {
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.Now.Date);
+            builder.Property(m => m.SoftDelete).HasDefaultValue(false);
         }
     }
 }

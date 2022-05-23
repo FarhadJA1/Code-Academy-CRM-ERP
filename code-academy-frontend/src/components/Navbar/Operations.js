@@ -13,11 +13,11 @@ function Operations() {
           <span>Groups</span>
         </Link>        
         <Link className='nav-link' to={'/teachers'}>
-          <i class="fas fa-chalkboard-teacher nav-icon"></i>
+          <i className="fas fa-chalkboard-teacher nav-icon"></i>
           <span>Teachers</span>
         </Link>    
         <Link className='nav-link' to={'/students'}>          
-          <i class="fas fa-user-graduate student-icon nav-icon"></i>
+          <i className="fas fa-user-graduate student-icon nav-icon"></i>
           <span>Students</span>
         </Link>
       </div>

@@ -6,7 +6,7 @@ import ResourceInfoBtn from './ResourceInfoBtn'
 function ResourceTable() {
     return (
         <div>
-            <table class="table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th className='table-header' align='center' scope="col">#</th>

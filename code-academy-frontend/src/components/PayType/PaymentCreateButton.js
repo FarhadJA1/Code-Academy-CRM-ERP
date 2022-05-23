@@ -8,18 +8,18 @@ function PaymentCreateButton() {
           Create Education Type
         </button>
       </div>
-
-      <div class="modal fade" id="create-payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Please, enter payment option:</h5>
-              <button type="button" class="btn-close education-button" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+      <div className="modal fade" id="create-payment" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Please, enter payment option:</h5>
+              <button type="button" className="btn-close payment-button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body row">
+            <div className="modal-body row">
               <TextField id="outlined-basic" label="Payment type" variant="outlined" />
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button type="button" className="btn btn-outline-primary payment-button">Save</button>
               <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning payment-button">Cancel</button>
             </div>

@@ -6,7 +6,7 @@ function From() {
             <div className="row mt-5 from">
                 <div className="col-lg-3 info phone">
                     <div className="col-lg-4 icon">
-                        <i class="fas fa-phone-alt"></i>
+                        <i className="fas fa-phone-alt"></i>
                     </div>
 
                     <div className="col-lg-8 details">
@@ -17,7 +17,7 @@ function From() {
 
                 <div className="col-lg-3 info social-network">
                     <div className="col-lg-4 icon">
-                        <i class="fas fa-share-alt"></i>
+                        <i className="fas fa-share-alt"></i>
                     </div>
 
                     <div className="col-lg-8 details">
@@ -27,7 +27,7 @@ function From() {
                 </div>
                 <div className="col-lg-3 info web">
                     <div className="col-lg-4 icon">
-                        <i class="fas fa-globe"></i>
+                        <i className="fas fa-globe"></i>
                     </div>
 
                     <div className="col-lg-8 details">
@@ -37,7 +37,7 @@ function From() {
                 </div>
                 <div className="col-lg-3 info suggestion">
                     <div className="col-lg-4 icon">
-                        <i class="fas fa-people-arrows"></i>
+                        <i className="fas fa-people-arrows"></i>
                     </div>
 
                     <div className="col-lg-8 details">

@@ -6,7 +6,7 @@ import PaymentInfoBtn from './PaymentInfoBtn'
 function PayTypeTable() {
     return (
         <div>
-            <table class="table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th className='table-header' scope="col">#</th>

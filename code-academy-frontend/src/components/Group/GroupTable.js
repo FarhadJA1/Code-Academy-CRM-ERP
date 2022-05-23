@@ -60,9 +60,7 @@ function GroupTable() {
 
       </tbody>
     </table>
-
   )
-
 }
 
 export default GroupTable

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import DirectionsOutlinedIcon from '@mui/icons-material/DirectionsOutlined';
+import HouseSidingOutlinedIcon from '@mui/icons-material/HouseSidingOutlined';
+import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
+
 function Adminstrative() {
     return (
         <div className='container nav-operations'>
@@ -19,6 +22,14 @@ function Adminstrative() {
                 <Link className='nav-link' to={'/resource'}>
                     <DirectionsOutlinedIcon className='nav-icon' />
                     <span>Resources</span>
+                </Link>
+                <Link className='nav-link' to={'/classroom'}>
+                    <HouseSidingOutlinedIcon className='nav-icon' />
+                    <span>Classrooms</span>
+                </Link>
+                <Link className='nav-link' to={'/term'}>
+                    <WatchLaterOutlinedIcon className='nav-icon' />
+                    <span>Hours</span>
                 </Link>
             </div>
         </div>

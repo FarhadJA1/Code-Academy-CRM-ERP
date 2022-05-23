@@ -1,3 +1,32 @@
 .student{
-    
+    .create-student-btn-area {
+        display: flex;
+        justify-content: end;
+
+        .create-student-btn {
+            box-shadow: none;
+            transition: all 0.6s;
+
+            &:focus {
+                transition: all 0.6s;
+                box-shadow: none;
+            }
+        }
+
+        .create-student-textarea {
+            .create-student-input {
+                width: 100% !important;
+            }
+        }
+    }
+    .student-button {
+        box-shadow: none !important;
+        transition: all 0.6s;
+        font-size: 12px;
+
+        &:focus {
+            transition: all 0.6s;
+            box-shadow: none !important;
+        }
+    }
 }

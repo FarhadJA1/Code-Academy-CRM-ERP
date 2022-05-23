@@ -7,13 +7,13 @@ import TeacherInfo from './TeacherInfo'
 function TeacherTable() {
   return (
     <div>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th className='table-header' scope="col">#</th>
             <th className='table-header' scope="col">Name</th>
             <th className='table-header' scope="col">Surname</th>
-            <th className='table-header' scope="col">salary</th>
+            <th className='table-header' scope="col">Salary</th>
             <th className='table-header' scope="col">Phone</th>
             <th className='table-header' scope="col">Settings</th>
           </tr>

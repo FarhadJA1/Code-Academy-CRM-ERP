@@ -12,6 +12,7 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
+        public long Phone { get; set; }
         public DateTime Birthday { get; set; }
         public int GroupId { get; set; }
         public Group Group { get; set; }
@@ -20,5 +21,6 @@ namespace Domain.Entities
         public DateTime CreateDate { get; set; }
         public int ResourceId { get; set; }
         public Resource Resource { get; set; }
+        public bool IsGraduated { get; set; }
     }
 }
