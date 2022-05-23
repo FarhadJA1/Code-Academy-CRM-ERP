@@ -7,7 +7,7 @@ import TeacherInfo from './TeacherInfo'
 function TeacherTable() {
   return (
     <div>
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th className='table-header' scope="col">#</th>

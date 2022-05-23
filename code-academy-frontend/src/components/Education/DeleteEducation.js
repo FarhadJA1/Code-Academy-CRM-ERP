@@ -3,7 +3,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 function DeleteEducation() {
     return (
         <div>
-            <button type="button" className="btn btn-outline-danger education-button mx-1" data-bs-toggle="modal" data-bs-target="#delete-education"><DeleteOutlineOutlinedIcon /></button>
+            <button type="button" className="btn btn-outline-danger education-button mx-2" data-bs-toggle="modal" data-bs-target="#delete-education"><DeleteOutlineOutlinedIcon /></button>
 
 
             <div class="modal fade" id="delete-education" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

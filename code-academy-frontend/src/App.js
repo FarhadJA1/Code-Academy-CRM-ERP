@@ -1,4 +1,3 @@
-
 import '../src/assets/style/App.scss'
 import Navigation from './components/Shared/Navigation';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -12,6 +11,8 @@ import './assets/fonts/Ubuntu-Bold.ttf';
 import Group from './pages/Group';
 import Education from './pages/Education';
 import Teacher from './pages/Teacher';
+import PayType from './pages/PayType';
+import Resource from './pages/Resource';
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
             <Route path='/groups' element={<Group />} />
             <Route path='/education' element={<Education />} />
             <Route path='/teachers' element={<Teacher />} />
+            <Route path='/paytype' element={<PayType />} />
+            <Route path='/resource' element={<Resource />} />
           </Routes>
         </div>
 

@@ -6,6 +6,7 @@ import Logo from '../Navbar/Logo'
 import Main from '../Navbar/Main'
 import Social from '../Navbar/Social'
 import Operations from '../Navbar/Operations'
+import Adminstrative from '../Navbar/Adminstrative'
 
 
 function Navigation() {
@@ -15,7 +16,7 @@ function Navigation() {
             <Main/>
             <Social/>
             <Operations/>
-            
+            <Adminstrative/>
         </div>
 
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import GroupsIcon from '@mui/icons-material/Groups';
 import '../../assets/style/Navigation/Operations.scss'
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+
 function Operations() {
   return (
     <div className='container nav-operations'>
@@ -11,16 +11,11 @@ function Operations() {
         <Link className='nav-link' to={'/groups'}>
           <GroupsIcon className='nav-icon' />
           <span>Groups</span>
-        </Link>
-        <Link className='nav-link' to={'/education'}>
-          <SchoolOutlinedIcon className='nav-icon' />
-          <span>Education</span>
-        </Link>
+        </Link>        
         <Link className='nav-link' to={'/teachers'}>
           <i class="fas fa-chalkboard-teacher nav-icon"></i>
           <span>Teachers</span>
-        </Link>
-
+        </Link>    
       </div>
     </div>
   )
