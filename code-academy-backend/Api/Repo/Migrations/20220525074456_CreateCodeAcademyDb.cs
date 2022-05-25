@@ -48,6 +48,22 @@ namespace Repo.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Classroom",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsBusy = table.Column<bool>(type: "bit", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    SoftDelete = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Classroom", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GroupType",
                 columns: table => new
                 {
@@ -100,14 +116,28 @@ namespace Repo.Migrations
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Salary = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Phone = table.Column<int>(type: "int", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 5, 11, 18, 57, 59, 928, DateTimeKind.Local).AddTicks(2618)),
+                    Phone = table.Column<long>(type: "bigint", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 5, 25, 11, 44, 56, 386, DateTimeKind.Local).AddTicks(6694)),
                     SoftDelete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teacher", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Term",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Day = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SoftDelete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Term", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -224,7 +254,11 @@ namespace Repo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     GroupTypeId = table.Column<int>(type: "int", nullable: false),
                     GroupCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SoftDelete = table.Column<bool>(type: "bit", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Local)),
+                    ExpireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    IsOver = table.Column<bool>(type: "bit", nullable: false),
+                    SoftDelete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -233,6 +267,40 @@ namespace Repo.Migrations
                         name: "FK_Group_GroupType_GroupTypeId",
                         column: x => x.GroupTypeId,
                         principalTable: "GroupType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroupClassTerm",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GroupId = table.Column<int>(type: "int", nullable: false),
+                    ClassroomId = table.Column<int>(type: "int", nullable: false),
+                    TermId = table.Column<int>(type: "int", nullable: false),
+                    SoftDelete = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupClassTerm", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupClassTerm_Classroom_ClassroomId",
+                        column: x => x.ClassroomId,
+                        principalTable: "Classroom",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupClassTerm_Group_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Group",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupClassTerm_Term_TermId",
+                        column: x => x.TermId,
+                        principalTable: "Term",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -273,11 +341,13 @@ namespace Repo.Migrations
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Phone = table.Column<long>(type: "bigint", nullable: false),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     GroupId = table.Column<int>(type: "int", nullable: false),
                     PayTypeId = table.Column<int>(type: "int", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 5, 11, 18, 57, 59, 926, DateTimeKind.Local).AddTicks(1150)),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Local)),
                     ResourceId = table.Column<int>(type: "int", nullable: false),
+                    IsGraduated = table.Column<bool>(type: "bit", nullable: false),
                     SoftDelete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
@@ -348,6 +418,21 @@ namespace Repo.Migrations
                 column: "GroupTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GroupClassTerm_ClassroomId",
+                table: "GroupClassTerm",
+                column: "ClassroomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupClassTerm_GroupId",
+                table: "GroupClassTerm",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupClassTerm_TermId",
+                table: "GroupClassTerm",
+                column: "TermId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GroupTeacher_GroupId",
                 table: "GroupTeacher",
                 column: "GroupId");
@@ -391,6 +476,9 @@ namespace Repo.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "GroupClassTerm");
+
+            migrationBuilder.DropTable(
                 name: "GroupTeacher");
 
             migrationBuilder.DropTable(
@@ -401,6 +489,12 @@ namespace Repo.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Classroom");
+
+            migrationBuilder.DropTable(
+                name: "Term");
 
             migrationBuilder.DropTable(
                 name: "Teacher");

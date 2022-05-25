@@ -23,6 +23,7 @@ function GroupTable() {
   useEffect(() => {
     GetDatas();
   }, []);
+  
 
 
   return (

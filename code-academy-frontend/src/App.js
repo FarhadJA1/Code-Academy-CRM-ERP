@@ -41,7 +41,8 @@ function App() {
             <Route path='/resource' element={<Resource />} />
             <Route path='/students' element={<Students />} />
             <Route path='/classroom' element={<Classroom />} />
-            <Route path='/tern' element={<Term />} />
+            <Route path='/term' element={<Term />} />
+            
           </Routes>
         </div>
 

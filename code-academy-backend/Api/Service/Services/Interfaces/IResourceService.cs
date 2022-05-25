@@ -1,0 +1,15 @@
+﻿using Service.DTOs.Resource;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Service.Services.Interfaces
+{
+    public interface IResourceService
+    {
+        Task<List<ResourceListDto>> GetAllAsync();
+        Task CreateAsync(ResourceCreateDto resourceCreateDto);
+    }
+}

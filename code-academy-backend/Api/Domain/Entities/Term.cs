@@ -7,10 +7,6 @@ namespace Domain.Entities
     {
         public string Day { get; set; }
         public string Time { get; set; }
-        public List<Group> Groups { get; set; }
-        public int ClassroomId { get; set; }
-        public Classroom Classroom { get; set; }
-        public int? GroupId { get; set; }
-        public Group Group { get; set; }
+        public List<GroupClassTerm> GroupClassTerms { get; set; }
     }
 }

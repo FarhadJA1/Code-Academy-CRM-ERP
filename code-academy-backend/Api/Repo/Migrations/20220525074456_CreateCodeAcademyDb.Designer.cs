@@ -10,8 +10,8 @@ using Repo.Data;
 namespace Repo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220513095720_UpdateDateTime")]
-    partial class UpdateDateTime
+    [Migration("20220525074456_CreateCodeAcademyDb")]
+    partial class CreateCodeAcademyDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,30 @@ namespace Repo.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Classroom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsBusy")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SoftDelete")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Classroom");
+                });
+
             modelBuilder.Entity("Domain.Entities.Group", b =>
                 {
                     b.Property<int>("Id")
@@ -96,8 +120,13 @@ namespace Repo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");
@@ -108,14 +137,49 @@ namespace Repo.Migrations
                     b.Property<int>("GroupTypeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("SoftDelete")
+                    b.Property<bool>("IsOver")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("SoftDelete")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.HasKey("Id");
 
                     b.HasIndex("GroupTypeId");
 
                     b.ToTable("Group");
+                });
+
+            modelBuilder.Entity("Domain.Entities.GroupClassTerm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassroomId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("SoftDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TermId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassroomId");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("TermId");
+
+                    b.ToTable("GroupClassTerm");
                 });
 
             modelBuilder.Entity("Domain.Entities.GroupTeacher", b =>
@@ -222,7 +286,7 @@ namespace Repo.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 5, 13, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -232,6 +296,9 @@ namespace Repo.Migrations
                     b.Property<int>("GroupId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsGraduated")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -239,6 +306,9 @@ namespace Repo.Migrations
 
                     b.Property<int>("PayTypeId")
                         .HasColumnType("int");
+
+                    b.Property<long>("Phone")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("ResourceId")
                         .HasColumnType("int");
@@ -277,23 +347,20 @@ namespace Repo.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 5, 13, 13, 57, 20, 331, DateTimeKind.Local).AddTicks(9672));
+                        .HasDefaultValue(new DateTime(2022, 5, 25, 11, 44, 56, 386, DateTimeKind.Local).AddTicks(6694));
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<long>("Phone")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Salary")
                         .HasColumnType("int");
@@ -311,6 +378,31 @@ namespace Repo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teacher");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Term", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Day")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SoftDelete")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Term");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -447,12 +539,39 @@ namespace Repo.Migrations
             modelBuilder.Entity("Domain.Entities.Group", b =>
                 {
                     b.HasOne("Domain.Entities.GroupType", "GroupType")
-                        .WithMany()
+                        .WithMany("Groups")
                         .HasForeignKey("GroupTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("GroupType");
+                });
+
+            modelBuilder.Entity("Domain.Entities.GroupClassTerm", b =>
+                {
+                    b.HasOne("Domain.Entities.Classroom", "Classroom")
+                        .WithMany("GroupClassTerms")
+                        .HasForeignKey("ClassroomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Group", "Group")
+                        .WithMany("GroupClassTerms")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Term", "Term")
+                        .WithMany("GroupClassTerms")
+                        .HasForeignKey("TermId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Classroom");
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Term");
                 });
 
             modelBuilder.Entity("Domain.Entities.GroupTeacher", b =>
@@ -552,11 +671,23 @@ namespace Repo.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Domain.Entities.Classroom", b =>
+                {
+                    b.Navigation("GroupClassTerms");
+                });
+
             modelBuilder.Entity("Domain.Entities.Group", b =>
                 {
+                    b.Navigation("GroupClassTerms");
+
                     b.Navigation("GroupTeachers");
 
                     b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("Domain.Entities.GroupType", b =>
+                {
+                    b.Navigation("Groups");
                 });
 
             modelBuilder.Entity("Domain.Entities.PayType", b =>
@@ -572,6 +703,11 @@ namespace Repo.Migrations
             modelBuilder.Entity("Domain.Entities.Teacher", b =>
                 {
                     b.Navigation("GroupTeachers");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Term", b =>
+                {
+                    b.Navigation("GroupClassTerms");
                 });
 #pragma warning restore 612, 618
         }

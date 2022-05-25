@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Service.DTOs.Group;
+using Service.DTOs.Resource;
 
 namespace Service.Mappings
 {
@@ -11,6 +12,8 @@ namespace Service.Mappings
             CreateMap<Group, GroupListDto>();
             CreateMap<Group, GroupGetDto>();
             CreateMap<Group, GroupCreateDto>().ReverseMap();
+            CreateMap<Resource, ResourceListDto>();
+            CreateMap<Resource, ResourceCreateDto>().ReverseMap();
         }
     }
 }

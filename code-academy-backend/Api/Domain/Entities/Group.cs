@@ -14,12 +14,7 @@ namespace Domain.Entities
         public DateTime CreateDate { get; set; }
         public DateTime ExpireDate { get; set; }
         public int Capacity { get; set; }
-        public bool IsFull { get; set; }
-        public int ClassroomId { get; set; }
-        public Classroom Classroom { get; set; }
-        public int? TermId { get; set; }
-        
-        public Term Term { get; set; }
-
+        public bool IsOver { get; set; }
+        public List<GroupClassTerm> GroupClassTerms { get; set; }
     }
 }
