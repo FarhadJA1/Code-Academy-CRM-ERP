@@ -11,5 +11,6 @@ namespace Service.Services.Interfaces
     {
         Task<List<ResourceListDto>> GetAllAsync();
         Task CreateAsync(ResourceCreateDto resourceCreateDto);
+        Task DeleteAsync(int id);
     }
 }

@@ -9,6 +9,7 @@ namespace Service.DTOs.Resource
 {
     public class ResourceListDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public List<Student> Students { get; set; }
     }

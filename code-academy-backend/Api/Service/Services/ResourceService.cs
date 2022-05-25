@@ -29,9 +29,11 @@ namespace Service.Services
         {
             await _resourceRepository.CreateAsync(_mapper.Map<Resource>(resourceCreateDto));
         }
-        public async Task DeleteAsync(ResourceCreateDto resourceCreateDto)
+        public async Task DeleteAsync(int id)
         {
-            await _resourceRepository.CreateAsync(_mapper.Map<Resource>(resourceCreateDto));
+            Resource resource = await _resourceRepository.GetAsync(id);
+
+            await _resourceRepository.SoftDeleteAsync(resource);
         }
     }
 }

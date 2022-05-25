@@ -6,19 +6,18 @@ import ResourceEditBtn from './ResourceEditBtn'
 import ResourceInfoBtn from './ResourceInfoBtn'
 
 function ResourceTable() {
+    const [resources, setResources] = useState([]);
+  
     async function GetDatas() {
         const response = await axios.get("https://localhost:44380/api/Resource/GetAll")
-            .catch(error => console.log(error));
-        setResources(response.data);        
+            .catch(error => console.log(error));            
+        setResources(response.data);             
     }
-
-
-    const [resources, setResources] = useState([]);
     let count = 1
     useEffect(() => {
-        GetDatas();
+        GetDatas();        
     }, []);
-    
+     
     return (
         <div>
             <table className="table table-hover">
@@ -32,19 +31,19 @@ function ResourceTable() {
                 </thead>
                 <tbody>
                     {resources.map(resource => (
-                        <tr>
+                        <tr key={resource.id}>                            
                             <th className='table-header' scope="row">{count++}</th>
                             <td align='center'>{resource.name}</td>
                             <td align='center'>{resource.students.length}</td>
-                            <td className='table-button-area' align='center'>
+                            <td  className='table-button-area' align='center'>
                                 <ResourceInfoBtn />
-                                <ResourceDeleteBtn />
+                                <ResourceDeleteBtn  value={resource.id}/>
                                 <ResourceEditBtn />
                             </td>
                         </tr>
-
-                    ))}
-
+                        
+                    ))                    
+                    }
                 </tbody>
             </table>
         </div>

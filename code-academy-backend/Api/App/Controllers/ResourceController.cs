@@ -28,5 +28,12 @@ namespace App.Controllers
             await _resourceService.CreateAsync(groupCreateDto);
             return Ok();
         }
+        [HttpGet]
+        [Route("DeleteResource/{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            await _resourceService.DeleteAsync(id);
+            return Ok();
+        }
     }
 }
