@@ -1,23 +1,11 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-import axios from 'axios'
 import ResourceDeleteBtn from './ResourceDeleteBtn'
 import ResourceEditBtn from './ResourceEditBtn'
 import ResourceInfoBtn from './ResourceInfoBtn'
 
-function ResourceTable() {
-    const [resources, setResources] = useState([]);
+function ResourceTable(props) {
   
-    async function GetDatas() {
-        const response = await axios.get("https://localhost:44380/api/Resource/GetAll")
-            .catch(error => console.log(error));            
-        setResources(response.data);             
-    }
     let count = 1
-    useEffect(() => {
-        GetDatas();        
-    }, []);
-     
     return (
         <div>
             <table className="table table-hover">
@@ -30,7 +18,7 @@ function ResourceTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {resources.map(resource => (
+                    {props.resources.map(resource => (
                         <tr key={resource.id}>                            
                             <th className='table-header' scope="row">{count++}</th>
                             <td align='center'>{resource.name}</td>
