@@ -20,6 +20,7 @@ namespace Service.Mappings
             CreateMap<PayType, PayTypeListDto>();
             CreateMap<PayType, PayTypeCreateDto>().ReverseMap();
             CreateMap<PayType, PayTypeUpdateDto>().ReverseMap();
+            CreateMap<PayType, PaymentDetailsDto>();
         }
     }
 }

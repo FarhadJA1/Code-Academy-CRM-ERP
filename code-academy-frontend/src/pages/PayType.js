@@ -46,12 +46,18 @@ function PayType() {
             })
             .catch(error => console.log(error));
     }    
+    async function PaymentDetails(id) {        
+        await axios.get(`${url}/api/PayType/PaymentDetails/${id}`)
+            .then(res => {
+                setDetails(res.data);
+            })
+    }
     
     
     return (
         <div className='pay-type'>
             <PaymentCreateButton input={input} setInput={setInput} createPayment={CreatePayment}/>
-            <PayTypeTable setInput={setInput} payment={payment} id={id} setId={setId} deletePayment={DeletePayment} updatePayment={UpdatePayment}/>
+            <PayTypeTable paymentDetails={PaymentDetails} details={details} setInput={setInput} payment={payment} id={id} setId={setId} deletePayment={DeletePayment} updatePayment={UpdatePayment}/>
         </div>
     )
 }

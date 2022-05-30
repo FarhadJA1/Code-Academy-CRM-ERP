@@ -13,5 +13,6 @@ namespace Service.Services.Interfaces
         Task CreateAsync(PayTypeCreateDto payTypeCreateDto);
         Task DeleteAsync(int id);
         Task UpdateAsync(int id, PayTypeUpdateDto payTypeUpdateDto);
+        Task<PaymentDetailsDto> PayTypeDetailsAsync(int id);
     }
 }

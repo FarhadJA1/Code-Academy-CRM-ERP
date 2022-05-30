@@ -23,7 +23,7 @@ function PayTypeTable(props) {
                             <td align='center'>{pay.name}</td>
                             <td align='center'>{pay.students.length}</td>
                             <td className='table-button-area' align='center'>
-                                <PaymentInfoBtn />
+                                <PaymentInfoBtn pay={pay} id={props.id} value={pay.id} setId={props.setId} paymentDetails={props.paymentDetails}/>
                                 <PaymentDeleteBtn id={props.id} value={pay.id} setId={props.setId} deletePayment={props.deletePayment}/>
                                 <PaymentEditBtn setInput={props.setInput} name={pay.name} id={props.id} value={pay.id} setId={props.setId} updatePayment={props.updatePayment}/>
                             </td>

@@ -39,5 +39,12 @@ namespace App.Controllers
             await _payTypeService.UpdateAsync(id, payTypeUpdateDto);
             return Ok();
         }
+        [HttpGet]
+        [Route("PaymentDetails/{id}")]
+        public async Task<IActionResult> Details([FromRoute] int id)
+        {
+
+            return Ok(await _payTypeService.PayTypeDetailsAsync(id));
+        }
     }
 }

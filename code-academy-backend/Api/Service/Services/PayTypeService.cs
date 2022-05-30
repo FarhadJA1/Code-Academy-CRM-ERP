@@ -40,6 +40,13 @@ namespace Service.Services
             _mapper.Map(payTypeUpdateDto, entity);
             await _payTypeRepository.UpdateAsync(entity);
         }
+        public async Task<PaymentDetailsDto> PayTypeDetailsAsync(int id)
+        {
+            var entity = await _payTypeRepository.PayTypeDetails(id);
+            PaymentDetailsDto paymentDetailsDto = new();
+            var result = _mapper.Map(entity, paymentDetailsDto);
+            return result;
+        }
 
     }
 }
