@@ -9,5 +9,6 @@ namespace Repo.Repositories.Interfaces
 {
     public interface IResourceRepository : IRepository<Resource>
     {
+        Task<Resource> ResourceDetails(int id);
     }
 }

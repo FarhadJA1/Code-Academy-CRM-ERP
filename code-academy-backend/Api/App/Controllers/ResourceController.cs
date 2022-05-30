@@ -35,5 +35,19 @@ namespace App.Controllers
             await _resourceService.DeleteAsync(id);
             return Ok();
         }
+        [HttpPut]
+        [Route("UpdateResource/{id}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ResourceUpdateDto resourceUpdateDto)
+        {
+            await _resourceService.UpdateAsync(id, resourceUpdateDto);
+            return Ok();
+        }
+        [HttpGet]
+        [Route("ResourceDetails/{id}")]
+        public async Task<IActionResult> Details([FromRoute] int id)
+        {
+            
+            return Ok(await _resourceService.ResourceDetailsAsync(id));
+        }
     }
 }

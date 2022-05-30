@@ -3,8 +3,7 @@ import ResourceDeleteBtn from './ResourceDeleteBtn'
 import ResourceEditBtn from './ResourceEditBtn'
 import ResourceInfoBtn from './ResourceInfoBtn'
 
-function ResourceTable(props) {
-  
+function ResourceTable(props) {  
     let count = 1
     return (
         <div>
@@ -24,9 +23,9 @@ function ResourceTable(props) {
                             <td align='center'>{resource.name}</td>
                             <td align='center'>{resource.students.length}</td>
                             <td  className='table-button-area' align='center'>
-                                <ResourceInfoBtn />
-                                <ResourceDeleteBtn  value={resource.id}/>
-                                <ResourceEditBtn />
+                                <ResourceInfoBtn resource={resource} id={props.id} value={resource.id} setId={props.setId} resourceDetails={props.resourceDetails}/>
+                                <ResourceDeleteBtn id={props.id} value={resource.id} setId={props.setId} deleteResource={props.deleteResource}/>
+                                <ResourceEditBtn setInput={props.setInput} name={resource.name} id={props.id} value={resource.id} setId={props.setId} updateResource={props.updateResource}/>
                             </td>
                         </tr>
                         

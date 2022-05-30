@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Service.DTOs.Group;
+using Service.DTOs.PayType;
 using Service.DTOs.Resource;
 
 namespace Service.Mappings
@@ -14,6 +15,10 @@ namespace Service.Mappings
             CreateMap<Group, GroupCreateDto>().ReverseMap();
             CreateMap<Resource, ResourceListDto>();
             CreateMap<Resource, ResourceCreateDto>().ReverseMap();
+            CreateMap<Resource, ResourceUpdateDto>().ReverseMap();
+            CreateMap<Resource, ResourceDetailsDto>();
+            CreateMap<PayType, PayTypeListDto>();
+            
         }
     }
 }

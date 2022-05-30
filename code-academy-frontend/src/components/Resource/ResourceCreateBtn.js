@@ -1,12 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
 import { TextField } from '@mui/material'
-import axios from 'axios'
-function ResourceCreateBtn(props) {
-    useEffect(() => {
 
-    }, []);
-   
+function ResourceCreateBtn(props) {    
 
     return (
         <div className='addition'>
@@ -24,7 +19,7 @@ function ResourceCreateBtn(props) {
                             <button type="button" className="btn-close resource-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body row">
-                            <TextField className='resource-input' onChange={(e) => props.myInput(e.target.value)} id="outlined-basic" label="Resource type" variant="outlined" />
+                            <TextField className='resource-input' onChange={(e) => props.setInput(e.target.value)} id="outlined-basic" label="Resource type" variant="outlined" />
                         </div>
                         <div className="modal-footer">
                             <button onClick={() => props.createResource()} data-bs-dismiss="modal" type="button" className="btn btn-outline-primary resource-button">Save</button>

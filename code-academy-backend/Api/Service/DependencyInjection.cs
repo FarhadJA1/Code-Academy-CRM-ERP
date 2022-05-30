@@ -11,6 +11,7 @@ namespace Service
         {
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IResourceService, ResourceService>();
+            services.AddScoped<IPayTypeService, PayTypeService>();
             return services;
 
         }

@@ -35,5 +35,18 @@ namespace Service.Services
 
             await _resourceRepository.SoftDeleteAsync(resource);
         }
+        public async Task UpdateAsync(int id,ResourceUpdateDto resourceUpdateDto)
+        {
+            var entity = await _resourceRepository.GetAsync(id);
+            _mapper.Map(resourceUpdateDto, entity);
+            await _resourceRepository.UpdateAsync(entity);
+        }
+        public async Task<ResourceDetailsDto> ResourceDetailsAsync(int id)
+        {
+            var entity = await _resourceRepository.ResourceDetails(id);
+            ResourceDetailsDto resourceDetailsDto = new();
+            var result =_mapper.Map(entity, resourceDetailsDto);
+            return result;
+        }
     }
 }
