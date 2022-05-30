@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Repo.Repositories.Interfaces;
 using Service.DTOs.PayType;
 using Service.Services.Interfaces;
@@ -24,21 +25,21 @@ namespace Service.Services
             var model = await _payTypeRepository.GetAllAsync();
             return _mapper.Map<List<PayTypeListDto>>(model);
         }
-     /*   public async Task CreateAsync(ResourceCreateDto resourceCreateDto)
+        public async Task CreateAsync(PayTypeCreateDto payTypeCreateDto)
         {
-            await _resourceRepository.CreateAsync(_mapper.Map<Resource>(resourceCreateDto));
+            await _payTypeRepository.CreateAsync(_mapper.Map<PayType>(payTypeCreateDto));
         }
         public async Task DeleteAsync(int id)
         {
-            Resource resource = await _resourceRepository.GetAsync(id);
-
-            await _resourceRepository.SoftDeleteAsync(resource);
+            PayType payType = await _payTypeRepository.GetAsync(id);
+            await _payTypeRepository.SoftDeleteAsync(payType);
         }
-        public async Task UpdateAsync(int id, ResourceUpdateDto resourceUpdateDto)
+        public async Task UpdateAsync(int id, PayTypeUpdateDto payTypeUpdateDto)
         {
-            var entity = await _resourceRepository.GetAsync(id);
-            _mapper.Map(resourceUpdateDto, entity);
-            await _resourceRepository.UpdateAsync(entity);
-        }*/
+            var entity = await _payTypeRepository.GetAsync(id);
+            _mapper.Map(payTypeUpdateDto, entity);
+            await _payTypeRepository.UpdateAsync(entity);
+        }
+
     }
 }

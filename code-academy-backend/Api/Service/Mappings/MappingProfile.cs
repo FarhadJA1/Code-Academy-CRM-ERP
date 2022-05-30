@@ -18,7 +18,8 @@ namespace Service.Mappings
             CreateMap<Resource, ResourceUpdateDto>().ReverseMap();
             CreateMap<Resource, ResourceDetailsDto>();
             CreateMap<PayType, PayTypeListDto>();
-            
+            CreateMap<PayType, PayTypeCreateDto>().ReverseMap();
+            CreateMap<PayType, PayTypeUpdateDto>().ReverseMap();
         }
     }
 }

@@ -10,5 +10,8 @@ namespace Service.Services.Interfaces
     public interface IPayTypeService
     {
         Task<List<PayTypeListDto>> GetAllAsync();
+        Task CreateAsync(PayTypeCreateDto payTypeCreateDto);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(int id, PayTypeUpdateDto payTypeUpdateDto);
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextField } from '@mui/material'
-function PaymentCreateButton() {
+function PaymentCreateButton(props) {
   return (
     <div className='addition'>
       <div className="my-3 me-3 create-payment-btn-area">
@@ -17,10 +17,10 @@ function PaymentCreateButton() {
               <button type="button" className="btn-close payment-button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body row">
-              <TextField id="outlined-basic" label="Payment type" variant="outlined" />
+              <TextField id="outlined-basic" className='payment-textarea' onChange={(e) => props.setInput(e.target.value)} value={props.input} label="Payment type" variant="outlined" />
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-outline-primary payment-button">Save</button>
+              <button type="button" onClick={() => props.createPayment()} data-bs-dismiss="modal" className="btn btn-outline-primary payment-button">Save</button>
               <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning payment-button">Cancel</button>
             </div>
           </div>
