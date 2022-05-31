@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.Group
+namespace Service.DTOs.GroupDto
 {
     public class GroupListDto
     {

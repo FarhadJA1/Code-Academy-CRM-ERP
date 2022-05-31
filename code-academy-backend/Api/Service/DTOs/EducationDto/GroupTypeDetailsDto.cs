@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.Resource
+namespace Service.DTOs.EducationDto
 {
-    public class ResourceDetailsDto
+    public class GroupTypeDetailsDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Student> Students { get; set; }
+        public List<Group> Groups { get; set; }
     }
 }

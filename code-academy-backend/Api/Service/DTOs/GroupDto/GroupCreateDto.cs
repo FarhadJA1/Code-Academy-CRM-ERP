@@ -6,13 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.Group
+namespace Service.DTOs.GroupDto
 {
     public class GroupCreateDto
     {
         public string GroupCode { get; set; }
         public GroupType GroupType { get; set; }
         
+
     }
     public class GroupCreateValidator : AbstractValidator<GroupCreateDto>
     {

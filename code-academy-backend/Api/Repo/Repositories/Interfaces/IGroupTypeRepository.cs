@@ -9,6 +9,6 @@ namespace Repo.Repositories.Interfaces
 {
     public interface IGroupTypeRepository : IRepository<GroupType>
     {
-
+        Task<GroupType> GroupTypeDetails(int id);
     }
 }

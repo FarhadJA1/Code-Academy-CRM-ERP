@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Repo.Repositories.Interfaces;
-using Service.DTOs.Resource;
+using Service.DTOs.ResourceDto;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;

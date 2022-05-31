@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Service.DTOs.PayType;
+using Service.DTOs.PayTypeDto;
 using Service.Services.Interfaces;
 using System.Threading.Tasks;
 

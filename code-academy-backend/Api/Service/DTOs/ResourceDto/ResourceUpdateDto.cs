@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 
 
-namespace Service.DTOs.Resource
+namespace Service.DTOs.ResourceDto
 {
     public class ResourceUpdateDto
     {

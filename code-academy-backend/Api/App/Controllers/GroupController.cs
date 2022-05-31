@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Service.DTOs.Group;
+using Service.DTOs.GroupDto;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -5,17 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.PayType
+namespace Service.DTOs.EducationDto
 {
-    public class PayTypeUpdateDto
+    public class GroupTypeCreateDto
     {
         public string Name { get; set; }
     }
-    public class PayTypeUpdateValidator : AbstractValidator<PayTypeUpdateDto>
+    public class GroupTypeCreateValidator : AbstractValidator<GroupTypeCreateDto>
     {
-        public PayTypeUpdateValidator()
+        public GroupTypeCreateValidator()
         {
             RuleFor(m => m.Name).NotEmpty().WithMessage("Please add 'Payment Type'").MaximumLength(40);
+
         }
     }
 }

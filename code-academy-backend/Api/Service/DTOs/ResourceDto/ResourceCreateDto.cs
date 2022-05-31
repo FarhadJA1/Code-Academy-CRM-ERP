@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.Resource
+namespace Service.DTOs.ResourceDto
 {
     public class ResourceCreateDto
     {

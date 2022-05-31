@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Repo.Repositories.Interfaces;
-using Service.DTOs.PayType;
+using Service.DTOs.PayTypeDto;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;

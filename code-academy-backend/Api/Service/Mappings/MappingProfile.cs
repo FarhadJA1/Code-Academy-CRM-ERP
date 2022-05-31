@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Service.DTOs.Group;
-using Service.DTOs.PayType;
-using Service.DTOs.Resource;
+using Service.DTOs.EducationDto;
+using Service.DTOs.GroupDto;
+using Service.DTOs.PayTypeDto;
+using Service.DTOs.ResourceDto;
 
 namespace Service.Mappings
 {
@@ -21,6 +22,10 @@ namespace Service.Mappings
             CreateMap<PayType, PayTypeCreateDto>().ReverseMap();
             CreateMap<PayType, PayTypeUpdateDto>().ReverseMap();
             CreateMap<PayType, PaymentDetailsDto>();
+            CreateMap<GroupType, GroupTypeListDto>();
+            CreateMap<GroupType, GroupTypeCreateDto>().ReverseMap();
+            CreateMap<GroupType, GroupTypeUpdateDto>().ReverseMap();
+            CreateMap<GroupType, GroupTypeDetailsDto>();
         }
     }
 }

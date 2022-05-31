@@ -1,4 +1,4 @@
-﻿using Service.DTOs.Group;
+﻿using Service.DTOs.GroupDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
