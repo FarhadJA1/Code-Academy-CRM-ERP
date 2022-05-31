@@ -25,6 +25,7 @@ function Resource() {
         })
             .then(res => {
                 GetDatas();
+                setInput("")
             })
             .catch(error => console.log(error));
     }
@@ -59,8 +60,8 @@ function Resource() {
 
     return (
         <div className='resource'>
-            <ResourceCreateBtn setInput={setInput} createResource={CreateResource} />
-            <ResourceTable resourceDetails={ResourceDetails} details={details} setInput={setInput} resources={resources} setId={setId} deleteResource={DeleteResource} updateResource={UpdateResource} id={id}/>
+            <ResourceCreateBtn input ={input} setInput={setInput} createResource={CreateResource} />
+            <ResourceTable  resourceDetails={ResourceDetails} details={details} setInput={setInput} resources={resources} setId={setId} deleteResource={DeleteResource} updateResource={UpdateResource} id={id}/>
         </div>
     )
 }

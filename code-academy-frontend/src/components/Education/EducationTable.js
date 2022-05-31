@@ -2,7 +2,8 @@ import React from 'react'
 import EditEducation from './EditEducation';
 import DeleteEducation from './DeleteEducation';
 import EducationDetails from './EducationDetails';
-function EducationTable() {
+function EducationTable(props) {
+    let count = 1;
     return (
         <div>
             <table className="table table-hover">
@@ -15,16 +16,19 @@ function EducationTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th className='table-header'  scope="row">1</th>
-                        <td align='center'>Mark</td>
-                        <td align='center'>Otto</td>
-                        <td className='table-header table-button-area'>
-                            <EducationDetails/>
-                            <DeleteEducation/>
-                            <EditEducation/>
-                        </td>
-                    </tr>
+                    {props.education.map(edu => (
+                        <tr key={edu.id}>
+                            <th className='table-header' scope="row">{count++}</th>
+                            <td align='center'>{edu.name}</td>
+                            <td align='center'>{edu.groups.length}</td>
+                            <td className='table-header table-button-area'>
+                                <EducationDetails edu={edu} id={props.id} value={edu.id} setId={props.setId} educationDetails={props.educationDetails}/>
+                                <DeleteEducation id={props.id} value={edu.id} setId={props.setId} deleteEducation={props.deleteEducation}/>
+                                <EditEducation setInput={props.setInput} name={edu.name} id={props.id} value={edu.id} setId={props.setId} updateEducation={props.updateEducation}/>
+                            </td>
+                        </tr>
+                    ))}
+
 
                 </tbody>
             </table>

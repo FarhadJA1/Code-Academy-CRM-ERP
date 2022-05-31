@@ -5,7 +5,7 @@ function PaymentCreateButton(props) {
     <div className='addition'>
       <div className="my-3 me-3 create-payment-btn-area">
         <button type="button" className="btn btn-outline-success create-payment-btn" data-bs-toggle="modal" data-bs-target="#create-payment">
-          Create Education Type
+          Create Payment Option
         </button>
       </div>
         
