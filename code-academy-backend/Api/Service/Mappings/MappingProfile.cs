@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Service.DTOs.ClassroomDto;
 using Service.DTOs.EducationDto;
 using Service.DTOs.GroupDto;
 using Service.DTOs.HourDto;
@@ -31,6 +32,10 @@ namespace Service.Mappings
             CreateMap<Term, HourCreateDto>().ReverseMap();
             CreateMap<Term, HourUpdateDto>().ReverseMap();
             CreateMap<Term, HourDetailsDto>();
+            CreateMap<Classroom, ClassroomListDto>();
+            CreateMap<Classroom, ClassroomCreateDto>().ReverseMap();
+            CreateMap<Classroom, ClassroomUpdateDto>().ReverseMap();
+            CreateMap<Classroom, ClassroomDetailsDto>();
         }
     }
 }

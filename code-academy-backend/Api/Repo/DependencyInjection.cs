@@ -18,6 +18,7 @@ namespace Repo
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<IGroupTeacherRepository, GroupTeacherRepository>();
             services.AddScoped<IHourRepository, HourRepository>();
+            services.AddScoped<IClassroomRepository, ClassroomRepository>();
             return services;
         }
     }
