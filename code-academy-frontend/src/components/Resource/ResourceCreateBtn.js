@@ -22,7 +22,7 @@ function ResourceCreateBtn(props) {
                             <TextField className='resource-input' onChange={(e) => props.setInput(e.target.value)} value={props.input} id="outlined-basic" label="Resource type" variant="outlined" />
                         </div>
                         <div className="modal-footer">
-                            <button onClick={() => props.createResource()} value={props.input} data-bs-dismiss="modal" type="button" className="btn btn-outline-primary resource-button">Save</button>
+                            <button onClick={() => props.createResource()} value={props.input} data-bs-dismiss="modal" type="button" className="btn btn-outline-primary resource-button">Save</button>                            
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning resource-button">Cancel</button>
                         </div>
                     </div>

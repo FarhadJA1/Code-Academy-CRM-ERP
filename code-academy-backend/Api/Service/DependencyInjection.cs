@@ -13,6 +13,7 @@ namespace Service
             services.AddScoped<IResourceService, ResourceService>();
             services.AddScoped<IPayTypeService, PayTypeService>();
             services.AddScoped<IEducationService, EducationService>();
+            services.AddScoped<IHourService, HourService>();
             return services;
 
         }

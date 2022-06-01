@@ -21,12 +21,16 @@ namespace Repo.Repositories
         }
         public async Task<Group> GetWithDetails(int id)
         {
-            Group group = await entities.Where(m=>m.Id==id).Include(m => m.GroupType).FirstOrDefaultAsync();
+            Group group = await entities.Where(m=>m.Id==id)
+                .Include(m => m.GroupType)
+                .FirstOrDefaultAsync();
             return group;
         }
         public async Task<Group> GetLastGroup()
         {
-            Group group = await entities.OrderByDescending(m=>m.Id).FirstOrDefaultAsync();
+            Group group = await entities
+                .OrderByDescending(m=>m.Id)
+                .FirstOrDefaultAsync();
             return group;
         }
         

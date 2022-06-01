@@ -16,7 +16,7 @@ import Resource from './pages/Resource';
 import Students from './pages/Students';
 import Classroom from './pages/Classroom';
 import Term from './pages/Term';
-import ResourceTable from './components/Resource/ResourceTable';
+
 
 function App() {
   return (
@@ -42,8 +42,7 @@ function App() {
             <Route path='/resource/delete-resource' element={<Resource/>} />
             <Route path='/students' element={<Students />} />
             <Route path='/classroom' element={<Classroom />} />
-            <Route path='/term' element={<Term />} />
-            
+            <Route path='/term' element={<Term />} />            
           </Routes>
         </div>
 

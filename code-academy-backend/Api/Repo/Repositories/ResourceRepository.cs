@@ -23,7 +23,10 @@ namespace Repo.Repositories
 
         public async Task<Resource> ResourceDetails(int id)
         {
-            Resource resource = await entities.Where(m => m.Id == id).Include(m => m.Students).FirstOrDefaultAsync();
+            Resource resource = await entities
+                .Where(m => m.Id == id)
+                .Include(m => m.Students)
+                .FirstOrDefaultAsync();
             return resource;
         }
     }

@@ -22,7 +22,9 @@ namespace Repo.Repositories
 
         public async Task<GroupType> GroupTypeDetails(int id)
         {
-            GroupType groupType = await entities.Where(m => m.Id == id).Include(m => m.Groups).FirstOrDefaultAsync();
+            GroupType groupType = await entities.Where(m => m.Id == id)
+                .Include(m => m.Groups)
+                .FirstOrDefaultAsync();
             return groupType;
         }
     }

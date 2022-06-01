@@ -22,7 +22,10 @@ namespace Repo.Repositories
 
         public async Task<PayType> PayTypeDetails(int id)
         {
-            PayType payType = await entities.Where(m => m.Id == id).Include(m => m.Students).FirstOrDefaultAsync();
+            PayType payType = await entities
+                .Where(m => m.Id == id)
+                .Include(m => m.Students)
+                .FirstOrDefaultAsync();
             return payType;
         }
     }

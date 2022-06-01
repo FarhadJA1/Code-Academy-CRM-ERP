@@ -35,7 +35,10 @@ namespace Repo.Repositories
 
         public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> predicate)
         {
-            return await entities.AsQueryable().Where(predicate).ToListAsync();
+            return await entities
+                .AsQueryable()
+                .Where(predicate)
+                .ToListAsync();
         }
 
         public async Task<T> FindAsync(Expression<Func<T, bool>> predicate)
@@ -45,7 +48,10 @@ namespace Repo.Repositories
 
         public async Task<List<T>> GetAllAsync()
         {
-            List<T> entityList = await entities.OrderByDescending(m=>m.Id).Where(m=>m.SoftDelete==false).ToListAsync();
+            List<T> entityList = await entities
+                .OrderByDescending(m=>m.Id)
+                .Where(m=>m.SoftDelete==false)
+                .ToListAsync();
             if (entityList is null) throw new NullReferenceException();
             return entityList;
         }

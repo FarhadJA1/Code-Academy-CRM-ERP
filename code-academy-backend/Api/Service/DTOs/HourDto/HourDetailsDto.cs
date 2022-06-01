@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.DTOs.HourDto
 {
-    public class HourListDto
+    public class HourDetailsDto
     {
         public int Id { get; set; }
         public string Day { get; set; }
