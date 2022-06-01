@@ -9,6 +9,6 @@ namespace Repo.Repositories.Interfaces
 {
     public interface IClassroomRepository : IRepository<Classroom>
     {
-        Task<Classroom> PayTypeDetails(int id);
+        Task<Classroom> ClassroomDetails(int id);
     }
 }

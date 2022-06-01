@@ -29,4 +29,14 @@
             box-shadow: none !important;
         }
     }
+    .classroom-modal-body {
+        display: flex;
+        justify-content: space-between;
+
+        .minus {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+        }
+    }
 }

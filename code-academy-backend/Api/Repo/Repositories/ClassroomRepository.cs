@@ -20,7 +20,7 @@ namespace Repo.Repositories
             entities = _context.Set<Classroom>();
         }
 
-        public async Task<Classroom> PayTypeDetails(int id)
+        public async Task<Classroom> ClassroomDetails(int id)
         {
             Classroom classroom = await entities
                 .Where(m => m.Id == id)

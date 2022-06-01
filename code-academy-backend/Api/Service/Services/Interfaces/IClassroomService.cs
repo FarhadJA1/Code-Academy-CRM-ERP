@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Service.DTOs.ClassroomDto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace Service.Services.Interfaces
 {
     public interface IClassroomService
     {
+        Task<List<ClassroomListDto>> GetAllAsync();
+        Task CreateAsync(ClassroomCreateDto classroomCreateDto);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(int id, ClassroomUpdateDto classroomUpdateDto);
+        Task<ClassroomDetailsDto> ClassroomDetailsAsync(int id);
+
     }
 }
