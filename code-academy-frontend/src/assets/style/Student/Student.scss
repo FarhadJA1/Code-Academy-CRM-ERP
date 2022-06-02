@@ -54,10 +54,19 @@
           transform-origin: bottom left;
         }  
         .student-birthday{
-            text-align: center;
-            height: 35px;
+            border-radius: 4px;
+            height: 45px;
             color: navy;
-            
+            border: 1px solid rgb(190, 186, 186); 
+            &:focus{
+                border: 1px solid #0d6efd;                 
+            }   
+            ::-webkit-input-placeholder {
+                color: red;
+            }       
+        }
+        .react-datepicker__close-icon{
+            margin-right: 10px;
         }
     }
 }

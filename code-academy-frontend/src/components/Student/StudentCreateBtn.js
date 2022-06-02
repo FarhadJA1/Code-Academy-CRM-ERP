@@ -23,14 +23,30 @@ function StudentCreateBtn() {
                             <button type="button" className="btn-close student-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body container addition">
-                            <h6 className='addition-title'>Identity</h6>
+                            <h6 className='addition-title'>PERSONAL INFO</h6>
                             <div className="row">
                                 <div className="col-6">
                                     <TextField className='student-input' id="outlined-basic" label="Name" variant="outlined" />
                                 </div>
                                 <div className="col-6">
-                                    <TextField className='student-input' id="outlined-basic" label="Surname" variant="outlined" />
+                                    <TextField autoComplete="off" className='student-input' id="outlined-basic" label="Surname" variant="outlined" />
                                 </div>
+                            </div>
+                            <div className="row mt-2">
+                                <div className="col-6">
+                                <DatePicker
+                                 selected={birthday} 
+                                 onChange={date => setBirthday(date)} 
+                                 className="student-birthday"
+                                 dateFormat='dd/MM/yyyy'
+                                 maxDate={new Date()}
+                                 isClearable
+                                 showYearDropdown
+                                 scrollableMonthYearDropdown
+                                 placeholderText="Birthday"
+                                 />
+
+                                </div>                                
                             </div>
                             <h6 className='my-2 addition-title'>Contact</h6>
                             <div className="row">
@@ -40,17 +56,9 @@ function StudentCreateBtn() {
                                 <div className="col-6">
                                     <TextField className='student-input' id="outlined-basic" label="Phone" variant="outlined" />
                                 </div>
-                            </div>
-                            <h6 className='my-2 addition-title'>Birthday</h6>
-                            <div className="row">
-                                <DatePicker
-                                 selected={birthday} 
-                                 onChange={date => setBirthday(date)} 
-                                 className="student-birthday"
-                                 dateFormat='dd/MM/yyyy'
-                                 maxDate={new Date()}
-                                 />
-                            </div>
+                            </div>                           
+                            
+                            <h6 className="my-2 addition-title">Educational</h6>
 
                         </div>
                         <div className="modal-footer">
