@@ -46,7 +46,6 @@ namespace App.Controllers
         [Route("ResourceClassroom/{id}")]
         public async Task<IActionResult> Details([FromRoute] int id)
         {
-
             return Ok(await _classroomService.ClassroomDetailsAsync(id));
         }
     }

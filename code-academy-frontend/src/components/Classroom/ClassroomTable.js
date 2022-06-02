@@ -3,7 +3,8 @@ import ClassroomDeleteBtn from './ClassroomDeleteBtn'
 import ClassroomEditBtn from './ClassroomEditBtn'
 import ClassroomInfoBtn from './ClassroomInfoBtn'
 
-function ClassroomTable() {
+function ClassroomTable(props) {
+    let count = 1
     return (
         <div>
             <table className="table table-hover">
@@ -17,17 +18,20 @@ function ClassroomTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th className='table-header' scope="row">1</th>
-                        <td align='center'>Mark</td>
-                        <td align='center'>Otto</td>
-                        <td align='center'>Otto</td>
-                        <td  className='table-header table-button-area'>
-                            <ClassroomInfoBtn/>
-                            <ClassroomDeleteBtn/>
-                            <ClassroomEditBtn/>
-                        </td>
-                    </tr>       
+                    {props.classrooms.map(cl => (
+                        <tr>
+                            <th className='table-header' scope="row">{count++}</th>
+                            <td align='center'>{cl.name}</td>
+                            <td align='center'>Otto</td>
+                            <td align='center'>{cl.capacity}</td>
+                            <td className='table-header table-button-area'>
+                                <ClassroomInfoBtn cl={cl} id={props.id} value={cl.id} setId={props.setId} classroomDetails={props.classroomDetails}/>
+                                <ClassroomDeleteBtn id={props.id} value={cl.id} setId={props.setId} deleteClassroom={props.deleteClassroom}/>
+                                <ClassroomEditBtn setNameInput={props.setNameInput} setCapacityInput={props.setCapacityInput} capacity={cl.capacity} name={cl.name} id={props.id} value={cl.id} setId={props.setId} updateClassroom={props.updateClassroom}/>
+                            </td>
+                        </tr>
+                    ))}
+
                 </tbody>
             </table>
         </div>

@@ -14,8 +14,8 @@ namespace Domain.Configurations
         public void Configure(EntityTypeBuilder<Classroom> builder)
         {
             builder.Property(m => m.Name).IsRequired();
-            builder.Property(m => m.SoftDelete).HasDefaultValue(false);           
-            
+            builder.Property(m => m.SoftDelete).HasDefaultValue(false);
+            builder.Property(m => m.IsBusy).HasDefaultValue(false);
         }
     }
 }
