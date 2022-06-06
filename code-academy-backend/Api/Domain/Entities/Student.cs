@@ -14,11 +14,10 @@ namespace Domain.Entities
         public string Email { get; set; }
         public long Phone { get; set; }
         public DateTime Birthday { get; set; }
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
         public Group Group { get; set; }
         public int PayTypeId { get; set; }
-        public PayType PayType { get; set; }
-        public DateTime CreateDate { get; set; }
+        public PayType PayType { get; set; }        
         public int ResourceId { get; set; }
         public Resource Resource { get; set; }
         public bool IsGraduated { get; set; }

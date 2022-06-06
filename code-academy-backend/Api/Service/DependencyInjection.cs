@@ -15,6 +15,8 @@ namespace Service
             services.AddScoped<IEducationService, EducationService>();
             services.AddScoped<IHourService, HourService>();
             services.AddScoped<IClassroomService, ClassroomService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
             return services;
 
         }

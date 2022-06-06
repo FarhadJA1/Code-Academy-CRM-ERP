@@ -51,7 +51,6 @@ function TermInfoBtn(props) {
 
             <Tooltip title="Lesson Hour Details" placement="bottom-end">
                 <button onClick={() => props.hourDetails(props.hour.id)} type="button" className="btn btn-outline-info term-button" data-bs-toggle="modal" data-bs-target={'#term-detail' + props.id}><InfoOutlinedIcon /></button>
-
             </Tooltip>
         </div>
     )

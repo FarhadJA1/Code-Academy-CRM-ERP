@@ -12,10 +12,9 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public DateTime Birthday { get; set; }        
-        public int Salary { get; set; }        
+        public DateTime Birthday { get; set; }
+        public int Salary { get; set; }
         public long Phone { get; set; }
-        public DateTime CreateDate { get; set; }
         public List<GroupTeacher> GroupTeachers { get; set; }
     }
 }

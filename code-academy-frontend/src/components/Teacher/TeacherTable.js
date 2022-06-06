@@ -4,7 +4,8 @@ import TeacherEdit from './TeacherEdit'
 import TeacherInfo from './TeacherInfo'
 
 
-function TeacherTable() {
+function TeacherTable(props) {
+  let count = 1;
   return (
     <div>
       <table className="table table-hover">
@@ -19,18 +20,30 @@ function TeacherTable() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className='table-header' scope="row">1</th>
-            <td align='center'>Mark</td>
-            <td align='center'>Otto</td>
-            <td align='center'>@mdo</td>
-            <td align='center'>@mdo</td>
-            <td className='table-header table-button-area' align='center'>
-              <TeacherInfo />
-              <TeacherDelete />
-              <TeacherEdit />
-            </td>
-          </tr>
+          {props.teachers.map(teacher => (
+            <tr>
+              <th className='table-header' scope="row">{count++}</th>
+              <td className='table-header' align='center'>{teacher.name}</td>
+              <td className='table-header' align='center'>{teacher.surname}</td>
+              <td className='table-header' align='center'>{teacher.salary}</td>
+              <td className='table-header' align='center'>{teacher.phone}</td>
+              <td className='table-button-area' align='center'>
+                <TeacherInfo />
+                <TeacherDelete id={props.id} value={teacher.id} setId={props.setId} deleteTeacher={props.deleteTeacher} />
+                <TeacherEdit
+                  nameInput={props.nameInput} setNameInput={props.setNameInput}
+                  surnameInput={props.surnameInput} setSurnameInput={props.setSurnameInput}
+                  birthdayInput={props.birthdayInput} setBirthdayInput={props.setBirthdayInput}
+                  emailInput={props.emailInput} setEmailInput={props.setEmailInput}
+                  phoneInput={props.phoneInput} setPhoneInput={props.setPhoneInput}
+                  salaryInput={props.salaryInput} setSalaryInput={props.setSalaryInput}
+                  updateTeacher={props.updateTeacher}
+                  id={props.id} value={teacher.id} setId={props.setId}
+                />
+              </td>
+            </tr>
+          ))}
+
         </tbody>
       </table>
     </div>

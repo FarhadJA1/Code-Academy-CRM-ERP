@@ -1,23 +1,65 @@
 import React from 'react'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-function TeacherEdit() {
+import { TextField } from '@mui/material';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Tooltip } from '@mui/material';
+function TeacherEdit(props) {
     return (
-        <div className='addition'>
-            <button type="button" className="btn btn-outline-warning teacher-button" data-bs-toggle="modal" data-bs-target="#edit-teacher"><EditOutlinedIcon className='settings-button'/></button>
+        <div className='create-btn-area'>
+            <Tooltip title="Update Teacher" placement="bottom-end">
+                <button onClick={(e) => props.setId(e.target.value)} value={props.value} type="button" className="btn btn-outline-warning teacher-button" data-bs-toggle="modal" data-bs-target={'#update-teacher' + props.id}><EditOutlinedIcon className='settings-button' /></button>
+            </Tooltip>
 
-
-            <div className="modal fade" id="edit-teacher" tabIndex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div className="modal fade" id={'update-teacher' + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title addition-title" id="exampleModalLabel">Edit Teacher</h5>
+                            <h5 className="modal-title create-header" id="exampleModalLabel">Please, fill the blank:</h5>
                             <button type="button" className="btn-close teacher-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
-                            ...
+                        <div className="modal-body container addition">
+                            <h6 className='addition-title'>PERSONAL INFO</h6>
+                            <div className="row">
+                                <div className="col-6">
+                                    <TextField onChange={(e) => props.setNameInput(e.target.value)} value={props.nameInput} className='teacher-input' id="outlined-basic" label="Name" variant="outlined" />
+                                </div>
+                                <div className="col-6">
+                                    <TextField onChange={(e) => props.setSurnameInput(e.target.value)} value={props.surnameInput} autoComplete="off" className='teacher-input' id="outlined-basic" label="Surname" variant="outlined" />
+                                </div>
+                            </div>
+                            <div className="row mt-2">
+                                <div className="col-6">
+                                    <DatePicker
+                                        selected={props.birthdayInput}
+                                        onChange={date => props.setBirthdayInput(date)}
+                                        className="teacher-birthday"
+                                        dateFormat='dd/MM/yyyy'
+                                        maxDate={new Date()}
+                                        isClearable
+                                        showYearDropdown
+                                        scrollableMonthYearDropdown
+                                        placeholderText="Birthday"
+                                    />
+                                </div>
+                                <div className="col-6 mt-3">
+                                    <TextField type='number' onChange={(e) => props.setSalaryInput(e.target.value)} value={props.salaryInput} className='teacher-input' id="outlined-basic" label="Salary" variant="outlined" />
+                                </div>
+
+                            </div>
+                            <h6 className='mt-4 addition-title'>CONTACT</h6>
+                            <div className="row">
+                                <div className="col-6">
+                                    <TextField onChange={(e) => props.setEmailInput(e.target.value)} value={props.emailInput} type='email' className='teacher-input' id="outlined-basic" label="Email" variant="outlined" />
+                                </div>
+                                <div className="col-6">
+                                    <TextField type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='teacher-input' id="outlined-basic" label="Phone" variant="outlined" />
+                                </div>
+                            </div>
+
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-primary group-btn">Save</button>
+                            <button onClick={() => props.updateTeacher()} type="button" data-bs-dismiss="modal" className="btn btn-outline-primary teacher-button">Save</button>
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning teacher-button">Cancel</button>
                         </div>
                     </div>

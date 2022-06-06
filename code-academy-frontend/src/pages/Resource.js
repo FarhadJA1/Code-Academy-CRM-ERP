@@ -18,6 +18,7 @@ function Resource() {
                 setResources(res.data);
             })
     }    
+    console.log(resources);
 
     async function CreateResource() {
         await axios.post("https://localhost:44380/api/Resource/CreateResource", {

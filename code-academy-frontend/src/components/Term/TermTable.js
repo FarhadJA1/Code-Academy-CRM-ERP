@@ -22,8 +22,8 @@ function TermTable(props) {
                     {props.hours.map(hour => (
                         <tr key={hour.id}>
                             <th className='table-header' scope="row">{count++}</th>
-                            <td align='center'>{hour.day}</td>
-                            <td align='center'>{hour.time}</td>
+                            <td className='table-header' align='center'>{hour.day}</td>
+                            <td className='table-header' align='center'>{hour.time}</td>
                             <td className='table-button-area' align='center'>
                                 <TermInfoBtn hour={hour} id={props.id} value={hour.id} setId={props.setId} hourDetails={props.hourDetails}/>
                                 <TermDeleteBtn id={props.id} value={hour.id} setId={props.setId} deleteHour={props.deleteHour}/>

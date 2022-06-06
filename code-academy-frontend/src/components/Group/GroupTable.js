@@ -43,13 +43,13 @@ function GroupTable() {
       <tbody >
         {groups.map(group => (
           <tr key={group.id}>
-            <th align='center' scope="row">{count++}</th>
-            <td align='center'>{group.groupCode}</td>
-            <td align='center'>{group.createDate}</td>
-            <td align='center'>{group.expireDate}</td>
-            <td align='center'>{group.teacher}</td>
-            <td align='center'>{group.students.length}</td>
-            <th className='table-header table-button-area' scope="col">
+            <th className='table-header' align='center' scope="row">{count++}</th>
+            <td className='table-header' align='center'>{group.groupCode}</td>
+            <td className='table-header' align='center'>{group.createDate}</td>
+            <td className='table-header' align='center'>{group.expireDate}</td>
+            <td className='table-header' align='center'>{group.teacher}</td>
+            <td className='table-header' align='center'>{group.students.length}</td>
+            <th className='table-button-area' scope="col">
               <InfoButton />
               <DeleteButton />
               <EditButton />

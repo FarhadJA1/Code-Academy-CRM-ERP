@@ -20,8 +20,8 @@ function PayTypeTable(props) {
                     {props.payment.map(pay => (
                         <tr key={pay.id}>
                             <th className='table-header' scope="row">{count++}</th>
-                            <td align='center'>{pay.name}</td>
-                            <td align='center'>{pay.students.length}</td>
+                            <td className='table-header' align='center'>{pay.name}</td>
+                            <td className='table-header' align='center'>{pay.students.length}</td>
                             <td className='table-button-area' align='center'>
                                 <PaymentInfoBtn pay={pay} id={props.id} value={pay.id} setId={props.setId} paymentDetails={props.paymentDetails}/>
                                 <PaymentDeleteBtn id={props.id} value={pay.id} setId={props.setId} deletePayment={props.deletePayment}/>

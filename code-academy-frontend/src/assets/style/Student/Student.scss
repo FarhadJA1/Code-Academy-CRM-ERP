@@ -1,4 +1,4 @@
-.student{
+.student {
     .create-student-btn-area {
         display: flex;
         justify-content: end;
@@ -19,6 +19,7 @@
             }
         }
     }
+
     .student-button {
         box-shadow: none !important;
         transition: all 0.6s;
@@ -29,44 +30,66 @@
             box-shadow: none !important;
         }
     }
+
+    .student-table {
+        .student-row{
+            padding-top: 15px;
+        }
+        .group-code {
+            font-size: 14px;
+            padding-top: 15px;
+        }
+    }
+    .student-edit-area{
+        text-align: start;
+    }
+
     .addition {
 
         .addition-title {
-          display: inline-block;
-          position: relative;
+            display: inline-block;
+            position: relative;
         }
-    
+
         .addition-title:after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          background-color: #f4df3f;
-          transform-origin: bottom right;
-          transition: transform 0.25s ease-out;
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f4df3f;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
         }
-    
+
         .addition-title:hover:after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-        }  
-        .student-birthday{
-            border-radius: 4px;
-            height: 45px;
-            color: navy;
-            border: 1px solid rgb(190, 186, 186); 
-            &:focus{
-                border: 1px solid #0d6efd;                 
-            }   
-            ::-webkit-input-placeholder {
-                color: red;
-            }       
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
-        .react-datepicker__close-icon{
+
+        .student-birthday {
+            border-radius: 4px;
+            color: navy;
+            border: 1px solid rgb(190, 186, 186);
+            width: 210px;
+            margin-top: 13px;
+            height: 56px;
+            padding: 10px;
+
+        }
+
+        .react-datepicker-popper {
+            z-index: 4;
+        }
+
+        .react-datepicker__close-icon {
             margin-right: 10px;
+        }
+
+        .react-datepicker__header {
+            background-color: #2574ba;
         }
     }
 }

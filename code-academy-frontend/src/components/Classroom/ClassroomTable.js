@@ -21,10 +21,10 @@ function ClassroomTable(props) {
                     {props.classrooms.map(cl => (
                         <tr>
                             <th className='table-header' scope="row">{count++}</th>
-                            <td align='center'>{cl.name}</td>
-                            <td align='center'>Otto</td>
-                            <td align='center'>{cl.capacity}</td>
-                            <td className='table-header table-button-area'>
+                            <td className='table-header' align='center'>{cl.name}</td>
+                            <td className='table-header' align='center'>Otto</td>
+                            <td className='table-header' align='center'>{cl.capacity}</td>
+                            <td className='table-button-area'>
                                 <ClassroomInfoBtn cl={cl} id={props.id} value={cl.id} setId={props.setId} classroomDetails={props.classroomDetails}/>
                                 <ClassroomDeleteBtn id={props.id} value={cl.id} setId={props.setId} deleteClassroom={props.deleteClassroom}/>
                                 <ClassroomEditBtn setNameInput={props.setNameInput} setCapacityInput={props.setCapacityInput} capacity={cl.capacity} name={cl.name} id={props.id} value={cl.id} setId={props.setId} updateClassroom={props.updateClassroom}/>

@@ -19,9 +19,9 @@ function EducationTable(props) {
                     {props.education.map(edu => (
                         <tr key={edu.id}>
                             <th className='table-header' scope="row">{count++}</th>
-                            <td align='center'>{edu.name}</td>
-                            <td align='center'>{edu.groups.length}</td>
-                            <td className='table-header table-button-area'>
+                            <td className='table-header' align='center'>{edu.name}</td>
+                            <td className='table-header' align='center'>{edu.groups.length}</td>
+                            <td className='table-button-area'>
                                 <EducationDetails edu={edu} id={props.id} value={edu.id} setId={props.setId} educationDetails={props.educationDetails}/>
                                 <DeleteEducation id={props.id} value={edu.id} setId={props.setId} deleteEducation={props.deleteEducation}/>
                                 <EditEducation setInput={props.setInput} name={edu.name} id={props.id} value={edu.id} setId={props.setId} updateEducation={props.updateEducation}/>

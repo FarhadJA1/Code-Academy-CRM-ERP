@@ -9,6 +9,6 @@ namespace Repo.Repositories.Interfaces
 {
     public interface IStudentRepository : IRepository<Student>
     {
-
+        Task<List<Student>> GetAllStudentDetails();
     }
 }

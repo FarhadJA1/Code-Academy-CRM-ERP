@@ -20,8 +20,8 @@ function ResourceTable(props) {
                     {props.resources.map(resource => (
                         <tr key={resource.id}>                            
                             <th className='table-header' scope="row">{count++}</th>
-                            <td align='center'>{resource.name}</td>
-                            <td align='center'>{resource.students.length}</td>
+                            <td className='table-header' align='center'>{resource.name}</td>
+                            <td className='table-header' align='center'>{resource.students.length}</td>
                             <td  className='table-button-area' align='center'>
                                 <ResourceInfoBtn resource={resource} id={props.id} value={resource.id} setId={props.setId} resourceDetails={props.resourceDetails}/>
                                 <ResourceDeleteBtn id={props.id} value={resource.id} setId={props.setId} deleteResource={props.deleteResource}/>

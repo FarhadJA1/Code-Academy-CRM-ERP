@@ -1,12 +1,14 @@
 import React from 'react'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-function TeacherDelete() {
+import { Tooltip } from '@mui/material';
+function TeacherDelete(props) {
     return (
         <div>
-            <button type="button" className="btn btn-outline-danger teacher-button mx-2" data-bs-toggle="modal" data-bs-target="#delete-teacher"><DeleteOutlineOutlinedIcon /></button>
+            <Tooltip title="Delete Teacher" placement="bottom-end">
+                <button onClick={(e) => props.setId(e.target.value)} value={props.value} type="button" className="btn btn-outline-danger teacher-button mx-2" data-bs-toggle="modal" data-bs-target={'#delete-teacher' + props.id}><DeleteOutlineOutlinedIcon /></button>
+            </Tooltip>
 
-
-            <div className="modal fade" id="delete-teacher" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={'delete-teacher' + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -16,7 +18,7 @@ function TeacherDelete() {
                             Are you sure to permanently delete this teacher?
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-danger teacher-button">Delete</button>
+                            <button onClick={() => props.deleteTeacher()} type="button" data-bs-dismiss="modal" className="btn btn-outline-danger teacher-button">Delete</button>
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning teacher-button">Cancel</button>
                         </div>
                     </div>
