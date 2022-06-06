@@ -26,7 +26,7 @@ function Students() {
     await axios.get(`${url}/api/Student/GetAll`)
       .then(res => {
         setStudents(res.data);
-        console.log(res.data);
+        console.log(students);
       })
   }
   async function GetResources() {

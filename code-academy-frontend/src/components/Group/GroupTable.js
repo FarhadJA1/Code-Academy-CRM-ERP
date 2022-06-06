@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+
 import React from 'react';
-import axios from 'axios'
+
 import '../../assets/style/Group/GroupTable.scss'
 import InfoButton from './InfoButton';
 import DeleteButton from './DeleteButton';
@@ -9,23 +9,8 @@ import AddButton from './AddButton';
 
 
 
-function GroupTable() {
-
-  async function GetDatas() {
-    const response = await axios.get("https://localhost:44380/api/Group/GetAll")
-      .catch(error => console.log(error));
-    setGroups(response.data);
-  }
-
-
-  const [groups, setGroups] = useState([]);
+function GroupTable(props) {
   let count = 1
-  useEffect(() => {
-    GetDatas();
-  }, []);
-  
-
-
   return (
 
     <table className="table table-hover">      
@@ -41,7 +26,7 @@ function GroupTable() {
         </tr>
       </thead>
       <tbody >
-        {groups.map(group => (
+        {props.groups.map(group => (
           <tr key={group.id}>
             <th className='table-header' align='center' scope="row">{count++}</th>
             <td className='table-header' align='center'>{group.groupCode}</td>

@@ -10,7 +10,7 @@ function Resource() {
     const [input, setInput] = useState();
     const [id, setId] = useState();
     const [details,setDetails] = useState();
-    
+    console.log(resources);
 
     async function GetDatas() {
         await axios.get(`https://localhost:44380/api/Resource/GetAll`)

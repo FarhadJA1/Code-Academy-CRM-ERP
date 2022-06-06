@@ -47,6 +47,7 @@ namespace Service.Mappings
             CreateMap<Teacher, TeacherListDto>();
             CreateMap<Teacher, TeacherCreateDto>().ReverseMap();
             CreateMap<Teacher, TeacherUpdateDto>().ReverseMap();
+            CreateMap<GroupTeacher,TestDto>().ReverseMap();
         }
     }
 }

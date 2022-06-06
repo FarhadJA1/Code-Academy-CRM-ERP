@@ -21,16 +21,17 @@ namespace Service.Services
             _mapper = mapper;
         }
 
-        public async Task<GroupGetDto> Get(int id)
+        public async Task<GroupGetDto> GetAsync(int id)
         {
             var model = await _groupRepository.GetWithDetails(id);
             return _mapper.Map<GroupGetDto>(model);
         }
 
-        public async Task<List<GroupListDto>> GetAll()
+        public async Task<List<GroupListDto>> GetAllAsync()
         {
-            var model = await _groupRepository.GetAllAsync();
-            return _mapper.Map<List<GroupListDto>>(model);
+            var model = await _groupRepository.GetAllSGroupDetails();
+            var result = _mapper.Map<List<GroupListDto>>(model);
+            return result;
         }
         public async Task CreateAsync(GroupCreateDto groupCreateDto)
         {

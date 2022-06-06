@@ -24,6 +24,7 @@ namespace Repo.Repositories
         {
             List<Student> students = await entities
                 .Where(m => m.SoftDelete == false)
+                .OrderByDescending(m => m.Id)
                 .Include(m => m.PayType)
                 .Include(m => m.Resource)
                 .Include(m => m.Group)

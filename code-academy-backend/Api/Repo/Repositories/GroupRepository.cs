@@ -33,7 +33,21 @@ namespace Repo.Repositories
                 .FirstOrDefaultAsync();
             return group;
         }
-        
+        public async Task<List<Group>> GetAllSGroupDetails()
+        {
+            List<Group> students = await entities
+                .Where(m => m.SoftDelete == false)
+                .OrderByDescending(m => m.Id)
+                .Include(m=>m.GroupClassTerms)
+                .ThenInclude(m=>m.Classroom)
+                .Include(m => m.GroupClassTerms)
+                .ThenInclude(m => m.Term)
+                .Include(m=>m.GroupTeachers)
+                .ThenInclude(m=>m.Teacher)
+                .ToListAsync();
+
+            return students;
+        }
     }
 }
 

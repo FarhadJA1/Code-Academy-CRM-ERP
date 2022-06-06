@@ -19,13 +19,14 @@ namespace App.Controllers
         [Route("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _groupService.GetAll());
+            var result = await _groupService.GetAllAsync();
+            return Ok(result);
         }
         [HttpGet]
         [Route("Get")]
         public async Task<IActionResult> Get([FromHeader] int id)
         {
-            return Ok(await _groupService.Get(id));
+            return Ok(await _groupService.GetAsync(id));
         }
         [HttpPost]
         [Route("CreateGroup")]

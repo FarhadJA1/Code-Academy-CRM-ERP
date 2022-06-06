@@ -16,8 +16,10 @@ function Term() {
     await axios.get(`${url}api/Hour/GetAll`)
       .then(res => {
         setHours(res.data);
+        
       })
   }
+  console.log(hours);
   useEffect(() => {
     GetDatas();
   }, [])

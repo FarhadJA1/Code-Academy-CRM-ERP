@@ -11,5 +11,6 @@ namespace Repo.Repositories.Interfaces
     {
         Task<Group> GetWithDetails(int id);
         Task<Group> GetLastGroup();
+        Task<List<Group>> GetAllSGroupDetails();
     }
 }
