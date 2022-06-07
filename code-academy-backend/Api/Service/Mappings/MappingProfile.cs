@@ -16,9 +16,7 @@ namespace Service.Mappings
         public MappingProfile()
         {
             CreateMap<Group, GroupListDto>();
-            CreateMap<Group, GroupDetailDto>().ReverseMap();
-            CreateMap<Group, GroupGetDto>();
-            CreateMap<Group, GroupCreateDto>().ReverseMap();
+            CreateMap<Group, GroupDetailDto>().ReverseMap();                        
             CreateMap<Resource, ResourceListDto>();
             CreateMap<Resource, ResourceCreateDto>().ReverseMap();
             CreateMap<Resource, ResourceUpdateDto>().ReverseMap();
@@ -47,7 +45,7 @@ namespace Service.Mappings
             CreateMap<Teacher, TeacherListDto>();
             CreateMap<Teacher, TeacherCreateDto>().ReverseMap();
             CreateMap<Teacher, TeacherUpdateDto>().ReverseMap();
-            CreateMap<GroupTeacher,TestDto>().ReverseMap();
+            
         }
     }
 }

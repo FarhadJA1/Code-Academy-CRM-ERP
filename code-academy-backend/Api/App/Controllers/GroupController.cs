@@ -22,17 +22,19 @@ namespace App.Controllers
             var result = await _groupService.GetAllAsync();
             return Ok(result);
         }
-        [HttpGet]
-        [Route("Get")]
-        public async Task<IActionResult> Get([FromHeader] int id)
-        {
-            return Ok(await _groupService.GetAsync(id));
-        }
+
         [HttpPost]
         [Route("CreateGroup")]
         public async Task<IActionResult> Create([FromBody] GroupCreateDto groupCreateDto)
         {
             await _groupService.CreateAsync(groupCreateDto);
+            return Ok();
+        }
+        [HttpGet]
+        [Route("DeleteGroup/{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            await _groupService.DeleteAsync(id);
             return Ok();
         }
     }

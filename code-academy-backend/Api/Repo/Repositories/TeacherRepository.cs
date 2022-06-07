@@ -25,8 +25,7 @@ namespace Repo.Repositories
             List<Teacher> teachers = await entities
                 .Where(m => m.SoftDelete == false)
                 .OrderByDescending(m => m.Id)
-                .Include(m => m.GroupTeachers)
-                .ThenInclude(m => m.Group)                
+                .Include(m => m.Groups)                             
                 .ToListAsync();
 
             return teachers;

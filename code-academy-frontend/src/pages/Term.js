@@ -15,8 +15,7 @@ function Term() {
   async function GetDatas() {
     await axios.get(`${url}api/Hour/GetAll`)
       .then(res => {
-        setHours(res.data);
-        
+        setHours(res.data);        
       })
   }
   console.log(hours);

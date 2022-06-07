@@ -14,7 +14,7 @@ namespace Domain.Entities
         public string Email { get; set; }
         public DateTime Birthday { get; set; }
         public int Salary { get; set; }
-        public long Phone { get; set; }
-        public List<GroupTeacher> GroupTeachers { get; set; }
+        public long Phone { get; set; }        
+        public List<Group> Groups { get; set; }
     }
 }

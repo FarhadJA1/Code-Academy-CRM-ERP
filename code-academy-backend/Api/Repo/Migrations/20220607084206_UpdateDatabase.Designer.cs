@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repo.Data;
 
 namespace Repo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220607084206_UpdateDatabase")]
+    partial class UpdateDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,7 +134,7 @@ namespace Repo.Migrations
                     b.Property<string>("GroupCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GroupTypeId")
+                    b.Property<int>("GroupTypeId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsOver")
@@ -145,7 +147,7 @@ namespace Repo.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<int?>("TeacherId")
+                    b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -512,11 +514,15 @@ namespace Repo.Migrations
                 {
                     b.HasOne("Domain.Entities.GroupType", "GroupType")
                         .WithMany("Groups")
-                        .HasForeignKey("GroupTypeId");
+                        .HasForeignKey("GroupTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Entities.Teacher", "Teacher")
                         .WithMany("Groups")
-                        .HasForeignKey("TeacherId");
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("GroupType");
 

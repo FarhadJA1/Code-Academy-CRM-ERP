@@ -7,13 +7,11 @@ import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
 import AddButton from './AddButton';
 
-
-
 function GroupTable(props) {
   let count = 1
   return (
 
-    <table className="table table-hover">      
+    <table className="table table-hover">
       <thead>
         <tr>
           <th className='table-header' scope="col">#</th>
@@ -25,23 +23,27 @@ function GroupTable(props) {
           <th className='table-header' scope="col">Settings</th>
         </tr>
       </thead>
-      <tbody >
+      <tbody>
         {props.groups.map(group => (
-          <tr key={group.id}>
+          <tr>
             <th className='table-header' align='center' scope="row">{count++}</th>
             <td className='table-header' align='center'>{group.groupCode}</td>
             <td className='table-header' align='center'>{group.createDate}</td>
             <td className='table-header' align='center'>{group.expireDate}</td>
-            <td className='table-header' align='center'>{group.teacher}</td>
+
+            
+            {(group.teacher == null) ? (
+              <td className='group-code table-header' align='center'>No teacher has been assigned.</td>
+            ) : (<td className='table-header' align='center'>{group.teacher.name} {group.teacher.surname}</td>)
+            }
             <td className='table-header' align='center'>{group.students.length}</td>
             <th className='table-button-area' scope="col">
               <InfoButton />
-              <DeleteButton />
+              <DeleteButton id={props.id} value={group.id} setId={props.setId} deleteGroup={props.deleteGroup}/>
               <EditButton />
               <AddButton />
             </th>
           </tr>
-
         ))}
 
       </tbody>

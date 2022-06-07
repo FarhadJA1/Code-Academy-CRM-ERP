@@ -42,12 +42,12 @@ namespace Repo.Repositories
                 .ThenInclude(m=>m.Classroom)
                 .Include(m => m.GroupClassTerms)
                 .ThenInclude(m => m.Term)
-                .Include(m=>m.GroupTeachers)
-                .ThenInclude(m=>m.Teacher)
+                .Include(m=>m.Teacher)                
                 .ToListAsync();
 
             return students;
         }
+        
     }
 }
 

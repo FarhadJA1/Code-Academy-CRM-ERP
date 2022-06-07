@@ -93,6 +93,7 @@ function StudentCreateBtn(props) {
                                                 label="Resource"
                                                 onChange={(e)=>props.setResourceInput(e.target.value)}
                                                 defaultValue = ""
+                                                
                                             >
                                                 {props.resources.map(res=>(
                                                     <MenuItem value={res.id}>{res.name}</MenuItem>

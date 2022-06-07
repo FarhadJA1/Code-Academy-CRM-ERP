@@ -5,8 +5,6 @@ using Service.DTOs.GroupDto;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Services
@@ -14,34 +12,57 @@ namespace Service.Services
     public class GroupService : IGroupService
     {
         private readonly IGroupRepository _groupRepository;
+        private readonly IGroupTypeRepository _groupTypeRepository;
         private readonly IMapper _mapper;
-        public GroupService(IGroupRepository groupRepository,IMapper mapper)
+        public GroupService(IGroupTypeRepository groupTypeRepository,IGroupRepository groupRepository,IMapper mapper)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
+            _groupTypeRepository = groupTypeRepository;
         }
-
-        public async Task<GroupGetDto> GetAsync(int id)
-        {
-            var model = await _groupRepository.GetWithDetails(id);
-            return _mapper.Map<GroupGetDto>(model);
-        }
-
+        
         public async Task<List<GroupListDto>> GetAllAsync()
         {
             var model = await _groupRepository.GetAllSGroupDetails();
             var result = _mapper.Map<List<GroupListDto>>(model);
             return result;
         }
+
         public async Task CreateAsync(GroupCreateDto groupCreateDto)
         {
             var lastGroup = await _groupRepository.GetLastGroup();
-            var code = lastGroup.GroupCode.Substring(1, 3);
-            var result = Int32.Parse(code)+1;
-            groupCreateDto.GroupCode = groupCreateDto.GroupType.Name[0].ToString()+result;
-            await _groupRepository.CreateAsync(_mapper.Map<Group>(groupCreateDto));
+            string code;
+            if(lastGroup == null)
+            {
+                code = "10";
+            }
+            else
+            {
+                code = lastGroup.GroupCode.Substring(2, 2);
+            }
+            
+            var result = Int32.Parse(code) + 1;
+            var groupType = await _groupTypeRepository.GetAsync(groupCreateDto.TermId);
+            Group group = new()
+            {
+                GroupTypeId = groupCreateDto.GroupTypeId,
+                CreateDate = groupCreateDto.CreateDate,
+                ExpireDate = groupCreateDto.CreateDate.AddDays(1).AddMonths(6).AddDays(-1),
+                GroupCode = groupType.Name[0].ToString() + groupCreateDto.GroupTypeId.ToString() + result,
+                Capacity = groupCreateDto.Capacity,
+                IsOver = false,              
+                
+            };
+            
+            await _groupRepository.CreateAsync(group);
+        }
+        public async Task DeleteAsync(int id)
+        {
+            Group group = await _groupRepository.GetAsync(id);
+
+            await _groupRepository.SoftDeleteAsync(group);
         }
 
-        
+
     }
 }

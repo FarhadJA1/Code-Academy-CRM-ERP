@@ -15,8 +15,7 @@ namespace Repo
             services.AddScoped<IPayTypeRepository, PayTypeRepository>();
             services.AddScoped<IResourceRepository, ResourceRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
-            services.AddScoped<ITeacherRepository, TeacherRepository>();
-            services.AddScoped<IGroupTeacherRepository, GroupTeacherRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();            
             services.AddScoped<IHourRepository, HourRepository>();
             services.AddScoped<IClassroomRepository, ClassroomRepository>();
             return services;

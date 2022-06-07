@@ -10,7 +10,7 @@ namespace Service.Services.Interfaces
     public interface IGroupService
     {
         Task<List<GroupListDto>> GetAllAsync();
-        Task<GroupGetDto> GetAsync(int id);
+        Task DeleteAsync(int id);
         Task CreateAsync(GroupCreateDto groupCreateDto);
     }
 }

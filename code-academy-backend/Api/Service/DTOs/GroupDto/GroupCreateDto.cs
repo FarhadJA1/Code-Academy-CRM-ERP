@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-using FluentValidation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +8,9 @@ namespace Service.DTOs.GroupDto
 {
     public class GroupCreateDto
     {
-        public string GroupCode { get; set; }
-        public GroupType GroupType { get; set; }
-        
-
-    }
-    public class GroupCreateValidator : AbstractValidator<GroupCreateDto>
-    {
-        public GroupCreateValidator()
-        {
-            RuleFor(m => m.GroupType.Name).NotEmpty().WithMessage("Please add 'Education Type'").MinimumLength(5).MaximumLength(40);
-            RuleFor(m => m.GroupCode).NotEmpty().MinimumLength(1).MaximumLength(100);
-
-        }
+        public int GroupTypeId { get; set; }        
+        public int TermId { get; set; }        
+        public int Capacity { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }
