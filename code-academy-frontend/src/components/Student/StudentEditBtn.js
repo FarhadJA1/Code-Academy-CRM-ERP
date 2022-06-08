@@ -99,6 +99,7 @@ function StudentEditBtn(props) {
                                     </Box>
                                 </div>
                             </div>
+                            
                         </div>
                         <div className="modal-footer">
                             <button onClick={() => props.updateStudent()} data-bs-dismiss="modal" type="button" className="btn btn-outline-primary student-button">Save</button>

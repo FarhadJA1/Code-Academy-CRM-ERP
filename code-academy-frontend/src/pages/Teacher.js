@@ -8,6 +8,7 @@ function Teacher() {
     const url = "https://localhost:44380"
 
     const [teachers, setTeachers] = useState([]);
+    const [professions,setProfessions] = useState([]);
 
     const [nameInput, setNameInput] = useState();
     const [surnameInput, setSurnameInput] = useState();
@@ -15,6 +16,7 @@ function Teacher() {
     const [emailInput, setEmailInput] = useState();
     const [phoneInput, setPhoneInput] = useState();
     const [salaryInput, setSalaryInput] = useState();
+    const [professionInput,setProfessionInput] = useState();
 
     const [id, setId] = useState();
 
@@ -24,10 +26,18 @@ function Teacher() {
                 setTeachers(res.data);
             })
     }
+    async function GetProfessions() {
+        await axios.get(`${url}/api/Profession/GetAll`)
+            .then(res => {
+                setProfessions(res.data);
+            })
+    }
     useEffect(() => {
         GetTeachers();
+        GetProfessions();
+        
     }, [])
-
+    console.log(teachers);
     async function CreateTeacher() {
         await axios.post(`${url}/api/Teacher/CreateTeacher`, {
             name: nameInput,
@@ -36,6 +46,7 @@ function Teacher() {
             birthday: birthdayInput,
             phone: phoneInput,
             salary: salaryInput,
+            professionId:professionInput,
         })
             .then(res => {
                 GetTeachers();
@@ -67,6 +78,7 @@ function Teacher() {
             birthday: birthdayInput,
             phone: phoneInput,
             salary: salaryInput,
+            professionId:professionInput
         })
             .then(res => {
                 GetTeachers();
@@ -90,6 +102,8 @@ function Teacher() {
                 emailInput={emailInput} setEmailInput={setEmailInput}
                 phoneInput={phoneInput} setPhoneInput={setPhoneInput}
                 salaryInput={salaryInput} setSalaryInput={setSalaryInput}
+                professionInput={professionInput} setProfessionInput={setProfessionInput}
+                professions={professions}
                 createTeacher={CreateTeacher}
             />
             <TeacherTable
@@ -100,8 +114,11 @@ function Teacher() {
                 phoneInput={phoneInput} setPhoneInput={setPhoneInput}
                 salaryInput={salaryInput} setSalaryInput={setSalaryInput}
                 teachers={teachers} setId={setId} id={id}
+                professionInput={professionInput} setProfessionInput={setProfessionInput}
+                professions={professions}
                 deleteTeacher={DeleteTeacher}
                 updateTeacher={UpdateTeacher}
+
             />
         </div>
     )

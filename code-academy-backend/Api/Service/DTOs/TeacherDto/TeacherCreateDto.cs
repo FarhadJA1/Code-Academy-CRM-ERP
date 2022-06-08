@@ -14,5 +14,6 @@ namespace Service.DTOs.TeacherDto
         public DateTime Birthday { get; set; }
         public int Salary { get; set; }
         public long Phone { get; set; }
+        public int ProfessionId { get; set; }
     }
 }

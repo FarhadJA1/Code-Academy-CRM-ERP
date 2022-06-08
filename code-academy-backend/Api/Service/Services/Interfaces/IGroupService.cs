@@ -12,5 +12,6 @@ namespace Service.Services.Interfaces
         Task<List<GroupListDto>> GetAllAsync();
         Task DeleteAsync(int id);
         Task CreateAsync(GroupCreateDto groupCreateDto);
+       
     }
 }

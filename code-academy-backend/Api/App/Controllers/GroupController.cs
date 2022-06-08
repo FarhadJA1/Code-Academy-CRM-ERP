@@ -37,5 +37,7 @@ namespace App.Controllers
             await _groupService.DeleteAsync(id);
             return Ok();
         }
+        
+
     }
 }

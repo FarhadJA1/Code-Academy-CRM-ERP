@@ -2,6 +2,11 @@ import React from 'react'
 import { TextField } from '@mui/material'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 function TeacherCreateButton(props) {
     return (
         <div className='create-btn-area'>
@@ -55,6 +60,29 @@ function TeacherCreateButton(props) {
                                 <div className="col-6">
                                     <TextField type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='teacher-input' id="outlined-basic" label="Phone" variant="outlined" />
                                 </div>
+                            </div>
+                            <h6 className='addition-title mt-4'>QUALIFICATION</h6>
+                            <div className='row'>
+                                <Box sx={{ width: 0.98 }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Profession</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={props.professionInput}
+                                            label="Profession"
+                                            onChange={(e) => props.setProfessionInput(e.target.value)}
+                                            defaultValue=""
+
+                                        >
+                                            {props.professions.map(pro => (
+                                                <MenuItem value={pro.id}>{pro.name}</MenuItem>
+                                            ))}
+
+
+                                        </Select>
+                                    </FormControl>
+                                </Box>
                             </div>
 
                         </div>

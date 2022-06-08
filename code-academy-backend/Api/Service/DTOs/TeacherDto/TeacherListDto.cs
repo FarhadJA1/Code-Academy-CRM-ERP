@@ -1,4 +1,5 @@
 ﻿using Service.DTOs.GroupDto;
+using Service.DTOs.ProfessionDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace Service.DTOs.TeacherDto
         public int Salary { get; set; }
         public long Phone { get; set; }
         public TeacherGroupDto TeacherGroupDto { get; set; }
+        public ProfessionListDto Profession { get; set; }
     }
 }

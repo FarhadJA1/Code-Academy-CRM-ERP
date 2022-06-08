@@ -13,10 +13,16 @@ function Group() {
   const [createDateInput, setCreateDateInput] = useState();
   const [termInput, setTermInput] = useState();
   const [groupTypeNameInput,setGroupTypeNameInput] = useState();
+  const [studentsInput,setStudentsInput] = useState([]);
+  const [classroomInput,setClassroomInput] = useState();
+  const [teacherInput,setTeacherInput] = useState(); 
   const [id, setId] = useState();
 
   const [hours, setHours] = useState([]);
   const [education, setEducation] = useState([]);
+  const [classrooms,setClassrooms] = useState([]);
+  const [teachers,setTeachers] = useState([]);
+  const [students,setStudents] = useState([]);
 
   async function GetGroups() {
     const response = await axios.get("https://localhost:44380/api/Group/GetAll")
@@ -31,6 +37,24 @@ function Group() {
         setHours(res.data);        
       })
   }
+  async function GetClassrooms() {
+    await axios.get(`${url}/api/Classroom/GetAll`)
+      .then(res => {
+        setClassrooms(res.data);        
+      })
+  }
+  async function GetTeachers() {
+    await axios.get(`${url}/api/Teacher/GetAll`)
+      .then(res => {
+        setTeachers(res.data);        
+      })
+  }
+  async function GetStudents() {
+    await axios.get(`${url}/api/Student/GetAll`)
+      .then(res => {
+        setStudents(res.data);        
+      })
+  }
   async function GetEducations() {
     await axios.get(`${url}/api/Education/GetAll`)
       .then(res => {
@@ -41,6 +65,9 @@ function Group() {
     GetGroups();
     GetHours();
     GetEducations();
+    GetClassrooms();
+    GetTeachers();
+    GetStudents();
   }, []);
   async function CreateGroup() {    
     await axios.post(`${url}/api/Group/CreateGroup`, {
@@ -68,6 +95,7 @@ function Group() {
       })
       .catch(error => console.log(error));
   }
+  
 
 
   return (
@@ -83,7 +111,15 @@ function Group() {
       />
       <GroupTable
         groups={groups} setId={setId} id={id}
-        deleteGroup={DeleteGroup}
+        deleteGroup={DeleteGroup}            
+        hours={hours} education={education}
+        setEducation={setEducation} setHours={setHours}
+        classrooms={classrooms} setClassrooms={setClassrooms}
+        teachers={teachers} setTeachers={setTeachers}
+        students={students} setStudents={setStudents}
+        studentsInput={studentsInput} setStudentsInput={setStudentsInput}
+        classroomInput={classroomInput} setClassroomInput={setClassroomInput}
+        teacherInput={teacherInput} setTeacherInput={setTeacherInput}
       />
     </div>
   )

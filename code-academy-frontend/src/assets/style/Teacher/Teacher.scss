@@ -13,9 +13,10 @@
 
     .addition {
 
+        text-align: start;
         .addition-title {
             display: inline-block;
-            position: relative;
+            position: relative;            
         }
 
         .addition-title:after {
@@ -46,6 +47,7 @@
             padding: 10px;
 
         }
+       
 
         .react-datepicker-popper {
             z-index: 4;

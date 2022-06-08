@@ -26,6 +26,39 @@
   }
 
   .addition {
+    .group-create-date {
+      border-radius: 4px;
+      color: navy;
+      border: 1px solid rgb(190, 186, 186);
+      width: 210px;
+      margin-top: 13px;
+      height: 56px;
+      padding: 10px;
+      margin-bottom: 12px;
+
+  }
+  .group-capacity-input{
+    padding-left: 20px;
+  }
+  .group-education-input{
+    margin-left: 2px;
+  }
+
+  .react-datepicker-popper {
+      z-index: 4;
+  }
+
+  .react-datepicker__close-icon {
+      margin-right: 10px;
+  }
+
+  .react-datepicker__header {
+      background-color: #2574ba;
+  }
+  .group-drop{
+      display: flex;
+      justify-content: center;
+  }
 
     .addition-title {
       display: inline-block;

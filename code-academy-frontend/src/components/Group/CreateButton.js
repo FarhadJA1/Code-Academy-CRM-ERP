@@ -41,7 +41,6 @@ function CreateButton(props) {
                       <MenuItem  onChange={(e)=>props.setGroupTypeNameInput(e.target.value)} value={edu.id}>{edu.name}</MenuItem>
                     ))}
 
-
                   </Select>
                 </FormControl>
               </div>

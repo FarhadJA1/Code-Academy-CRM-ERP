@@ -5,6 +5,7 @@ using Service.DTOs.EducationDto;
 using Service.DTOs.GroupDto;
 using Service.DTOs.HourDto;
 using Service.DTOs.PayTypeDto;
+using Service.DTOs.ProfessionDto;
 using Service.DTOs.ResourceDto;
 using Service.DTOs.StudentDto;
 using Service.DTOs.TeacherDto;
@@ -14,7 +15,7 @@ namespace Service.Mappings
     public class MappingProfile:Profile
     {
         public MappingProfile()
-        {
+        {            
             CreateMap<Group, GroupListDto>();
             CreateMap<Group, GroupDetailDto>().ReverseMap();                        
             CreateMap<Resource, ResourceListDto>();
@@ -45,7 +46,7 @@ namespace Service.Mappings
             CreateMap<Teacher, TeacherListDto>();
             CreateMap<Teacher, TeacherCreateDto>().ReverseMap();
             CreateMap<Teacher, TeacherUpdateDto>().ReverseMap();
-            
+            CreateMap<Profession, ProfessionListDto>();
         }
     }
 }

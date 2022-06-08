@@ -16,5 +16,7 @@ namespace Domain.Entities
         public int Salary { get; set; }
         public long Phone { get; set; }        
         public List<Group> Groups { get; set; }
+        public int ProfessionId { get; set; }
+        public Profession Profession { get; set; }
     }
 }

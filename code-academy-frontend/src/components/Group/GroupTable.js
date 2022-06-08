@@ -4,7 +4,6 @@ import React from 'react';
 import '../../assets/style/Group/GroupTable.scss'
 import InfoButton from './InfoButton';
 import DeleteButton from './DeleteButton';
-import EditButton from './EditButton';
 import AddButton from './AddButton';
 
 function GroupTable(props) {
@@ -39,9 +38,16 @@ function GroupTable(props) {
             <td className='table-header' align='center'>{group.students.length}</td>
             <th className='table-button-area' scope="col">
               <InfoButton />
-              <DeleteButton id={props.id} value={group.id} setId={props.setId} deleteGroup={props.deleteGroup}/>
-              <EditButton />
-              <AddButton />
+              <DeleteButton id={props.id} value={group.id} setId={props.setId} deleteGroup={props.deleteGroup}/>              
+              <AddButton 
+              setId={props.setId} id={props.id} value={group.id}
+              classrooms={props.classrooms} setClassrooms={props.setClassrooms}
+              teachers={props.teachers} setTeachers={props.setTeachers}
+              students={props.students} setStudents={props.setStudents}
+              studentsInput={props.studentsInput} setStudentsInput={props.setStudentsInput}
+              classroomInput={props.classroomInput} setClassroomInput={props.setClassroomInput}
+              teacherInput={props.teacherInput} setTeacherInput={props.setTeacherInput}
+              />
             </th>
           </tr>
         ))}
