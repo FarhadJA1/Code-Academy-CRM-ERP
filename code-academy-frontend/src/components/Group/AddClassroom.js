@@ -30,7 +30,7 @@ function AddClassroom(props) {
                                         defaultValue=""
                                     >
                                         {props.classrooms.map(classroom => (
-                                            <MenuItem value={classroom.id}>{classroom.name}</MenuItem>
+                                            <MenuItem key={classroom.id} value={classroom.id}>{classroom.name}</MenuItem>
                                         ))}
 
                                     </Select>

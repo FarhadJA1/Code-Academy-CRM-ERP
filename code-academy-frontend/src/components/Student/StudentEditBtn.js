@@ -71,7 +71,7 @@ function StudentEditBtn(props) {
                                                 defaultValue = ""
                                             >
                                                 {props.payments.map(payment => (
-                                                <MenuItem value={payment.id}>{payment.name}</MenuItem>                                                
+                                                <MenuItem key={payment.id} value={payment.id}>{payment.name}</MenuItem>                                                
                                                 ))}
 
                                             </Select>
@@ -91,7 +91,7 @@ function StudentEditBtn(props) {
                                                 defaultValue = ""
                                             >
                                                 {props.resources.map(res=>(
-                                                    <MenuItem value={res.id}>{res.name}</MenuItem>
+                                                    <MenuItem key={res.id} value={res.id}>{res.name}</MenuItem>
                                                 ))}                                               
                                                
                                             </Select>

@@ -76,7 +76,7 @@ function TeacherCreateButton(props) {
 
                                         >
                                             {props.professions.map(pro => (
-                                                <MenuItem value={pro.id}>{pro.name}</MenuItem>
+                                                <MenuItem key={pro.id} value={pro.id}>{pro.name}</MenuItem>
                                             ))}
 
 

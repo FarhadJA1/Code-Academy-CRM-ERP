@@ -38,7 +38,7 @@ function CreateButton(props) {
                     defaultValue=""
                   >
                     {props.education.map(edu => (
-                      <MenuItem  onChange={(e)=>props.setGroupTypeNameInput(e.target.value)} value={edu.id}>{edu.name}</MenuItem>
+                      <MenuItem key={edu.id} onChange={(e) => props.setGroupTypeNameInput(e.target.value)} value={edu.id}>{edu.name}</MenuItem>
                     ))}
 
                   </Select>
@@ -75,7 +75,7 @@ function CreateButton(props) {
                   label="Hour"
                 >
                   {props.hours.map(hour => (
-                    <MenuItem value={hour.id}>{hour.day} - {hour.time}</MenuItem>
+                    <MenuItem key={hour.id} value={hour.id}>{hour.day} - {hour.time}</MenuItem>
                   ))}
                 </Select>
               </FormControl>

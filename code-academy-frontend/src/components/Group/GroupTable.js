@@ -24,7 +24,7 @@ function GroupTable(props) {
       </thead>
       <tbody>
         {props.groups.map(group => (
-          <tr>
+          <tr key={group.id}>
             <th className='table-header' align='center' scope="row">{count++}</th>
             <td className='table-header' align='center'>{group.groupCode}</td>
             <td className='table-header' align='center'>{group.createDate}</td>

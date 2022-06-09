@@ -31,7 +31,7 @@ function EducationDetails(props) {
                     <div className="modal-body">
                         <ul>
                             {props.edu.groups.map(group => (
-                                <li>
+                                <li key={group.id}>
                                     <span>{count++}</span>
                                     <span>{group.groupCode}</span>
                                 </li>

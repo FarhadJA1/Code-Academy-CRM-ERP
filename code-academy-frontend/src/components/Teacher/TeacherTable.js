@@ -22,7 +22,7 @@ function TeacherTable(props) {
         </thead>
         <tbody>
           {props.teachers.map(teacher => (
-            <tr>
+            <tr key={teacher.id}>
               <th className='table-header' scope="row">{count++}</th>
               <td className='table-header' align='center'>{teacher.name}</td>
               <td className='table-header' align='center'>{teacher.surname}</td>

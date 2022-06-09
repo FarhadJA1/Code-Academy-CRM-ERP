@@ -28,13 +28,14 @@ function Group() {
     const response = await axios.get("https://localhost:44380/api/Group/GetAll")
       .catch(error => console.log(error));
     setGroups(response.data);
-    console.log(response.data);
+    
   }
+  
 
   async function GetHours() {
     await axios.get(`${url}/api/Hour/GetAll`)
       .then(res => {
-        setHours(res.data);        
+        setHours(res.data);
       })
   }
   async function GetClassrooms() {
@@ -68,7 +69,9 @@ function Group() {
     GetClassrooms();
     GetTeachers();
     GetStudents();
-  }, []);
+    
+  },[]);
+
   async function CreateGroup() {    
     await axios.post(`${url}/api/Group/CreateGroup`, {
       groupTypeId: educationInput,

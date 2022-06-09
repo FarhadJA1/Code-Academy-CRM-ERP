@@ -19,7 +19,7 @@ function ClassroomTable(props) {
                 </thead>
                 <tbody>
                     {props.classrooms.map(cl => (
-                        <tr>
+                        <tr key={cl.id}>
                             <th className='table-header' scope="row">{count++}</th>
                             <td className='table-header' align='center'>{cl.name}</td>
                             <td className='table-header' align='center'>Otto</td>

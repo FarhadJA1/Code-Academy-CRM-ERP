@@ -30,7 +30,7 @@ function AddTeacher(props) {
                                         defaultValue=""
                                     >
                                         {props.teachers.map(teacher=>(
-                                                    <MenuItem value={teacher.id}>{teacher.name} {teacher.surname} - {teacher.profession.name}</MenuItem>
+                                                    <MenuItem key={teacher.id} value={teacher.id}>{teacher.name} {teacher.surname} - {teacher.profession.name}</MenuItem>
                                                 ))}                                               
 
                                     </Select>
