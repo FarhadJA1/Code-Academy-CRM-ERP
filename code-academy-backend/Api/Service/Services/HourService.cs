@@ -3,15 +3,12 @@ using Domain.Entities;
 using Repo.Repositories.Interfaces;
 using Service.DTOs.HourDto;
 using Service.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class HourService:IHourService
+    public class HourService : IHourService
     {
         private readonly IHourRepository _hourRepository;
         private readonly IMapper _mapper;

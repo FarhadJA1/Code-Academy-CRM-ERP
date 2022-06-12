@@ -2,15 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repo.Repositories
 {
-    public class ProfessionRepository : Repository<Profession>,IProfessionRepository
+    public class ProfessionRepository : Repository<Profession>, IProfessionRepository
     {
         private readonly AppDbContext _context;
         private readonly DbSet<Profession> entities;

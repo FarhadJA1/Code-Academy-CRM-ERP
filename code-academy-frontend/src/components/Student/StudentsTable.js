@@ -24,7 +24,7 @@ function StudentsTable(props) {
                             <th className='table-header' scope="row">{count++}</th>
                             <td className='table-header' align='center'>{student.name}</td>
                             <td className='table-header' align='center'>{student.surname}</td>
-                            <td className='table-header' align='center'>{student.birthday}</td>
+                            <td className='table-header' align='center'>{student.birthday.substring(0,10).split("-").reverse().join("-")}</td>
                             {(student.group?.groupCode == null) ? (
                                 <td className='group-code' align='center'>Has not been assigned to a group.</td>
                             ) : (<td className='table-header' align='center'>{student.group?.groupCode}</td>)

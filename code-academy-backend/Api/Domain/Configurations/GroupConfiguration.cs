@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Configurations
 {
@@ -16,7 +12,7 @@ namespace Domain.Configurations
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.Now.ToShortDateString());
             builder.Property(m => m.IsOver).HasDefaultValue(false);
             builder.Property(m => m.SoftDelete).HasDefaultValue(false);
-            
+
         }
     }
 }

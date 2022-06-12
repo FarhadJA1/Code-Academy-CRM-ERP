@@ -124,7 +124,7 @@ namespace Repo.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValue(new DateTime(2022, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");
@@ -164,23 +164,25 @@ namespace Repo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClassroomId")
+                    b.Property<int?>("ClassroomId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GroupId")
+                    b.Property<int?>("GroupId")
                         .HasColumnType("int");
 
                     b.Property<bool>("SoftDelete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TermId")
+                    b.Property<int?>("TermId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClassroomId");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("GroupId")
+                        .IsUnique()
+                        .HasFilter("[GroupId] IS NOT NULL");
 
                     b.HasIndex("TermId");
 
@@ -550,21 +552,15 @@ namespace Repo.Migrations
                 {
                     b.HasOne("Domain.Entities.Classroom", "Classroom")
                         .WithMany("GroupClassTerms")
-                        .HasForeignKey("ClassroomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClassroomId");
 
                     b.HasOne("Domain.Entities.Group", "Group")
-                        .WithMany("GroupClassTerms")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne("GroupClassTerm")
+                        .HasForeignKey("Domain.Entities.GroupClassTerm", "GroupId");
 
                     b.HasOne("Domain.Entities.Term", "Term")
                         .WithMany("GroupClassTerms")
-                        .HasForeignKey("TermId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TermId");
 
                     b.Navigation("Classroom");
 
@@ -667,7 +663,7 @@ namespace Repo.Migrations
 
             modelBuilder.Entity("Domain.Entities.Group", b =>
                 {
-                    b.Navigation("GroupClassTerms");
+                    b.Navigation("GroupClassTerm");
 
                     b.Navigation("Students");
                 });

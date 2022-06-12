@@ -3,15 +3,12 @@ using Domain.Entities;
 using Repo.Repositories.Interfaces;
 using Service.DTOs.ClassroomDto;
 using Service.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class ClassroomService:IClassroomService
+    public class ClassroomService : IClassroomService
     {
         private readonly IClassroomRepository _classroomRepository;
         private readonly IMapper _mapper;

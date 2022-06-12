@@ -23,21 +23,23 @@ function AddButton(props) {
                             setId={props.setId} id={props.id} value={props.value}
                             students={props.students} setStudents={props.setStudents}
                             studentsInput={props.studentsInput} setStudentsInput={props.setStudentsInput}
+                            addStudents={props.addStudents}
                             />
                             <AddClassroom 
                             setId={props.setId} id={props.id} value={props.value}
                             classrooms={props.classrooms} setClassrooms={props.setClassrooms}
                             classroomInput={props.classroomInput} setClassroomInput={props.setClassroomInput}
+                            addClassroom={props.addClassroom}
                             />                            
                             <AddTeacher 
                             setId={props.setId} id={props.id} value={props.value}
                             teachers={props.teachers} setTeachers={props.setTeachers}
                             teacherInput={props.teacherInput} setTeacherInput={props.setTeacherInput}
+                            addTeacher={props.addTeacher}
                             />
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-primary group-btn">Save</button>
-                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
+                        <div className="modal-footer">                            
+                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-primary group-btn">Go Back</button>
                         </div>
                     </div>
                 </div>

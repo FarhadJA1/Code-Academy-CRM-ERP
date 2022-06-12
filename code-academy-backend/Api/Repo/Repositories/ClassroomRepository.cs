@@ -2,10 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repo.Repositories
@@ -25,7 +22,7 @@ namespace Repo.Repositories
             Classroom classroom = await entities
                 .Where(m => m.Id == id)
                 .Include(m => m.GroupClassTerms)
-                .ThenInclude(m=>m.Group)
+                .ThenInclude(m => m.Group)
                 .Include(m => m.GroupClassTerms)
                 .ThenInclude(m => m.Term)
                 .FirstOrDefaultAsync();

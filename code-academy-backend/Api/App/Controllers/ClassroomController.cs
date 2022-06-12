@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service.DTOs.ClassroomDto;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace App.Controllers
 {
     public class ClassroomController : BaseController
     {
-        private readonly IClassroomService  _classroomService;
+        private readonly IClassroomService _classroomService;
         public ClassroomController(IClassroomService classroomService)
         {
             _classroomService = classroomService;

@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 
 namespace Domain.Configurations
@@ -11,8 +10,8 @@ namespace Domain.Configurations
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
             builder.Property(m => m.Name).IsRequired().HasMaxLength(100);
-            builder.Property(m=>m.Surname).IsRequired().HasMaxLength(100);
-            builder.Property(m => m.Birthday).IsRequired();            
+            builder.Property(m => m.Surname).IsRequired().HasMaxLength(100);
+            builder.Property(m => m.Birthday).IsRequired();
             builder.Property(m => m.Email).IsRequired().HasMaxLength(100);
             builder.Property(m => m.SoftDelete).HasDefaultValue(false);
         }

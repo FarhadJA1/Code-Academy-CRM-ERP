@@ -2,10 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repo.Repositories
@@ -25,8 +23,8 @@ namespace Repo.Repositories
             List<Teacher> teachers = await entities
                 .Where(m => m.SoftDelete == false)
                 .OrderByDescending(m => m.Id)
-                .Include(m => m.Groups)   
-                .Include(m=>m.Profession)
+                .Include(m => m.Groups)
+                .Include(m => m.Profession)
                 .ToListAsync();
 
             return teachers;

@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 function AddClassroom(props) {
     return (
         <div className='row my-2 add-buttons-area addition'>
-            <button type="button" onClick={(e) => props.setId(e.target.value)} value={props.value} className="btn btn-outline-success add-button" data-bs-toggle="modal" data-bs-target={'#add-classroom' + props.id}>Add Classroom</button>
+            <button type="button" onClick={(e) => props.setId(e.target.value)} value={props.id} className="btn btn-outline-success add-button" data-bs-toggle="modal" data-bs-target={'#add-classroom' + props.id}>Add Classroom</button>
 
 
             <div className="modal fade" id={'add-classroom' + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,7 +38,7 @@ function AddClassroom(props) {
                             </Box>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-primary group-btn">Save</button>
+                            <button onClick={() => props.addClassroom()} data-bs-dismiss="modal" type="button" className="btn btn-outline-primary group-btn">Save</button>
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
                         </div>
                     </div>

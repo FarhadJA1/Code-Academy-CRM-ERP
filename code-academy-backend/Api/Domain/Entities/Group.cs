@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class Group:BaseEntity
+    public class Group : BaseEntity
     {
         public int? GroupTypeId { get; set; }
         public GroupType GroupType { get; set; }
@@ -16,6 +16,6 @@ namespace Domain.Entities
         public DateTime ExpireDate { get; set; }
         public int Capacity { get; set; }
         public bool IsOver { get; set; }
-        public List<GroupClassTerm> GroupClassTerms { get; set; }
+        public GroupClassTerm GroupClassTerm { get; set; }
     }
 }

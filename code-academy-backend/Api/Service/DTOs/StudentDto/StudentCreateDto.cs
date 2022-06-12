@@ -1,12 +1,4 @@
-﻿using Domain.Entities;
-using Service.DTOs.GroupDto;
-using Service.DTOs.PayTypeDto;
-using Service.DTOs.ResourceDto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Service.DTOs.StudentDto
 {

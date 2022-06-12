@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.DTOs.ResourceDto
 {
@@ -16,7 +11,7 @@ namespace Service.DTOs.ResourceDto
     {
         public ResourceCreateValidator()
         {
-            RuleFor(m => m.Name).NotEmpty().WithMessage("Please add 'Resource Type'").MaximumLength(40);          
+            RuleFor(m => m.Name).NotEmpty().WithMessage("Please add 'Resource Type'").MaximumLength(40);
 
         }
     }

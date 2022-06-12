@@ -1,8 +1,5 @@
 ﻿using Service.DTOs.GroupDto;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Services.Interfaces
@@ -12,6 +9,8 @@ namespace Service.Services.Interfaces
         Task<List<GroupListDto>> GetAllAsync();
         Task DeleteAsync(int id);
         Task CreateAsync(GroupCreateDto groupCreateDto);
-       
+        Task AssignTeacherAsync(int id, AddTeacherDto addTeacherDto);
+        Task AssignClassroomAsync(int id, AddClassroomDto addClassroomDto);
+        Task AddStudentsAsync(int id, AddStudentDto addStudentDto);
     }
 }

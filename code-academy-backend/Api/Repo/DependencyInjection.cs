@@ -15,10 +15,11 @@ namespace Repo
             services.AddScoped<IPayTypeRepository, PayTypeRepository>();
             services.AddScoped<IResourceRepository, ResourceRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
-            services.AddScoped<ITeacherRepository, TeacherRepository>();            
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<IHourRepository, HourRepository>();
             services.AddScoped<IClassroomRepository, ClassroomRepository>();
             services.AddScoped<IProfessionRepository, ProfessionRepository>();
+            services.AddScoped<IGroupClassTermRepository, GroupClassTermRepository>();
             return services;
         }
     }

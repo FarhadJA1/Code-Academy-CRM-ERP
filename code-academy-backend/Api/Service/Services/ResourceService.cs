@@ -3,10 +3,7 @@ using Domain.Entities;
 using Repo.Repositories.Interfaces;
 using Service.DTOs.ResourceDto;
 using Service.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Services
@@ -35,7 +32,7 @@ namespace Service.Services
 
             await _resourceRepository.SoftDeleteAsync(resource);
         }
-        public async Task UpdateAsync(int id,ResourceUpdateDto resourceUpdateDto)
+        public async Task UpdateAsync(int id, ResourceUpdateDto resourceUpdateDto)
         {
             var entity = await _resourceRepository.GetAsync(id);
             _mapper.Map(resourceUpdateDto, entity);
@@ -45,7 +42,7 @@ namespace Service.Services
         {
             var entity = await _resourceRepository.ResourceDetails(id);
             ResourceDetailsDto resourceDetailsDto = new();
-            var result =_mapper.Map(entity, resourceDetailsDto);
+            var result = _mapper.Map(entity, resourceDetailsDto);
             return result;
         }
     }

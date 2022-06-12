@@ -23,6 +23,7 @@ function Group() {
   const [classrooms,setClassrooms] = useState([]);
   const [teachers,setTeachers] = useState([]);
   const [students,setStudents] = useState([]);
+  
 
   async function GetGroups() {
     const response = await axios.get("https://localhost:44380/api/Group/GetAll")
@@ -70,15 +71,16 @@ function Group() {
     GetTeachers();
     GetStudents();
     
-  },[]);
+  },[]);  
 
   async function CreateGroup() {    
+    
     await axios.post(`${url}/api/Group/CreateGroup`, {
       groupTypeId: educationInput,
       capacity: capacityInput,
       createDate: createDateInput,
       termId: termInput,
-      groupTypeName:groupTypeNameInput
+      
     })
       .then(res => {
         GetGroups();
@@ -91,6 +93,37 @@ function Group() {
       })
       .catch(error => console.log(error));
   }
+  async function AddTeacher() {    
+    await axios.put(`${url}/api/Group/AddTeacher/${id}`, {
+      teacherId:teacherInput
+    })
+      .then(res => {
+        GetGroups();        
+      })
+      .catch(error => console.log(error));
+  }
+  
+  async function AddClassroom() {    
+    
+    await axios.put(`${url}/api/Group/AddClassroom/${id}`, {
+      classroomId:classroomInput
+    })
+      .then(res => {
+        GetGroups();        
+      })
+      .catch(error => console.log(error));
+  }
+  async function AddStudents() {    
+   
+    await axios.put(`${url}/api/Group/AddStudents/${id}`, {      
+      students:studentsInput
+    })
+      .then(res => {
+        GetGroups();        
+      })
+      .catch(error => console.log(error));
+  }
+
   const DeleteGroup = () => {
     axios.get(`${url}/api/Group/DeleteGroup/${id}`)
       .then(res => {
@@ -98,6 +131,7 @@ function Group() {
       })
       .catch(error => console.log(error));
   }
+
   
 
 
@@ -123,6 +157,7 @@ function Group() {
         studentsInput={studentsInput} setStudentsInput={setStudentsInput}
         classroomInput={classroomInput} setClassroomInput={setClassroomInput}
         teacherInput={teacherInput} setTeacherInput={setTeacherInput}
+        addTeacher={AddTeacher} addClassroom={AddClassroom} addStudents={AddStudents}
       />
     </div>
   )

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class EducationService:IEducationService
+    public class EducationService : IEducationService
     {
         private readonly IGroupTypeRepository _groupTypeRepository;
         private readonly IMapper _mapper;

@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service.DTOs.GroupDto;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace App.Controllers
@@ -37,7 +34,29 @@ namespace App.Controllers
             await _groupService.DeleteAsync(id);
             return Ok();
         }
-        
+        [HttpPut]
+        [Route("AddTeacher/{id}")]
+        public async Task<IActionResult> AddTeacher([FromRoute] int id, [FromBody] AddTeacherDto addTeacherDto)
+        {
+            await _groupService.AssignTeacherAsync(id, addTeacherDto);
+            return Ok();
+        }
+        [HttpPut]
+        [Route("AddClassroom/{id}")]
+        public async Task<IActionResult> AddClassroom([FromRoute] int id, [FromBody] AddClassroomDto addClassroomDto)
+        {
+            await _groupService.AssignClassroomAsync(id, addClassroomDto);
+            return Ok();
+        }
+        [HttpPut]
+        [Route("AddStudents/{id}")]
+        public async Task<IActionResult> AddStudents([FromRoute] int id, [FromBody] AddStudentDto addStudentDto)
+        {
+            await _groupService.AddStudentsAsync(id, addStudentDto);
+            return Ok();
+        }
+
+
 
     }
 }

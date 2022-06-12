@@ -19,43 +19,11 @@ function AddStudent(props) {
             },
         },
     };
-    const names = [
-        'Oliver Hansen',
-        'Van Henry',
-        'April Tucker',
-        'Ralph Hubbard',
-        'Omar Alexander',
-        'Carlos Abbott',
-        'Miriam Wagner',
-        'Bradley Wilkerson',
-        'Virginia Andrews',
-        'Kelly Snyder',
-    ];
-    function getStyles(name, personName, theme) {
-        return {
-            fontWeight:
-                personName.indexOf(name) === -1
-                    ? theme.typography.fontWeightRegular
-                    : theme.typography.fontWeightMedium,
-        };
-    }
-    const theme = useTheme();
-    const [personName, setPersonName] = React.useState([]);
-
-    const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setPersonName(
-            // On autofill we get a stringified value.
-            typeof value === 'string' ? value.split(',') : value,
-        );
-    };
+    
 
     return (
         <div className='row addition'>
-            <button onClick={(e) => props.setId(e.target.value)} value={props.value} type="button" className="btn btn-outline-success group-btn add-button" data-bs-toggle="modal" data-bs-target={'#add-student' + props.id}>Add Student</button>
-
+            <button onClick={(e) => props.setId(e.target.value)} value={props.id} type="button" className="btn btn-outline-success group-btn add-button" data-bs-toggle="modal" data-bs-target={'#add-student' + props.id}>Add Student</button>
 
             <div className="modal fade" id={'add-student' + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
@@ -65,38 +33,38 @@ function AddStudent(props) {
                             <button type="button" className="btn-close group-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <FormControl sx={{ m: 1, width: 300 }}>
-                                <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+                            <FormControl sx={{ width: 1 }}>
+                                <InputLabel id="demo-multiple-chip-label">Students</InputLabel>
                                 <Select
                                     labelId="demo-multiple-chip-label"
                                     id="demo-multiple-chip"
-                                    multiple
-                                    value={personName}
-                                    onChange={handleChange}
-                                    input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                                    multiple              
+                                    value={props.studentsInput}
+                                    onChange={(e)=>props.setStudentsInput(e.target.value)}
+                                    input={<OutlinedInput id="select-multiple-chip" label="Students" />}
                                     renderValue={(selected) => (
                                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                                             {selected.map((value) => (
-                                                <Chip key={value} label={value} />
+                                                <Chip key={value} label={value} />                                                
                                             ))}
                                         </Box>
                                     )}
                                     MenuProps={MenuProps}
                                 >
-                                    {names.map((name) => (
+                                    {props.students.map((student) => (
                                         <MenuItem
-                                            key={name}
-                                            value={name}
-                                            style={getStyles(name, personName, theme)}
+                                            key={student.id}
+                                            value={student.name+" "+student.surname}
+                                           
                                         >
-                                            {name}
+                                            {student.name} {student.surname}
                                         </MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-primary group-btn">Save</button>
+                            <button onClick={() => props.addStudents()} type="button" data-bs-dismiss="modal" className="btn btn-outline-primary group-btn">Save</button>
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
                         </div>
                     </div>

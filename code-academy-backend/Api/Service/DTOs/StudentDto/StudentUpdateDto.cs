@@ -1,9 +1,4 @@
-﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Service.DTOs.StudentDto
 {
@@ -13,8 +8,8 @@ namespace Service.DTOs.StudentDto
         public string Surname { get; set; }
         public string Email { get; set; }
         public long Phone { get; set; }
-        public DateTime Birthday { get; set; }        
-        public int PayTypeId { get; set; }        
-        public int ResourceId { get; set; }                
+        public DateTime Birthday { get; set; }
+        public int PayTypeId { get; set; }
+        public int ResourceId { get; set; }
     }
 }

@@ -12,12 +12,12 @@ using Service.DTOs.TeacherDto;
 
 namespace Service.Mappings
 {
-    public class MappingProfile:Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
-        {            
+        {
             CreateMap<Group, GroupListDto>();
-            CreateMap<Group, GroupDetailDto>().ReverseMap();                        
+            CreateMap<Group, GroupDetailDto>().ReverseMap();
             CreateMap<Resource, ResourceListDto>();
             CreateMap<Resource, ResourceCreateDto>().ReverseMap();
             CreateMap<Resource, ResourceUpdateDto>().ReverseMap();
@@ -47,6 +47,9 @@ namespace Service.Mappings
             CreateMap<Teacher, TeacherCreateDto>().ReverseMap();
             CreateMap<Teacher, TeacherUpdateDto>().ReverseMap();
             CreateMap<Profession, ProfessionListDto>();
+            CreateMap<Teacher, TeacherGDto>().ReverseMap();
+            CreateMap<Classroom, ClassroomGDto>().ReverseMap();
+            CreateMap<GroupClassTerm, GroupClassTermGDto>().ReverseMap();
         }
     }
 }
