@@ -1,0 +1,26 @@
+.login-inputs {
+
+    position: absolute;
+    top: 35%;
+    left: 32%;
+
+    .login-input {
+        width: 300px;
+    }
+
+    .login-input-links {
+        .sign-in-btn {
+            width: 95px;
+            font-size: 14px;
+        }
+        .forgot-password{
+            padding-top: 6px;
+            text-decoration: none;
+            
+        }
+
+        display: flex;
+        justify-content: space-around;
+    }
+
+}

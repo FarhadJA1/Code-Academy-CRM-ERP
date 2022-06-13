@@ -44,6 +44,7 @@ namespace Repo.Repositories
                 .Include(m => m.GroupClassTerm)
                 .ThenInclude(m => m.Term)
                 .Include(m => m.Teacher)
+                .Include(m=>m.Students)
                 .ToListAsync();
 
             return groups;

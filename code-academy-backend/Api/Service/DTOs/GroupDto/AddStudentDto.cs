@@ -9,6 +9,6 @@ namespace Service.DTOs.GroupDto
 {
     public class AddStudentDto
     {
-        public List<Student> Students { get; set; }
+        public int[] Students { get; set; }
     }
 }

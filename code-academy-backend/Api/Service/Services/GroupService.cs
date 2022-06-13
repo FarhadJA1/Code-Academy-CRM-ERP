@@ -12,18 +12,21 @@ namespace Service.Services
     public class GroupService : IGroupService
     {
         private readonly IGroupRepository _groupRepository;
+        private readonly IStudentRepository _studentRepository;
         private readonly IGroupTypeRepository _groupTypeRepository;
         private readonly IGroupClassTermRepository _groupClassTermRepository;
         private readonly IMapper _mapper;
         public GroupService(IGroupTypeRepository groupTypeRepository
                             , IGroupRepository groupRepository
                             , IMapper mapper
-                            , IGroupClassTermRepository groupClassTermRepository)
+                            , IGroupClassTermRepository groupClassTermRepository
+                            , IStudentRepository studentRepository)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
             _groupTypeRepository = groupTypeRepository;
             _groupClassTermRepository = groupClassTermRepository;
+            _studentRepository = studentRepository;
         }
 
         public async Task<List<GroupListDto>> GetAllAsync()
@@ -88,8 +91,12 @@ namespace Service.Services
         public async Task AddStudentsAsync(int id,AddStudentDto addStudentDto)
         {
             Group group = await _groupRepository.GetAsync(id);
-            group.Students = addStudentDto.Students;
-            await _groupRepository.UpdateAsync(group);
+            foreach (var studentId in addStudentDto.Students)
+            {
+                var student=await _studentRepository.GetAsync(studentId);
+                student.GroupId = id;
+                await _studentRepository.UpdateAsync(student);
+            }
         }
 
 

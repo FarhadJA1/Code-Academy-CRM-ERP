@@ -12,26 +12,27 @@ function Group() {
   const [capacityInput, setCapacityInput] = useState();
   const [createDateInput, setCreateDateInput] = useState();
   const [termInput, setTermInput] = useState();
-  const [groupTypeNameInput,setGroupTypeNameInput] = useState();
-  const [studentsInput,setStudentsInput] = useState([]);
-  const [classroomInput,setClassroomInput] = useState();
-  const [teacherInput,setTeacherInput] = useState(); 
+  const [groupTypeNameInput, setGroupTypeNameInput] = useState();
+  const [studentsInput, setStudentsInput] = useState([]);
+  const [classroomInput, setClassroomInput] = useState();
+  const [teacherInput, setTeacherInput] = useState();
   const [id, setId] = useState();
 
   const [hours, setHours] = useState([]);
   const [education, setEducation] = useState([]);
-  const [classrooms,setClassrooms] = useState([]);
-  const [teachers,setTeachers] = useState([]);
-  const [students,setStudents] = useState([]);
-  
+  const [classrooms, setClassrooms] = useState([]);
+  const [teachers, setTeachers] = useState([]);
+  const [students, setStudents] = useState([]);
+
 
   async function GetGroups() {
     const response = await axios.get("https://localhost:44380/api/Group/GetAll")
       .catch(error => console.log(error));
     setGroups(response.data);
-    
+
   }
-  
+
+  console.log(groups);
 
   async function GetHours() {
     await axios.get(`${url}/api/Hour/GetAll`)
@@ -42,25 +43,25 @@ function Group() {
   async function GetClassrooms() {
     await axios.get(`${url}/api/Classroom/GetAll`)
       .then(res => {
-        setClassrooms(res.data);        
+        setClassrooms(res.data);
       })
   }
   async function GetTeachers() {
     await axios.get(`${url}/api/Teacher/GetAll`)
       .then(res => {
-        setTeachers(res.data);        
+        setTeachers(res.data);
       })
   }
   async function GetStudents() {
     await axios.get(`${url}/api/Student/GetAll`)
       .then(res => {
-        setStudents(res.data);        
+        setStudents(res.data);
       })
   }
   async function GetEducations() {
     await axios.get(`${url}/api/Education/GetAll`)
       .then(res => {
-        setEducation(res.data);        
+        setEducation(res.data);
       })
   }
   useEffect(() => {
@@ -70,17 +71,17 @@ function Group() {
     GetClassrooms();
     GetTeachers();
     GetStudents();
-    
-  },[]);  
 
-  async function CreateGroup() {    
-    
+  }, []);
+
+  async function CreateGroup() {
+
     await axios.post(`${url}/api/Group/CreateGroup`, {
       groupTypeId: educationInput,
       capacity: capacityInput,
       createDate: createDateInput,
       termId: termInput,
-      
+
     })
       .then(res => {
         GetGroups();
@@ -93,33 +94,36 @@ function Group() {
       })
       .catch(error => console.log(error));
   }
-  async function AddTeacher() {    
+  async function AddTeacher() {
     await axios.put(`${url}/api/Group/AddTeacher/${id}`, {
-      teacherId:teacherInput
+      teacherId: teacherInput
     })
       .then(res => {
-        GetGroups();        
+        GetGroups();
       })
       .catch(error => console.log(error));
   }
-  
-  async function AddClassroom() {    
-    
+
+  async function AddClassroom() {
+
     await axios.put(`${url}/api/Group/AddClassroom/${id}`, {
-      classroomId:classroomInput
+      classroomId: classroomInput
     })
       .then(res => {
-        GetGroups();        
+        GetGroups();
       })
       .catch(error => console.log(error));
   }
-  async function AddStudents() {    
-   
-    await axios.put(`${url}/api/Group/AddStudents/${id}`, {      
+
+  async function AddStudents() {
+    // let students=JSON.stringify(studentsInput);
+    
+    axios.put(`${url}/api/Group/AddStudents/${id}`, {
       students:studentsInput
     })
+
       .then(res => {
-        GetGroups();        
+        GetGroups();
       })
       .catch(error => console.log(error));
   }
@@ -132,7 +136,7 @@ function Group() {
       .catch(error => console.log(error));
   }
 
-  
+
 
 
   return (
@@ -148,7 +152,7 @@ function Group() {
       />
       <GroupTable
         groups={groups} setId={setId} id={id}
-        deleteGroup={DeleteGroup}            
+        deleteGroup={DeleteGroup}
         hours={hours} education={education}
         setEducation={setEducation} setHours={setHours}
         classrooms={classrooms} setClassrooms={setClassrooms}

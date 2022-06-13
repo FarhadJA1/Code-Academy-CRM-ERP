@@ -8,7 +8,7 @@ namespace Service.DTOs.GroupDto
     {
         public int Id { get; set; }
         public string GroupCode { get; set; }
-        public List<Student> Students { get; set; }
+        public List<GroupStudentsDto> Students { get; set; }
         public int TeacherId { get; set; }
         public TeacherGDto Teacher { get; set; }
         public DateTime CreateDate { get; set; }
@@ -21,6 +21,12 @@ namespace Service.DTOs.GroupDto
     }
 
     public class TeacherGDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+    }
+    public class GroupStudentsDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -50,6 +50,7 @@ namespace Service.Mappings
             CreateMap<Teacher, TeacherGDto>().ReverseMap();
             CreateMap<Classroom, ClassroomGDto>().ReverseMap();
             CreateMap<GroupClassTerm, GroupClassTermGDto>().ReverseMap();
+            CreateMap<Student, GroupStudentsDto>().ReverseMap();
         }
     }
 }

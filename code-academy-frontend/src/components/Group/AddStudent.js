@@ -19,7 +19,7 @@ function AddStudent(props) {
             },
         },
     };
-    
+
 
     return (
         <div className='row addition'>
@@ -38,14 +38,14 @@ function AddStudent(props) {
                                 <Select
                                     labelId="demo-multiple-chip-label"
                                     id="demo-multiple-chip"
-                                    multiple              
+                                    multiple
                                     value={props.studentsInput}
-                                    onChange={(e)=>props.setStudentsInput(e.target.value)}
+                                    onChange={(e) => props.setStudentsInput(e.target.value)}
                                     input={<OutlinedInput id="select-multiple-chip" label="Students" />}
                                     renderValue={(selected) => (
                                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                                             {selected.map((value) => (
-                                                <Chip key={value} label={value} />                                                
+                                                <Chip key={value} label={value} />
                                             ))}
                                         </Box>
                                     )}
@@ -54,8 +54,8 @@ function AddStudent(props) {
                                     {props.students.map((student) => (
                                         <MenuItem
                                             key={student.id}
-                                            value={student.name+" "+student.surname}
-                                           
+                                            value={student.id}
+                                                                                   
                                         >
                                             {student.name} {student.surname}
                                         </MenuItem>
