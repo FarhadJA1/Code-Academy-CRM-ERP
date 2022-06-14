@@ -22,17 +22,15 @@ function App() {
     <Router>
       <div className="App">   
       
-        <div className='col-lg-2'>
-          
-          {(localStorage.getItem("login")!=null)?<Navigation />:""}
-          
+        <div className='col-lg-2'>          
+          <Navigation />          
         </div>
           
         
 
         <div className='col-lg-10'>
          
-          {(localStorage.getItem("login")!=null)?<Header />:""}
+          <Header />
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/login' element={<Login />} />

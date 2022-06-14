@@ -1,9 +1,9 @@
 import React from 'react'
-import {Bar} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import { useState } from 'react'
-import '../../assets/style/Charts/GroupChart.scss'
-function GroupChart() {
+
+function StudentChart() {
     const UserData = [
         {
             id:1,
@@ -42,16 +42,18 @@ function GroupChart() {
         datasets:[{
             label:"Users Gained",
             data:UserData.map((data)=>data.userGain),
-            backgroundColor:["#6b5b95","#feb236","#b5e7a0","#f7786b","#ffef96"],           
+            backgroundColor:["#feb236"],           
             
         }]
     });
 
-    return (
-        <div  className='container group-chart'>
-            <Bar data={chartData}/>
+  return (
+    <div>
+       <div className='container group-chart'>
+            <Line data={chartData}/>
         </div>
-    )
+    </div>
+  )
 }
 
-export default GroupChart
+export default StudentChart
