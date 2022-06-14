@@ -8,7 +8,7 @@ import StudentChart from '../components/Dashboard/StudentChart';
 import TeacherChart from '../components/Dashboard/TeacherChart';
 import Welcome from '../components/Dashboard/Welcome'
 function Dashboard() {
-
+  
   return (
     <div className='dashboard'>
       <Welcome />

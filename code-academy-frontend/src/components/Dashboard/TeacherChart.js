@@ -43,7 +43,7 @@ function TeacherChart() {
             label: "Users Gained",
             data: UserData.map((data) => data.userGain),
             backgroundColor: ["#6b5b95", "#feb236", "#b5e7a0", "#f7786b", "#ffef96"],
-
+            
 
         }],
 
@@ -51,8 +51,8 @@ function TeacherChart() {
     return (
         <div>
 
-            <div style={{ width: 600 }} className='container teacher-chart mt-5 ms-5'>
-                <Pie data={chartData} />
+            <div style={{ width: 600 }} className='container teacher-chart mt-5 ms-1'>
+                <Pie  data={chartData} />
             </div>
         </div>
     )
