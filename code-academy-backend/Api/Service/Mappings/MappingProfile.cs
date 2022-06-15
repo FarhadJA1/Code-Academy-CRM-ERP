@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Service.DTOs.ClassroomDto;
 using Service.DTOs.EducationDto;
+using Service.DTOs.FinanceDto;
 using Service.DTOs.GroupDto;
 using Service.DTOs.HourDto;
 using Service.DTOs.PayTypeDto;
@@ -51,6 +52,8 @@ namespace Service.Mappings
             CreateMap<Classroom, ClassroomGDto>().ReverseMap();
             CreateMap<GroupClassTerm, GroupClassTermGDto>().ReverseMap();
             CreateMap<Student, GroupStudentsDto>().ReverseMap();
+            CreateMap<Finance, FinanceCreateDto>().ReverseMap();
+            CreateMap<Finance, FinanceListDto>().ReverseMap();
         }
     }
 }

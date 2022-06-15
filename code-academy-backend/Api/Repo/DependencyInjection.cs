@@ -20,6 +20,7 @@ namespace Repo
             services.AddScoped<IClassroomRepository, ClassroomRepository>();
             services.AddScoped<IProfessionRepository, ProfessionRepository>();
             services.AddScoped<IGroupClassTermRepository, GroupClassTermRepository>();
+            services.AddScoped<IFinanceRepository, FinanceRepository>();
             return services;
         }
     }

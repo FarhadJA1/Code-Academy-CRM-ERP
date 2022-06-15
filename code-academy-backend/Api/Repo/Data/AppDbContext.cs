@@ -20,6 +20,7 @@ namespace Repo.Data
             modelBuilder.ApplyConfiguration(new TeacherConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
             modelBuilder.ApplyConfiguration(new TermConfiguration());
+            modelBuilder.ApplyConfiguration(new FinanceConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

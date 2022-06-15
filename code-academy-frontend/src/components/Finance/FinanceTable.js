@@ -7,9 +7,10 @@ function FinanceTable() {
         <thead>
           <tr>
             <th className='table-header'  scope="col">#</th>
-            <th className='table-header' scope="col">First</th>
-            <th className='table-header' scope="col">Last</th>
-            <th className='table-header' scope="col">Handle</th>
+            <th className='table-header' scope="col">Report Date</th>
+            <th className='table-header' scope="col">Income</th>
+            <th className='table-header' scope="col">Expence</th>
+            <th className='table-header' scope="col">Total</th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@ function FinanceTable() {
             <th className='table-header' scope="row">1</th>
             <td align='center'>Mark</td>
             <td align='center'>Otto</td>
+            <td align='center'>@mdo</td>
             <td align='center'>@mdo</td>
           </tr>
           

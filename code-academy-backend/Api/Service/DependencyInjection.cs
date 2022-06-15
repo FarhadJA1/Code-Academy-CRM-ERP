@@ -18,6 +18,7 @@ namespace Service
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IProfessionService, ProfessionService>();
+            services.AddScoped<IFinanceService, FinanceService>();
             return services;
 
         }
