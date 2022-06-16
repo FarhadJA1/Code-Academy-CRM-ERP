@@ -25,13 +25,14 @@ function App() {
       <div className="App">   
       
         <div className='col-lg-2'>     
-        {(window.location.href=="http://localhost:3000")?<Navigation />:""} 
+        {/* {(window.location.href=="http://localhost:3000")?<Navigation />:""}  */}
+        <Navigation />
         </div>
         <div className='col-lg-10'>
-        {(window.location.href=="http://localhost:3000")?<Header />:""}
-         
+        {/* {(window.location.href=="http://localhost:3000")?<Header />:""} */}
+        <Header />
           <Routes>
-          {(localStorage.getItem("user")==null)?<Route path='/' element={<Login />} />:<Route path='*' element={<ErrorPage />} />}
+          {/* {(localStorage.getItem("user")==null)?<Route path='/' element={<Login />} />:<Route path='*' element={<ErrorPage />} />}
           {(localStorage.getItem("user")!=null)?<Route path='/dashboard' element={<Dashboard />} />:<Route path='*' element={<ErrorPage />} />}
           {(localStorage.getItem("user")!=null)?<Route path='/reports' element={<Dashboard />} />:<Route path='*' element={<ErrorPage />} />}
           {(localStorage.getItem("user")!=null)?<Route path='/finance' element={<Finance />}/>:<Route path='*' element={<ErrorPage />} />}
@@ -43,8 +44,20 @@ function App() {
           {(localStorage.getItem("user")!=null)?<Route path='/resource/delete-resource' element={<Resource/>} />:<Route path='*' element={<ErrorPage />} />}
           {(localStorage.getItem("user")!=null)?<Route path='/students' element={<Students />} />:<Route path='*' element={<ErrorPage />} />}
           {(localStorage.getItem("user")!=null)?<Route path='/classroom' element={<Classroom />} />:<Route path='*' element={<ErrorPage />} />}
-          {(localStorage.getItem("user")!=null)?<Route path='/term' element={<Term />} /> :<Route path='*' element={<ErrorPage />} />}
-          <Route path='/forgot-password' element={<ForgotPassword />} />           
+          {(localStorage.getItem("user")!=null)?<Route path='/term' element={<Term />} /> :<Route path='*' element={<ErrorPage />} />} */}
+          
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/reports' element={<Dashboard />} />
+          <Route path='/finance' element={<Finance />}/>
+          <Route path='/groups' element={<Group />} />
+          <Route path='/education' element={<Education />} />
+          <Route path='/teachers' element={<Teacher />} />
+          <Route path='/paytype' element={<PayType />} />
+          <Route path='/resource' element={<Resource/>} />
+          <Route path='/resource/delete-resource' element={<Resource/>} />
+          <Route path='/students' element={<Students />} />
+          <Route path='/classroom' element={<Classroom />} />
+          <Route path='/term' element={<Term />} />
           </Routes>
         </div>
 

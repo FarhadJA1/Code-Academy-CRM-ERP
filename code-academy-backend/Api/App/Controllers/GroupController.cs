@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+
 using Service.DTOs.GroupDto;
 using Service.Services.Interfaces;
 using System.Collections.Generic;

@@ -5,6 +5,7 @@ using Service.DTOs.EducationDto;
 using Service.DTOs.FinanceDto;
 using Service.DTOs.GroupDto;
 using Service.DTOs.HourDto;
+using Service.DTOs.IdentityDto;
 using Service.DTOs.PayTypeDto;
 using Service.DTOs.ProfessionDto;
 using Service.DTOs.ResourceDto;
@@ -54,6 +55,8 @@ namespace Service.Mappings
             CreateMap<Student, GroupStudentsDto>().ReverseMap();
             CreateMap<Finance, FinanceCreateDto>().ReverseMap();
             CreateMap<Finance, FinanceListDto>().ReverseMap();
+            CreateMap<UserDto, AppUser>().ReverseMap();
+            CreateMap<AppUser, RegisterDto>().ReverseMap();
         }
     }
 }

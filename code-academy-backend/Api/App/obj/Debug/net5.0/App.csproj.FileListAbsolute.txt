@@ -35,7 +35,6 @@ C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -79,3 +78,8 @@ C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\obj\Debug\net5.0
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\obj\Debug\net5.0\ref\App.dll
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\obj\Debug\net5.0\App.pdb
 C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\obj\Debug\net5.0\App.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\MailKit.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\MimeKit.dll
+C:\Users\ASUS\Desktop\FinalProject\code-academy-backend\Api\App\bin\Debug\net5.0\BouncyCastle.Crypto.dll
