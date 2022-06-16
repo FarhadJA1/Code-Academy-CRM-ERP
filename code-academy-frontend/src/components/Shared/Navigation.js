@@ -10,7 +10,7 @@ import Adminstrative from '../Navbar/Adminstrative'
 
 function Navigation() {
     return (
-        <div className='navigation'>
+        <div className='navigation col-lg-2'>
             <Logo/>
             <Main/>            
             <Operations/>

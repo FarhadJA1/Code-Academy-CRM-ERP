@@ -17,7 +17,7 @@ function PaymentCreateButton(props) {
               <button type="button" className="btn-close payment-button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body row">
-              <TextField id="outlined-basic" className='payment-textarea' onChange={(e) => props.setInput(e.target.value)} value={props.input} label="Payment type" variant="outlined" />
+              <TextField autoComplete='off' id="outlined-basic" className='payment-textarea' onChange={(e) => props.setInput(e.target.value)} value={props.input} label="Payment type" variant="outlined" />
             </div>
             <div className="modal-footer">
               <button type="button" onClick={() => props.createPayment()} data-bs-dismiss="modal" className="btn btn-outline-primary payment-button">Save</button>

@@ -55,10 +55,10 @@ function TeacherCreateButton(props) {
                             <h6 className='mt-4 addition-title'>CONTACT</h6>
                             <div className="row">
                                 <div className="col-6">
-                                    <TextField onChange={(e) => props.setEmailInput(e.target.value)} value={props.emailInput} type='email' className='teacher-input' id="outlined-basic" label="Email" variant="outlined" />
+                                    <TextField autoComplete='off' onChange={(e) => props.setEmailInput(e.target.value)} value={props.emailInput} type='email' className='teacher-input' id="outlined-basic" label="Email" variant="outlined" />
                                 </div>
                                 <div className="col-6">
-                                    <TextField type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='teacher-input' id="outlined-basic" label="Phone" variant="outlined" />
+                                    <TextField autoComplete='off' type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='teacher-input' id="outlined-basic" label="Phone" variant="outlined" />
                                 </div>
                             </div>
                             <h6 className='addition-title mt-4'>QUALIFICATION</h6>

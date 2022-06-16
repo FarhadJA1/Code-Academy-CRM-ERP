@@ -17,10 +17,10 @@ function FinanceButton() {
                         </div>
                         <div className="modal-body  finance-modal-body">
                             <div>
-                                <TextField InputProps={{ inputProps: { min: 0 } }} type='number' id="outlined-basic" label="Income" variant="outlined" />
+                                <TextField autoComplete='off' InputProps={{ inputProps: { min: 0 } }} type='number' id="outlined-basic" label="Income" variant="outlined" />
                             </div>
                             <div>
-                                <TextField InputProps={{ inputProps: { min: 0 } }} type='number' id="outlined-basic" label="Expence" variant="outlined" />
+                                <TextField autoComplete='off' InputProps={{ inputProps: { min: 0 } }} type='number' id="outlined-basic" label="Expence" variant="outlined" />
                             </div>
 
                         </div>

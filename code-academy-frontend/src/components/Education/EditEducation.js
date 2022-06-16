@@ -16,7 +16,7 @@ function EditEducation(props) {
                             <button type="button" className="btn-close education-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body row">
-                            <TextField onChange={(e) => props.setInput(e.target.value)} id="outlined-basic" label={props.name} variant="outlined" />
+                            <TextField autoComplete='off' onChange={(e) => props.setInput(e.target.value)} id="outlined-basic" label={props.name} variant="outlined" />
                         </div>
                         <div className="modal-footer">
                             <button onClick={() => props.updateEducation()} type="button" data-bs-dismiss="modal" className="btn btn-outline-primary education-button">Save</button>

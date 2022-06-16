@@ -16,9 +16,9 @@ function TermEditBtn(props) {
                             <button type="button" className="btn-close term-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body term-modal-body">                           
-                            <TextField onChange={(e) => props.setDayInput(e.target.value)} value={props.dayInput} className='term-input' id="outlined-basic" label={props.day} variant="outlined" />
+                            <TextField autoComplete='off' onChange={(e) => props.setDayInput(e.target.value)} value={props.dayInput} className='term-input' id="outlined-basic" label={props.day} variant="outlined" />
                             <span className='minus'>-</span>
-                            <TextField onChange={(e) => props.setTimeInput(e.target.value)} value={props.timeInput} className='term-input' id="outlined-basic" label={props.time} variant="outlined" />
+                            <TextField autoComplete='off' onChange={(e) => props.setTimeInput(e.target.value)} value={props.timeInput} className='term-input' id="outlined-basic" label={props.time} variant="outlined" />
                         </div>
                         <div className="modal-footer">
                             <button type="button" data-bs-dismiss="modal" className="btn btn-outline-primary term-button" onClick={() => props.updateHour()}>Save</button>

@@ -59,7 +59,7 @@ function CreateButton(props) {
                   />
                 </div>
                 <div className="col-6 mt-3">
-                  <TextField onChange={(e) => props.setCapacityInput(e.target.value)} value={props.capacityInput} type='number' id="outlined-basic" label="Capacity" variant="outlined" />
+                  <TextField autoComplete='off' onChange={(e) => props.setCapacityInput(e.target.value)} value={props.capacityInput} type='number' id="outlined-basic" label="Capacity" variant="outlined" />
                 </div>
               </div>
             </div>
