@@ -42,7 +42,33 @@
         padding-bottom: 10px;
     }
 
-    .logout {
-        color: #ff7c7c
+    .logout-button {
+        color: #ff7c7c;
+        font-size: 14px;
+        width: 93%;
+        &:hover{
+            background-color: #ff7c7c;
+            border-color:#ff7c7c;
+            color: white;
+        }
+        padding: 3px;
+        .logout-button-icon{
+            width: 18px;
+        }
+    }
+    .edit-profile-button{
+        font-size: 14px;
+        padding: 3px;
+        color: #EFC050;
+        width: 93%;
+        &:hover{
+            background-color: #EFC050;
+            border-color:#EFC050;
+            color: white;
+        }
+        .edit-profile-button-icon{
+            width: 18px;
+            margin-right: 6px;
+        }
     }
 }

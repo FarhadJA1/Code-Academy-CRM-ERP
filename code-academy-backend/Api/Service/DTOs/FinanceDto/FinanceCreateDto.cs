@@ -8,7 +8,6 @@ namespace Service.DTOs.FinanceDto
 {
     public class FinanceCreateDto
     {
-        public long Income { get; set; }
-        public long Expence { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

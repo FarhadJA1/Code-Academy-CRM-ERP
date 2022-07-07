@@ -30,5 +30,71 @@ namespace Repo.Repositories
 
             return students;
         }
+        public async Task<Student> GetStudentDetails(int id)
+        {
+            Student student = await entities
+                .Where(m => m.Id == id)
+                .Include(m => m.PayType)
+                .Include(m => m.Resource)
+                .Include(m => m.Group)
+                .FirstOrDefaultAsync();
+            return student;
+        }
+        public async Task<List<Student>> GetStudentsFromCall()
+        {
+            List<Student> students = await entities
+                .Where(m => m.ResourceId == 3)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetStudentsFromSocialNetwork()
+        {
+            List<Student> students = await entities
+                .Where(m => m.ResourceId == 5)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetStudentsFromSuggestion()
+        {
+            List<Student> students = await entities
+                .Where(m => m.ResourceId == 7)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetStudentsFromWeb()
+        {
+            List<Student> students = await entities
+                .Where(m => m.ResourceId == 6)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetProgrammingStudents()
+        {
+            List<Student> students = await entities
+                .Where(m => m.Group.GroupTypeId == 2)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetDesignStudents()
+        {
+            List<Student> students = await entities
+                .Where(m => m.Group.GroupTypeId == 3)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetMarketingStudents()
+        {
+            List<Student> students = await entities
+                .Where(m => m.Group.GroupTypeId == 5)
+                .ToListAsync();
+            return students;
+        }
+        public async Task<List<Student>> GetSystemStudents()
+        {
+            List<Student> students = await entities
+                .Where(m => m.Group.GroupTypeId == 4)
+                .ToListAsync();
+            return students;
+        }
     }
 }

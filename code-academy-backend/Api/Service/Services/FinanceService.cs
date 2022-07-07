@@ -14,11 +14,15 @@ namespace Service.Services
     public class FinanceService : IFinanceService
     {
         private readonly IFinanceRepository _financeRepository;
+        private readonly IStudentRepository _studentRepository;
+        private readonly ITeacherRepository _teacherRepository;
         private readonly IMapper _mapper;
-        public FinanceService(IFinanceRepository financeRepository, IMapper mapper)
+        public FinanceService(IFinanceRepository financeRepository, IMapper mapper, ITeacherRepository teacherRepository, IStudentRepository studentRepository)
         {
             _financeRepository = financeRepository;
             _mapper = mapper;
+            _teacherRepository = teacherRepository;
+            _studentRepository = studentRepository;
         }
         public async Task<List<FinanceListDto>> GetAllAsync()
         {
@@ -27,12 +31,34 @@ namespace Service.Services
         }
         public async Task CreateAsync(FinanceCreateDto financeCreateDto)
         {
+            var teachers =await _teacherRepository.GetAllAsync();
+
+            List<int> salaries = new List<int>();           
+
+            if (teachers == null)
+            {
+                salaries.Add(0);
+            }
+            else
+            {
+                foreach (var teacher in teachers)
+                {
+                    salaries.Add(teacher.Salary);
+                }
+            }
+            int expence = salaries.Sum();
+
+            var students = await _studentRepository.GetAllAsync();
+
+            int income = students.Count() * 3000;
+
+
             Finance finance = new()
             {
-                Income=financeCreateDto.Income,
-                Expence=financeCreateDto.Expence,
-                Total=financeCreateDto.Income-financeCreateDto.Expence,
-                CreateDate=DateTime.Now
+                CreateDate = financeCreateDto.CreateDate,
+                Expence = expence,
+                Income = income,
+                Total=income-expence     
             };
             await _financeRepository.CreateAsync(finance);
         }

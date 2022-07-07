@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,6 +28,17 @@ namespace Repo.Repositories
                 .FirstOrDefaultAsync();
 
             return term;
+        }
+        public async Task<List<Term>> GetAllTermDetails()
+        {
+           List<Term> terms = await entities
+                .Where(m=>m.SoftDelete==false)
+                .OrderByDescending(m => m.Id)
+                .Include(m => m.GroupClassTerms)
+                .ThenInclude(m => m.Group)
+                .ToListAsync();
+
+            return terms;
         }
     }
 }

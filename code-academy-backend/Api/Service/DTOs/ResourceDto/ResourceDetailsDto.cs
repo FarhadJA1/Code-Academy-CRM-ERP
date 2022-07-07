@@ -7,6 +7,12 @@ namespace Service.DTOs.ResourceDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Student> Students { get; set; }
+        public List<ResourceStudentDto> Students { get; set; }
     }
+    public class ResourceStudentDto
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+    }
+    
 }

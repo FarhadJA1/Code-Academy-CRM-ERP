@@ -2,20 +2,21 @@ import React,{useState} from 'react'
 import TermDeleteBtn from './TermDeleteBtn'
 import TermEditBtn from './TermEditBtn'
 import TermInfoBtn from './TermInfoBtn'
-
+import { useTranslation } from 'react-i18next';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function TermTable(props) {
     let count = 1
-    
+    const { t } = useTranslation();
     return (
         <div>
-            <table className="table table-hover">
+            {(props.hours.length>0)?<table className="table table-hover">
                 <thead>
                     <tr>
                         <th className='table-header' scope="col">#</th>
-                        <th className='table-header' scope="col">Days</th>
-                        <th className='table-header' scope="col">Shift</th>
-                        <th className='table-header' scope="col">Settings</th>
+                        <th className='table-header' scope="col">{t("days")}</th>
+                        <th className='table-header' scope="col">{t("shift")}</th>
+                        <th className='table-header' scope="col">{t("settings")}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +26,7 @@ function TermTable(props) {
                             <td className='table-header' align='center'>{hour.day}</td>
                             <td className='table-header' align='center'>{hour.time}</td>
                             <td className='table-button-area' align='center'>
-                                <TermInfoBtn hour={hour} id={props.id} value={hour.id} setId={props.setId} hourDetails={props.hourDetails}/>
+                                <TermInfoBtn  details={props.details} id={props.id} value={hour.id} setId={props.setId} hourDetails={props.hourDetails}/>
                                 <TermDeleteBtn id={props.id} value={hour.id} setId={props.setId} deleteHour={props.deleteHour}/>
                                 <TermEditBtn setTimeInput={props.setTimeInput} setDayInput={props.setDayInput} time={hour.time} day={hour.day} id={props.id} value={hour.id} setId={props.setId} updateHour={props.updateHour}/>
                             </td>
@@ -34,7 +35,8 @@ function TermTable(props) {
 
 
                 </tbody>
-            </table>
+            </table>:<CircularProgress className='circular' color="secondary" />}
+            
         </div>
             
     )

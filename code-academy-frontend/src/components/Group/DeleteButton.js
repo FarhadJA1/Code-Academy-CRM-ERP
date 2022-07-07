@@ -1,10 +1,12 @@
 import React from 'react'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Tooltip } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 function DeleteButton(props) {
+    const { t } = useTranslation();
     return (
         <div>
-            <Tooltip title="Delete Group" placement="bottom-end">
+            <Tooltip title={t("delete group")} placement="bottom-end">
                 <button onClick={(e) => props.setId(e.target.value)} value={props.value} type="button" className="btn btn-outline-danger group-btn mx-2" data-bs-toggle="modal" data-bs-target={'#delete-group' + props.id}><DeleteOutlineOutlinedIcon /></button>
             </Tooltip>
 
@@ -15,11 +17,11 @@ function DeleteButton(props) {
                             <button type="button" className="btn-close group-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body delete-group">
-                            Are you sure to permanently delete this group?
+                        {t("are you sure to permanently delete this group?")}
                         </div>
                         <div className="modal-footer">
-                            <button onClick={() => props.deleteGroup()} type="button" data-bs-dismiss="modal" className="btn btn-outline-danger group-btn">Delete</button>
-                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">Cancel</button>
+                            <button onClick={() => props.deleteGroup()} type="button" data-bs-dismiss="modal" className="btn btn-outline-danger group-btn">{t("delete")}</button>
+                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning group-btn">{t("cancel")}</button>
                         </div>
                     </div>
                 </div>

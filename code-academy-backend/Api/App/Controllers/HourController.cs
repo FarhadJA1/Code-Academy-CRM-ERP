@@ -22,8 +22,12 @@ namespace App.Controllers
         [Route("CreateHour")]
         public async Task<IActionResult> Create([FromBody] HourCreateDto hourCreateDto)
         {
-            await _hourService.CreateAsync(hourCreateDto);
-            return Ok();
+            if (hourCreateDto.Day.Trim() != "" && hourCreateDto.Time.Trim() != "")
+            {
+                await _hourService.CreateAsync(hourCreateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("DeleteHour/{id}")]
@@ -36,8 +40,13 @@ namespace App.Controllers
         [Route("UpdateHour/{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] HourUpdateDto hourUpdateDto)
         {
-            await _hourService.UpdateAsync(id, hourUpdateDto);
-            return Ok();
+            
+            if (hourUpdateDto.Day.Trim() != "" && hourUpdateDto.Time.Trim() != "")
+            {
+                await _hourService.UpdateAsync(id, hourUpdateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("HourDetails/{id}")]
@@ -46,5 +55,6 @@ namespace App.Controllers
 
             return Ok(await _hourService.HourDetailsAsync(id));
         }
+        
     }
 }

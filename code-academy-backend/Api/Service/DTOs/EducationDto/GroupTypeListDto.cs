@@ -7,6 +7,6 @@ namespace Service.DTOs.EducationDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Group> Groups { get; set; }
+        public List<GroupCodeDto> Groups { get; set; }
     }
 }

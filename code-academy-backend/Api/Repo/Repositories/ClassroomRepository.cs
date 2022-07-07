@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,6 +28,18 @@ namespace Repo.Repositories
                 .ThenInclude(m => m.Term)
                 .FirstOrDefaultAsync();
             return classroom;
+        }
+        public async Task<List<Classroom>> GetAllClassrooms()
+        {
+            List<Classroom> classrooms = await entities
+                .Where(m=>!m.SoftDelete)
+                .Include(m => m.GroupClassTerms)
+                .ThenInclude(m => m.Group)
+                .Include(m => m.GroupClassTerms)
+                .ThenInclude(m => m.Term)
+                .OrderByDescending(m=>m.Id)
+                .ToListAsync();
+            return classrooms;
         }
     }
 }

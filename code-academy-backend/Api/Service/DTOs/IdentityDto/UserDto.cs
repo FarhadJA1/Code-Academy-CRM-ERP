@@ -13,5 +13,6 @@ namespace Service.DTOs.IdentityDto
         public string PhoneNumber { get; set; }
         public string FullName { get; set; }
         public string UserName { get; set; }
+        public byte[] Photo { get; set; }
     }
 }

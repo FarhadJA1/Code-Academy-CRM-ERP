@@ -9,6 +9,12 @@ namespace Repo.Repositories.Interfaces
         Task<Group> GetWithDetails(int id);
         Task<Group> GetLastGroup();
         Task<List<Group>> GetAllSGroupDetails();
+        Task<Group> GetGroupDetails(int id);
+        Task<List<Group>> GetSystemGroups();
+        Task<List<Group>> GetMarketingGroups();
+        Task<List<Group>> GetProgrammingGroups();
+        Task<List<Group>> GetDesignGroups();
+        
 
     }
 }

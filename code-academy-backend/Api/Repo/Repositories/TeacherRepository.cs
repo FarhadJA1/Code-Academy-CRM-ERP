@@ -29,5 +29,15 @@ namespace Repo.Repositories
 
             return teachers;
         }
+        public async Task<Teacher> GetTeacherDetails(int id)
+        {
+            Teacher teacher = await entities
+                .Where(m => m.Id == id)                
+                .Include(m => m.Groups)
+                .Include(m => m.Profession)
+                .FirstOrDefaultAsync();
+
+            return teacher;
+        }
     }
 }

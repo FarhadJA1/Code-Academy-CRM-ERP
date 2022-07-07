@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.DTOs.ClassroomDto;
 using Service.Services.Interfaces;
 using System.Threading.Tasks;
 
 namespace App.Controllers
 {
+    
+    
     public class ClassroomController : BaseController
     {
         private readonly IClassroomService _classroomService;
@@ -12,18 +15,27 @@ namespace App.Controllers
         {
             _classroomService = classroomService;
         }
+
         [HttpGet]
         [Route("GetAll")]
+        
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _classroomService.GetAllAsync());
         }
+
         [HttpPost]
         [Route("CreateClassroom")]
+
         public async Task<IActionResult> Create([FromBody] ClassroomCreateDto classroomCreateDto)
         {
-            await _classroomService.CreateAsync(classroomCreateDto);
-            return Ok();
+            if (classroomCreateDto.Name.Trim()!="")
+            {
+                await _classroomService.CreateAsync(classroomCreateDto);
+                return Ok();
+            }
+            return StatusCode(400);
+
         }
         [HttpGet]
         [Route("DeleteClassroom/{id}")]
@@ -34,10 +46,15 @@ namespace App.Controllers
         }
         [HttpPut]
         [Route("UpdateClassroom/{id}")]
+       
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ClassroomUpdateDto classroomUpdateDto)
         {
-            await _classroomService.UpdateAsync(id, classroomUpdateDto);
-            return Ok();
+            if (classroomUpdateDto.Name.Trim() != "")
+            {
+                await _classroomService.UpdateAsync(id, classroomUpdateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("ResourceClassroom/{id}")]

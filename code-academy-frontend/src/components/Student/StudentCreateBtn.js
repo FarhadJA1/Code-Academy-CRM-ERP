@@ -7,14 +7,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import { useTranslation } from 'react-i18next';
 function StudentCreateBtn(props) {   
-
+    const { t } = useTranslation();
     return (
         <div className='create-btn-area'>
             <div className='my-3 me-3'>
                 <button type="button" className="btn btn-outline-success create-btn" data-bs-toggle="modal" data-bs-target="#create-student">
-                    Create Student
+                    {t("create student")}
                 </button>
             </div>
 
@@ -22,17 +22,17 @@ function StudentCreateBtn(props) {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title create-header" id="exampleModalLabel">Please, fill the blank:</h5>
+                            <h5 className="modal-title create-header" id="exampleModalLabel">{t("please fill the blank")}:</h5>
                             <button type="button" className="btn-close student-button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body container addition">
-                            <h6 className='addition-title'>PERSONAL INFO</h6>
+                            <h6 className='addition-title'>{t("personal info")}</h6>
                             <div className="row">
                                 <div className="col-6">
-                                    <TextField  onChange={(e) => props.setNameInput(e.target.value)} value={props.nameInput} className='student-input' id="outlined-basic" label="Name" variant="outlined" />
+                                    <TextField  onChange={(e) => props.setNameInput(e.target.value)} value={props.nameInput} className='student-input' id="outlined-basic" label={t("name")} variant="outlined" />
                                 </div>
                                 <div className="col-6">
-                                    <TextField  onChange={(e) => props.setSurnameInput(e.target.value)} value={props.surnameInput} autoComplete="off" className='student-input' id="outlined-basic" label="Surname" variant="outlined" />
+                                    <TextField  onChange={(e) => props.setSurnameInput(e.target.value)} value={props.surnameInput} autoComplete="off" className='student-input' id="outlined-basic" label={t("surname")} variant="outlined" />
                                 </div>
                             </div>
                             <div className="row mt-2">
@@ -46,31 +46,31 @@ function StudentCreateBtn(props) {
                                         isClearable
                                         showYearDropdown
                                         scrollableMonthYearDropdown
-                                        placeholderText="Birthday"
+                                        placeholderText={t("birthday")}
                                     />
                                 </div>
                             </div>
-                            <h6 className='mt-4 addition-title'>CONTACT</h6>
+                            <h6 className='mt-4 addition-title'>{t("contact")}</h6>
                             <div className="row">
                                 <div className="col-6">
                                     <TextField autoComplete='off' onChange={(e) => props.setEmailInput(e.target.value)} value={props.emailInput} type='email' className='student-input' id="outlined-basic" label="Email" variant="outlined" />
                                 </div>
                                 <div className="col-6">
-                                    <TextField autoComplete='off' type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='student-input' id="outlined-basic" label="Phone" variant="outlined" />
+                                    <TextField autoComplete='off' type='number' onChange={(e) => props.setPhoneInput(e.target.value)} value={props.phoneInput} className='student-input' id="outlined-basic" label={t("phone")} variant="outlined" />
                                 </div>
                             </div>
 
-                            <h6 className="mt-4 addition-title">EDUCATIONAL</h6>
+                            <h6 className="mt-4 addition-title">{t("educational")}</h6>
                             <div className="row">
                                 <div className="col-6">
                                     <Box sx={{ width: 210 }}>
                                         <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">Payment</InputLabel>
+                                            <InputLabel id="demo-simple-select-label">{t("payment")}</InputLabel>
                                             <Select
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
                                                 value={props.paymentInput}
-                                                label="Payment"
+                                                label={t("payment")}
                                                 onChange={(e)=>props.setPaymentInput(e.target.value)}
                                                 defaultValue = ""
                                             >
@@ -85,12 +85,12 @@ function StudentCreateBtn(props) {
                                 <div className="col-6">
                                     <Box sx={{ width: 210 }}>
                                         <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">Resource</InputLabel>
+                                            <InputLabel id="demo-simple-select-label">{t("resource")}</InputLabel>
                                             <Select
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
                                                 value={props.resourceInput}
-                                                label="Resource"
+                                                label={t("resource")}
                                                 onChange={(e)=>props.setResourceInput(e.target.value)}
                                                 defaultValue = ""
                                                 
@@ -107,8 +107,8 @@ function StudentCreateBtn(props) {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" onClick={() => props.createStudent()} data-bs-dismiss="modal" className="btn btn-outline-primary student-button">Save</button>
-                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning student-button">Cancel</button>
+                            <button type="button" onClick={() => props.createStudent()} data-bs-dismiss="modal" className="btn btn-outline-primary student-button">{t("save")}</button>
+                            <button type="button" data-bs-dismiss="modal" className="btn btn-outline-warning student-button">{t("cancel")}</button>
                         </div>
                     </div>
                 </div>

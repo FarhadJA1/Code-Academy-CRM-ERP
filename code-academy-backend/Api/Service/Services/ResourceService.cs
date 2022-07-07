@@ -19,7 +19,7 @@ namespace Service.Services
         }
         public async Task<List<ResourceListDto>> GetAllAsync()
         {
-            var model = await _resourceRepository.GetAllAsync();
+            var model = await _resourceRepository.GetAllResources();
             return _mapper.Map<List<ResourceListDto>>(model);
         }
         public async Task CreateAsync(ResourceCreateDto resourceCreateDto)

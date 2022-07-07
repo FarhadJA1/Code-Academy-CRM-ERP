@@ -1,13 +1,16 @@
 import React from 'react'
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+import { useTranslation } from 'react-i18next';
+import { Tooltip } from '@mui/material';
 function PrintButton() {
-    
-  function printDiv(divName){
-    var printContents = document.querySelector(divName).innerHTML;
+  const { t } = useTranslation();
+
+  function printDiv(divName) {
+    var printContent = document.getElementById(divName).outerHTML;
     var originalContents = document.body.innerHTML;
 
-    document.body.innerHTML = printContents;
-    
+    document.body.innerHTML = printContent;
+
 
     window.print();
 
@@ -16,7 +19,9 @@ function PrintButton() {
   }
   return (
     <div>
-      <button onClick={()=>printDiv(".finance-table")} type="button" class="btn btn-outline-dark print-btn"><LocalPrintshopIcon/></button>
+      <Tooltip title={t(`print`)} placement="bottom-end">
+        <button onClick={() => printDiv("finance-table")} type="button" className="btn btn-outline-dark print-btn"><LocalPrintshopIcon /></button>
+      </Tooltip>
     </div>
   )
 }

@@ -39,5 +39,18 @@ namespace App.Controllers
             await _teacherService.UpdateAsync(id, teacherUpdateDto);
             return Ok();
         }
+        [HttpGet]
+        [Route("TeacherDetails/{id}")]
+        public async Task<IActionResult> Details([FromRoute] int id)
+        {
+
+            return Ok(await _teacherService.TeacherDetailsAsync(id));
+        }
+        [HttpGet]
+        [Route("Search")]
+        public async Task<IActionResult> Search([FromQuery] string search)
+        {
+            return Ok(await _teacherService.GetAllByConditionAsync(search));
+        }
     }
 }

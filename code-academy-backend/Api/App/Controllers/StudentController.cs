@@ -39,5 +39,66 @@ namespace App.Controllers
             await _studentService.UpdateAsync(id, studentUpdateDto);
             return Ok();
         }
+        [HttpGet]
+        [Route("StudentDetails/{id}")]
+        public async Task<IActionResult> Details([FromRoute] int id)
+        {
+
+            return Ok(await _studentService.StudentDetailsAsync(id));
+        }
+        [HttpGet]
+        [Route("GetStudentsFromCall")]
+        public async Task<IActionResult> GetStudentsFromCall()
+        {
+            return Ok(await _studentService.StudentsFromCallAsync());
+        }
+        [HttpGet]
+        [Route("GetStudentsFromWeb")]
+        public async Task<IActionResult> GetStudentsFromWeb()
+        {
+            return Ok(await _studentService.StudentsFromWebAsync());
+        }
+        [HttpGet]
+        [Route("GetStudentsFromSocialNetwork")]
+        public async Task<IActionResult> GetStudentsFromSocialNetwork()
+        {
+            return Ok(await _studentService.StudentsFromSocialNetworkAsync());
+        }
+        [HttpGet]
+        [Route("GetStudentsFromSuggestion")]
+        public async Task<IActionResult> GetStudentsFromSuggestion()
+        {
+            return Ok(await _studentService.StudentsFromSuggestionAsync());
+        }
+        [HttpGet]
+        [Route("GetProgrammingStudents")]
+        public async Task<IActionResult> GetProgrammingStudents()
+        {
+            return Ok(await _studentService.GetProgrammingStudentsAsync());
+        }
+        [HttpGet]
+        [Route("GetDesignStudents")]
+        public async Task<IActionResult> GetDesignStudents()
+        {
+            return Ok(await _studentService.GetDesignStudentsAsync());
+        }
+        [HttpGet]
+        [Route("GetSystemStudents")]
+        public async Task<IActionResult> GetSystemStudents()
+        {
+            return Ok(await _studentService.GetSystemStudentsAsync());
+        }
+        [HttpGet]
+        [Route("GetMarketingStudents")]
+        public async Task<IActionResult> GetMarketingStudents()
+        {
+            return Ok(await _studentService.GetMarketingStudentsAsync());
+        }
+        [HttpGet]
+        [Route("Search")]
+        public async Task<IActionResult> Search([FromQuery] string search)
+        {
+            return Ok(await _studentService.GetAllByConditionAsync(search));
+        }
     }
 }

@@ -57,7 +57,47 @@ namespace App.Controllers
             await _groupService.AddStudentsAsync(id, addStudentDto);
             return Ok();
         }
+        [HttpGet]
+        [Route("GroupDetails/{id}")]
+        public async Task<IActionResult> Details([FromRoute] int id)
+        {
 
+            return Ok(await _groupService.GroupDetailsAsync(id));
+        }
+        [HttpGet]
+        [Route("GetProgrammingGroups")]
+        public async Task<IActionResult> GetProgrammingGroups()
+        {
+            var result = await _groupService.GetProgrammingGroupsAsync();
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetDesignGroups")]
+        public async Task<IActionResult> GetDesignGroups()
+        {
+            var result = await _groupService.GetDesignGroupsAsync();
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetMarketingGroups")]
+        public async Task<IActionResult> GetMarketingGroups()
+        {
+            var result = await _groupService.GetMarketingGroupsAsync();
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetSystemGroups")]
+        public async Task<IActionResult> GetSystemGroups()
+        {
+            var result = await _groupService.GetSystemGroupsAsync();
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("Search")]
+        public async Task<IActionResult> Search([FromQuery] string search)
+        {
+            return Ok(await _groupService.GetAllByConditionAsync(search));
+        }
 
 
     }

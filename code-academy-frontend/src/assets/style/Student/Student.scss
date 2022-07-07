@@ -19,6 +19,29 @@
             }
         }
     }
+    .student-details-area{
+        text-align: justify;
+        .student-details-area-description{
+            margin-left: 30px;
+        }
+    }
+    .pagination{
+        display: flex;
+        justify-content: center;
+        .rpb-item{
+            width: 25px;
+            height: 35px;
+            border-radius: 50%;
+            &:hover{
+                background-color: #45B8AC;
+                color: white;
+            }
+        }
+        .rpb-item--active{
+            background-color: #45B8AC;
+                color: white;
+        }
+    }
 
     .student-button {
         box-shadow: none !important;

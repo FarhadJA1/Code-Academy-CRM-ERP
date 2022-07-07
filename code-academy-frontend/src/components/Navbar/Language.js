@@ -1,21 +1,20 @@
-
 import React from 'react'
-
 import '../../assets/style/Navigation/Language.scss'
+import { useTranslation } from "react-i18next";
+import Cookies from 'js-cookie';
 function Language() {
+    function changeLng(value) {
+        document.cookie = `i18next=${value}`;
+        window.location.reload(true);
+    }
     return (
-        <div className="btn-group language">
-            <button type="button" className="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src={require('../../assets/img/eng-flag.png')} alt="english flag" />
-                English
-            </button>
-            <ul className="dropdown-menu">
-                <li>
-                    <img src={require('../../assets/img/aze-flag.jpg')} alt="azerbaijani flag" />
-                    Azərbaycan
-                </li>
-
-            </ul>
+        <div className="btn-group language">          
+            <select className='btn btn-outline-light' name="" id="" defaultValue={Cookies.get('i18next')} onChange={(e) => changeLng(e.target.value)}>
+                <option className='select-option' value="en">
+                    English</option>
+                <option className='select-option' value="az">
+                    Azərbaycan</option>
+            </select>
         </div>
     )
 }

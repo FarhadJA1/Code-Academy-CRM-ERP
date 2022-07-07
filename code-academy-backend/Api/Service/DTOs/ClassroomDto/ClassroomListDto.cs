@@ -9,6 +9,14 @@ namespace Service.DTOs.ClassroomDto
         public string Name { get; set; }
         public bool IsBusy { get; set; }
         public int Capacity { get; set; }
-        public List<GroupClassTerm> GroupClassTerms { get; set; }
+        public List<ClassroomGroupListDto> GroupClassTerms { get; set; }
+    }
+    public class ClassroomGroupListDto
+    {
+        public GroupCodeClassroomDto Group { get; set; }
+    }
+    public class GroupCodeClassroomListDto
+    {
+        public string GroupCode { get; set; }
     }
 }

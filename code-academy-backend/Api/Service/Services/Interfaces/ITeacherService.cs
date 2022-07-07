@@ -10,5 +10,7 @@ namespace Service.Services.Interfaces
         Task CreateAsync(TeacherCreateDto teacherCreateDto);
         Task DeleteAsync(int id);
         Task UpdateAsync(int id, TeacherUpdateDto teacherUpdateDto);
+        Task<TeacherDetailDto> TeacherDetailsAsync(int id);
+        Task<IEnumerable<TeacherListDto>> GetAllByConditionAsync(string search);
     }
 }

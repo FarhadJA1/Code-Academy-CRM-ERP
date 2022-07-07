@@ -50,13 +50,13 @@ namespace Service.Services
             }
 
             var result = Int32.Parse(code) + 1;
-            var groupType = await _groupTypeRepository.GetAsync(groupCreateDto.TermId);
+            var groupType = await _groupTypeRepository.GetAsync(groupCreateDto.GroupTypeId);
             Group group = new()
             {
                 GroupTypeId = groupCreateDto.GroupTypeId,
                 CreateDate = groupCreateDto.CreateDate,
                 ExpireDate = groupCreateDto.CreateDate.AddDays(1).AddMonths(6).AddDays(-1),
-                GroupCode = groupType.Name[0].ToString() + groupCreateDto.GroupTypeId.ToString() + result,
+                GroupCode = groupType.Name[0].ToString() + groupCreateDto.TermId.ToString() + result,
                 Capacity = groupCreateDto.Capacity,
                 IsOver = false,
 
@@ -97,6 +97,38 @@ namespace Service.Services
                 student.GroupId = id;
                 await _studentRepository.UpdateAsync(student);
             }
+        }
+        public async Task<GroupDetailsDto> GroupDetailsAsync(int id)
+        {
+            var entity = await _groupRepository.GetGroupDetails(id);
+            GroupDetailsDto groupDetailDto = new();
+            var result = _mapper.Map(entity, groupDetailDto);
+            return result;
+        }
+        public async Task<List<GroupGetDto>> GetDesignGroupsAsync()
+        {
+            var entity = await _groupRepository.GetDesignGroups();
+            return _mapper.Map<List<GroupGetDto>>(entity);
+        }
+        public async Task<List<GroupGetDto>> GetProgrammingGroupsAsync()
+        {
+            var entity = await _groupRepository.GetProgrammingGroups();
+            return _mapper.Map<List<GroupGetDto>>(entity);
+        }
+        public async Task<List<GroupGetDto>> GetSystemGroupsAsync()
+        {
+            var entity = await _groupRepository.GetSystemGroups();
+            return _mapper.Map<List<GroupGetDto>>(entity);
+        }
+        public async Task<List<GroupGetDto>> GetMarketingGroupsAsync()
+        {
+            var entity = await _groupRepository.GetMarketingGroups();
+            return _mapper.Map<List<GroupGetDto>>(entity);
+        }
+        public async Task<IEnumerable<GroupListDto>> GetAllByConditionAsync(string search)
+        {
+            var result = _mapper.Map<IEnumerable<GroupListDto>>(await _groupRepository.FindAllAsync(m => m.GroupCode.Contains(search)));
+            return result;
         }
 
 

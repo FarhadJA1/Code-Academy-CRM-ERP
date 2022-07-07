@@ -1,4 +1,37 @@
+.search-input{
+  width: 260px;
+}
+.page-header{
+  display: flex;
+  justify-content: space-between;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .rpb-item {
+    width: 25px;
+    height: 35px;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #45B8AC;
+      color: white;
+    }
+  }
+
+  .rpb-item--active {
+    background-color: #45B8AC;
+    color: white;
+  }
+}
+.circular{
+  position: absolute;
+  left: 55%;
+  top: 50%;
+}
 .table {
+  
   .table-header {
     text-align: center;
     padding-top: 15px;
@@ -36,29 +69,32 @@
       padding: 10px;
       margin-bottom: 12px;
 
-  }
-  .group-capacity-input{
-    padding-left: 20px;
-  }
-  .group-education-input{
-    margin-left: 2px;
-  }
+    }
 
-  .react-datepicker-popper {
+    .group-capacity-input {
+      padding-left: 20px;
+    }
+
+    .group-education-input {
+      margin-left: 2px;
+    }
+
+    .react-datepicker-popper {
       z-index: 4;
-  }
+    }
 
-  .react-datepicker__close-icon {
+    .react-datepicker__close-icon {
       margin-right: 10px;
-  }
+    }
 
-  .react-datepicker__header {
+    .react-datepicker__header {
       background-color: #2574ba;
-  }
-  .group-drop{
+    }
+
+    .group-drop {
       display: flex;
       justify-content: center;
-  }
+    }
 
     .addition-title {
       display: inline-block;
@@ -95,4 +131,55 @@
     }
 
   }
+
+  .group-details-area-description {
+    margin-left: 30px;
+  }
+
+  .group-details-area-students {
+    margin-left: 60px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+
+    .rpb-item {
+      width: 25px;
+      height: 35px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #45B8AC;
+        color: white;
+      }
+    }
+
+    .rpb-item--active {
+      background-color: #45B8AC;
+      color: white;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+
+    .rpb-item {
+      width: 25px;
+      height: 35px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: #45B8AC;
+        color: white;
+      }
+    }
+
+    .rpb-item--active {
+      background-color: #45B8AC;
+      color: white;
+    }
+  }
+
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repo.Data;
 using Repo.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,6 +23,15 @@ namespace Repo.Repositories
             GroupType groupType = await entities.Where(m => m.Id == id)
                 .Include(m => m.Groups)
                 .FirstOrDefaultAsync();
+            return groupType;
+        }
+        public async Task<List<GroupType>> GetAllGroupTypeDetails()
+        {
+            List<GroupType> groupType = await entities
+                .Where(m=>m.SoftDelete==false)
+                .OrderByDescending(m=>m.Id)
+                .Include(m => m.Groups)
+                .ToListAsync();
             return groupType;
         }
     }

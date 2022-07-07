@@ -35,11 +35,18 @@ namespace Service.DTOs.GroupDto
     public class GroupClassTermGDto
     {
         public ClassroomGDto Classroom { get; set; }
+        public TermGDto Term { get; set; }
     }
     public class ClassroomGDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
+    }
+    public class TermGDto
+    {
+        public int Id { get; set; }
+        public string Day { get; set; }
+        public string Time { get; set; }
     }
 
 

@@ -38,5 +38,57 @@ namespace Service.Services
             _mapper.Map(studentUpdateDto, entity);
             await _studentRepository.UpdateAsync(entity);
         }
+        public async Task<StudentDetailDto> StudentDetailsAsync(int id)
+        {
+            var entity = await _studentRepository.GetStudentDetails(id);
+            StudentDetailDto studentDetailDto = new();
+            var result = _mapper.Map(entity, studentDetailDto);
+            return result;
+        }
+        public async Task<List<StudentGetDto>> StudentsFromCallAsync()
+        {
+            var entity = await _studentRepository.GetStudentsFromCall();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> StudentsFromSuggestionAsync()
+        {
+            var entity = await _studentRepository.GetStudentsFromSuggestion();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> StudentsFromWebAsync()
+        {
+            var entity = await _studentRepository.GetStudentsFromWeb();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> StudentsFromSocialNetworkAsync()
+        {
+            var entity = await _studentRepository.GetStudentsFromSocialNetwork();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> GetProgrammingStudentsAsync()
+        {
+            var entity = await _studentRepository.GetProgrammingStudents();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> GetDesignStudentsAsync()
+        {
+            var entity = await _studentRepository.GetDesignStudents();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> GetSystemStudentsAsync()
+        {
+            var entity = await _studentRepository.GetSystemStudents();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<List<StudentGetDto>> GetMarketingStudentsAsync()
+        {
+            var entity = await _studentRepository.GetMarketingStudents();
+            return _mapper.Map<List<StudentGetDto>>(entity);
+        }
+        public async Task<IEnumerable<StudentListDto>> GetAllByConditionAsync(string search)
+        {
+            var result = _mapper.Map<IEnumerable<StudentListDto>>(await _studentRepository.FindAllAsync(m => m.Name.Contains(search)||m.Surname.Contains(search)));
+            return result;
+        }
     }
 }

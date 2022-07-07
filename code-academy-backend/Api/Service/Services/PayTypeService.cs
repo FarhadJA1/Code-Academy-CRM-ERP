@@ -19,7 +19,7 @@ namespace Service.Services
         }
         public async Task<List<PayTypeListDto>> GetAllAsync()
         {
-            var model = await _payTypeRepository.GetAllAsync();
+            var model = await _payTypeRepository.GetAllPayTypeDetails();
             return _mapper.Map<List<PayTypeListDto>>(model);
         }
         public async Task CreateAsync(PayTypeCreateDto payTypeCreateDto)

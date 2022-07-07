@@ -1,0 +1,73 @@
+.forgot-from-email {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+
+    .forgot-email-input-up {
+        display: block;
+    }
+
+    .forgot-email-input-down {
+        display: block;       
+        
+    }
+
+    .lockreset-icon {
+        font-size: 70px;
+        margin-left: 60px;
+        
+        
+    }
+
+    .forgot-from-email-btn {
+        width: 133px;
+        margin-left: 37px;
+        transition: all 0.6s;
+        border: 2px solid currentColor;
+        border-radius: 3rem;
+        color: #d72631;
+        font-size: 15px;
+        font-weight: 100;
+        overflow: hidden;
+        padding: 5px;
+        position: relative;
+        transition: 0.2s transform ease-in-out;
+        will-change: transform;
+        z-index: 0;
+        background-color: transparent;
+
+        &::after {
+            background-color: #d72631;
+            border-radius: 3rem;
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-100%, 0) rotate(10deg);
+            transform-origin: top left;
+            transition: .2s transform ease-out;
+            will-change: transform;
+            z-index: -1;
+        }
+
+
+        &:focus {
+            transition: all 0.6s;
+            box-shadow: none !important;
+        }
+
+        &:hover::after {
+            transform: translate(0, 0);
+        }
+
+        &:hover {
+            border: 2px solid transparent;
+            color: #F0FFFF;
+            transform: scale(1.05);
+            will-change: transform;
+        }
+    }
+}

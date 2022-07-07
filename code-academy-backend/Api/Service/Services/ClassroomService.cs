@@ -19,7 +19,7 @@ namespace Service.Services
         }
         public async Task<List<ClassroomListDto>> GetAllAsync()
         {
-            var model = await _classroomRepository.GetAllAsync();
+            var model = await _classroomRepository.GetAllClassrooms();
             return _mapper.Map<List<ClassroomListDto>>(model);
         }
         public async Task CreateAsync(ClassroomCreateDto classroomCreateDto)

@@ -49,6 +49,51 @@ namespace Repo.Repositories
 
             return groups;
         }
+        public async Task<Group> GetGroupDetails(int id)
+        {
+            Group group = await entities.Where(m=>m.Id==id)
+                .Include(m => m.GroupClassTerm)
+                .ThenInclude(m => m.Classroom)
+                .Include(m => m.GroupClassTerm)
+                .ThenInclude(m => m.Term)
+                .Include(m => m.Teacher)
+                .Include(m => m.Students)
+                .Include(m=>m.GroupType)
+                .FirstOrDefaultAsync();
+            return group;
+        }
+        public async Task<List<Group>> GetDesignGroups()
+        {
+            List<Group> groups = await entities
+                .Where(m => m.GroupTypeId == 3)
+                .Include(m=>m.Students)
+                .ToListAsync();
+            return groups;
+        }
+        public async Task<List<Group>> GetProgrammingGroups()
+        {
+            List<Group> groups = await entities
+                .Where(m => m.GroupTypeId == 2)
+                .Include(m => m.Students)
+                .ToListAsync();
+            return groups;
+        }
+        public async Task<List<Group>> GetMarketingGroups()
+        {
+            List<Group> groups = await entities
+                .Where(m => m.GroupTypeId == 5)
+                .Include(m => m.Students)
+                .ToListAsync();
+            return groups;
+        }
+        public async Task<List<Group>> GetSystemGroups()
+        {
+            List<Group> groups = await entities
+                .Where(m => m.GroupTypeId == 4)
+                .Include(m => m.Students)
+                .ToListAsync();
+            return groups;
+        }
 
 
 

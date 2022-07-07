@@ -64,6 +64,9 @@ namespace Repo.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -121,7 +124,7 @@ namespace Repo.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 6, 15, 15, 48, 23, 698, DateTimeKind.Local).AddTicks(4848));
+                        .HasDefaultValue(new DateTime(2022, 6, 26, 16, 58, 39, 307, DateTimeKind.Local).AddTicks(1183));
 
                     b.Property<long>("Expence")
                         .ValueGeneratedOnAdd()
@@ -161,7 +164,7 @@ namespace Repo.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasDefaultValue(new DateTime(2022, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");

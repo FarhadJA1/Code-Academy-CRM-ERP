@@ -19,9 +19,11 @@ namespace Service.Services
         }
         public async Task<List<HourListDto>> GetAllAsync()
         {
-            var model = await _hourRepository.GetAllAsync();
+            List<Term> model = await _hourRepository.GetAllTermDetails();
+
             return _mapper.Map<List<HourListDto>>(model);
         }
+        
         public async Task CreateAsync(HourCreateDto hourCreateDto)
         {
             await _hourRepository.CreateAsync(_mapper.Map<Term>(hourCreateDto));

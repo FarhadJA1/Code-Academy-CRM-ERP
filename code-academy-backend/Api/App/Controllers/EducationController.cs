@@ -22,8 +22,12 @@ namespace App.Controllers
         [Route("CreateEducation")]
         public async Task<IActionResult> Create([FromBody] GroupTypeCreateDto groupTypeCreate)
         {
-            await _educationService.CreateAsync(groupTypeCreate);
-            return Ok();
+            if (groupTypeCreate.Name.Trim() != "")
+            {
+                await _educationService.CreateAsync(groupTypeCreate);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("DeleteEducation/{id}")]
@@ -36,8 +40,13 @@ namespace App.Controllers
         [Route("UpdateEducation/{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GroupTypeUpdateDto groupTypeUpdate)
         {
-            await _educationService.UpdateAsync(id, groupTypeUpdate);
-            return Ok();
+            
+            if (groupTypeUpdate.Name.Trim() != "")
+            {
+                await _educationService.UpdateAsync(id, groupTypeUpdate);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("EducationDetails/{id}")]

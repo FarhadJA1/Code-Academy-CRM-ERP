@@ -6,6 +6,7 @@ namespace Repo.Repositories.Interfaces
 {
     public interface ITeacherRepository : IRepository<Teacher>
     {
+        Task<Teacher> GetTeacherDetails(int id);
         Task<List<Teacher>> GetAllTeacherDetails();
     }
 }

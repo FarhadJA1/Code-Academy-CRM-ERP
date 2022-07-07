@@ -2,17 +2,20 @@ import React from 'react'
 import EditEducation from './EditEducation';
 import DeleteEducation from './DeleteEducation';
 import EducationDetails from './EducationDetails';
+import { useTranslation } from 'react-i18next';
+import CircularProgress from '@mui/material/CircularProgress';
 function EducationTable(props) {
+    const { t } = useTranslation();
     let count = 1;
     return (
         <div>
-            <table className="table table-hover">
+            {(props.education.length>0)?<table className="table table-hover">
                 <thead>
                     <tr>
                         <th className='table-header' scope="col">#</th>
-                        <th className='table-header' scope="col">Type</th>
-                        <th className='table-header' scope="col">Groups (total)</th>
-                        <th className='table-header' scope="col">Settings</th>
+                        <th className='table-header' scope="col">{t("type")}</th>
+                        <th className='table-header' scope="col">{t("groups(total)")}</th>
+                        <th className='table-header' scope="col">{t("settings")}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +25,7 @@ function EducationTable(props) {
                             <td className='table-header' align='center'>{edu.name}</td>
                             <td className='table-header' align='center'>{edu.groups.length}</td>
                             <td className='table-button-area'>
-                                <EducationDetails edu={edu} id={props.id} value={edu.id} setId={props.setId} educationDetails={props.educationDetails}/>
+                                <EducationDetails edu={edu} id={props.id} value={edu.id} setId={props.setId} details={props.details} educationDetails={props.educationDetails}/>
                                 <DeleteEducation id={props.id} value={edu.id} setId={props.setId} deleteEducation={props.deleteEducation}/>
                                 <EditEducation setInput={props.setInput} name={edu.name} id={props.id} value={edu.id} setId={props.setId} updateEducation={props.updateEducation}/>
                             </td>
@@ -31,7 +34,8 @@ function EducationTable(props) {
 
 
                 </tbody>
-            </table>
+            </table>:<CircularProgress className='circular' color="secondary" />}
+            
         </div>
     )
 }

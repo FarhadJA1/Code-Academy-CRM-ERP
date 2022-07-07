@@ -8,6 +8,9 @@ namespace Service.DTOs.HourDto
         public int Id { get; set; }
         public string Day { get; set; }
         public string Time { get; set; }
-        public List<GroupClassTerm> GroupClassTerms { get; set; }
+        
     }
+   
+    
+
 }

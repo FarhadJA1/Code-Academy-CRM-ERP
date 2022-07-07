@@ -1,4 +1,5 @@
-﻿using Service.DTOs.HourDto;
+﻿using Domain.Entities;
+using Service.DTOs.HourDto;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Service.Services.Interfaces
         Task DeleteAsync(int id);
         Task UpdateAsync(int id, HourUpdateDto hourUpdateDto);
         Task<HourDetailsDto> HourDetailsAsync(int id);
+        
 
     }
 }

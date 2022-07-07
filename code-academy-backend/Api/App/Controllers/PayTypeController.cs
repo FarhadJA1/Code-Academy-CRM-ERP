@@ -22,8 +22,12 @@ namespace App.Controllers
         [Route("CreatePayment")]
         public async Task<IActionResult> Create([FromBody] PayTypeCreateDto payTypeCreateDto)
         {
-            await _payTypeService.CreateAsync(payTypeCreateDto);
-            return Ok();
+            if (payTypeCreateDto.Name.Trim() != "")
+            {
+                await _payTypeService.CreateAsync(payTypeCreateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("DeletePayment/{id}")]
@@ -35,9 +39,13 @@ namespace App.Controllers
         [HttpPut]
         [Route("UpdatePayment/{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PayTypeUpdateDto payTypeUpdateDto)
-        {
-            await _payTypeService.UpdateAsync(id, payTypeUpdateDto);
-            return Ok();
+        {            
+            if (payTypeUpdateDto.Name.Trim() != "")
+            {
+                await _payTypeService.UpdateAsync(id, payTypeUpdateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("PaymentDetails/{id}")]

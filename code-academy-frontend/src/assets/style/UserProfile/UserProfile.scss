@@ -1,0 +1,38 @@
+.user-profile-header {
+    display: flex;
+    .profile-image-area{
+        position: relative;
+        .profile-image {
+            width: 130px;
+            
+    
+        }
+        .change-image{
+            position: absolute;
+            left: 30%;
+            bottom: 4%;
+            border: none;
+            &:focus {
+                transition: all 0.6s;
+                box-shadow: none !important;
+            }
+        }
+    }
+    .password-input{
+        width: 93%;
+        margin-left: 20px;
+    }
+    .password-button {
+        box-shadow: none !important;
+        transition: all 0.6s;
+        font-size: 12px;
+
+        &:focus {
+            transition: all 0.6s;
+            box-shadow: none !important;
+        }
+    }
+    .profile-image-btn{
+        width: 130px;
+    }
+}

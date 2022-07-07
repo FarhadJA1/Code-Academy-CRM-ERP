@@ -38,6 +38,17 @@ namespace Service.Services
             _mapper.Map(teacherUpdateDto, entity);
             await _teacherRepository.UpdateAsync(entity);
         }
-
+        public async Task<TeacherDetailDto> TeacherDetailsAsync(int id)
+        {
+            var entity = await _teacherRepository.GetTeacherDetails(id);
+            TeacherDetailDto teacherDetailDto = new();
+            var result = _mapper.Map(entity, teacherDetailDto);
+            return result;
+        }
+        public async Task<IEnumerable<TeacherListDto>> GetAllByConditionAsync(string search)
+        {
+            var result = _mapper.Map<IEnumerable<TeacherListDto>>(await _teacherRepository.FindAllAsync(m => m.Name.Contains(search) || m.Surname.Contains(search)));
+            return result;
+        }
     }
 }

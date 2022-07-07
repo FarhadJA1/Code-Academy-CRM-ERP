@@ -10,7 +10,27 @@
             box-shadow: none !important;
         }
     }
-
+    .search-filter{
+        display: flex;
+        
+    }
+.pagination{
+    display: flex;
+    justify-content: center;
+    .rpb-item{
+        width: 25px;
+        height: 35px;
+        border-radius: 50%;
+        &:hover{
+            background-color: #45B8AC;
+            color: white;
+        }
+    }
+    .rpb-item--active{
+        background-color: #45B8AC;
+            color: white;
+    }
+}
     .addition {
 
         text-align: start;
@@ -18,7 +38,12 @@
             display: inline-block;
             position: relative;            
         }
-
+        .teacher-details-area-description{
+            margin-left: 30px;
+        }
+        .teacher-details-area-groups{
+            margin-left: 60px
+        }
         .addition-title:after {
             content: '';
             position: absolute;

@@ -4,6 +4,8 @@ import StudentCreateBtn from '../components/Student/StudentCreateBtn'
 import StudentsTable from '../components/Student/StudentsTable'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
+import Swal from 'sweetalert2';
+import StudentSearch from '../components/Student/StudentSearch';
 function Students() {
   const url = "https://localhost:44380"
 
@@ -16,17 +18,60 @@ function Students() {
   const [phoneInput, setPhoneInput] = useState();
   const [paymentInput, setPaymentInput] = useState();
   const [resourceInput, setResourceInput] = useState();
+  const [details, setDetails] = useState();
+
 
   const [payment, setPayment] = useState([]);
   const [resources, setResources] = useState([]);
   const [id, setId] = useState();
-  
+  const [search, setSearch] = useState([]);
+
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState();
+  const pageLimit = 3;
+  let viewCount = ((currentPage - 1) * pageLimit);
+  const length = total / pageLimit;
+
+  //sweet alert
+  const Success = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  const Reject = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  async function Search(data) {    
+      await axios.get(`${url}/api/Student/Search`, {
+        params: {
+          search: data
+        }
+      })
+        .then(res => {
+          setSearch(res.data);
+        });
+  }
 
   async function GetStudents() {
     await axios.get(`${url}/api/Student/GetAll`)
       .then(res => {
         setStudents(res.data);
-        console.log(students);
+        setTotal(res.data.length)
       })
   }
   async function GetResources() {
@@ -48,7 +93,7 @@ function Students() {
 
   }, [])
 
-  async function CreateStudent() {    
+  async function CreateStudent() {
     await axios.post(`${url}/api/Student/CreateStudent`, {
       name: nameInput,
       surname: surnameInput,
@@ -68,15 +113,41 @@ function Students() {
         setPhoneInput("");
         setEmailInput("");
         setResourceInput("");
+        Success.fire({
+          icon: 'success',
+          title: 'Student successfully created'
+        })
       })
-      .catch(error => console.log(error));
+      .catch(
+        Reject.fire({
+          icon: 'error',
+          title: 'Something went wrong'
+        })
+      );
   }
+
   const DeleteStudent = () => {
     axios.get(`${url}/api/Student/DeleteStudent/${id}`)
       .then(res => {
         GetStudents();
+        Success.fire({
+          icon: 'warning',
+          title: 'Student successfully deleted'
+        })
       })
-      .catch(error => console.log(error));
+      .catch(
+        Reject.fire({
+          icon: 'error',
+          title: 'Something went wrong'
+        })
+      );
+  }
+  async function StudentDetails(id) {
+debugger
+    await axios.get(`${url}/api/Student/StudentDetails/${id}`)
+      .then(res => {
+        setDetails(res.data);
+      })
   }
 
 
@@ -101,24 +172,37 @@ function Students() {
         setEmailInput("");
         setResourceInput("");
         setPaymentInput("")
+        Success.fire({
+          icon: 'success',
+          title: 'Student successfully updated'
+        })
       })
-      .catch(error => console.log(error));
+      .catch(
+        Reject.fire({
+          icon: 'error',
+          title: 'Something went wrong'
+        })
+      );
   }
-  
+
   return (
     <div className='student'>
-      <StudentCreateBtn
-        nameInput={nameInput} setNameInput={setNameInput}
-        surnameInput={surnameInput} setSurnameInput={setSurnameInput}
-        birthdayInput={birthdayInput} setBirthdayInput={setBirthdayInput}
-        paymentInput={paymentInput} setPaymentInput={setPaymentInput}
-        resourceInput={resourceInput} setResourceInput={setResourceInput}
-        emailInput={emailInput} setEmailInput={setEmailInput}
-        phoneInput={phoneInput} setPhoneInput={setPhoneInput}
-        payments={payment} setPayment={setPayment}
-        resources={resources} setResources={setResources}
-        createStudent={CreateStudent} 
+      <div className='page-header'>
+        <StudentSearch search={Search}/>
+        <StudentCreateBtn
+          nameInput={nameInput} setNameInput={setNameInput}
+          surnameInput={surnameInput} setSurnameInput={setSurnameInput}
+          birthdayInput={birthdayInput} setBirthdayInput={setBirthdayInput}
+          paymentInput={paymentInput} setPaymentInput={setPaymentInput}
+          resourceInput={resourceInput} setResourceInput={setResourceInput}
+          emailInput={emailInput} setEmailInput={setEmailInput}
+          phoneInput={phoneInput} setPhoneInput={setPhoneInput}
+          payments={payment} setPayment={setPayment}
+          resources={resources} setResources={setResources}
+          createStudent={CreateStudent}
         />
+      </div>
+
 
       <StudentsTable students={students}
         nameInput={nameInput} setNameInput={setNameInput}
@@ -129,11 +213,17 @@ function Students() {
         emailInput={emailInput} setEmailInput={setEmailInput}
         phoneInput={phoneInput} setPhoneInput={setPhoneInput}
         payments={payment} setPayment={setPayment}
-        resources={resources} setResources={setResources} 
+        resources={resources} setResources={setResources}
         deleteStudent={DeleteStudent}
         updateStudent={UpdateStudent}
         setId={setId} id={id}
-        />
+        details={details} setDetails={setDetails}
+        studentDetails={StudentDetails}
+        currentPage={currentPage} setCurrentPage={setCurrentPage}
+        total={total} setTotal={setTotal} pageLimit={pageLimit} viewCount={viewCount}
+        length={length}
+        search={search}
+      />
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
-
-function From() {
+import { useTranslation } from 'react-i18next';
+import CountUp from 'react-countup';
+function From(props) {
+    const { t } = useTranslation();
     return (
         <div className='container'>
             <div className="row mt-5 from">
@@ -10,8 +12,8 @@ function From() {
                     </div>
 
                     <div className="col-lg-8 details">
-                        <p className='detail-text'>From call</p>
-                        <p className='detail-sum'>23.7k</p>
+                        <p className='detail-text'>{t(`from call`)}</p>                        
+                        <CountUp className='detail-sum ms-4' end={props.fromCall.length}/>
                     </div>
                 </div>
 
@@ -21,8 +23,8 @@ function From() {
                     </div>
 
                     <div className="col-lg-8 details">
-                        <p className='detail-text'>From social networks</p>
-                        <p className='detail-sum'>23.7k</p>
+                        <p className='detail-text'>{t(`from social networks`)}</p>                        
+                        <CountUp className='detail-sum ms-5' end={props.fromSocial.length}/>
                     </div>
                 </div>
                 <div className="col-lg-3 info web">
@@ -31,8 +33,8 @@ function From() {
                     </div>
 
                     <div className="col-lg-8 details">
-                        <p className='detail-text'>From web</p>
-                        <p className='detail-sum'>23.7k</p>
+                        <p className='detail-text'>{t(`from web`)}</p>                       
+                        <CountUp className='detail-sum ms-4' end={props.fromWeb.length}/>
                     </div>
                 </div>
                 <div className="col-lg-3 info suggestion">
@@ -41,11 +43,12 @@ function From() {
                     </div>
 
                     <div className="col-lg-8 details">
-                        <p className='detail-text'>From suggestion</p>
-                        <p className='detail-sum'>23.7k</p>
+                        <p className='detail-text'>{t(`from suggestion`)}</p>                        
+                        <CountUp className='detail-sum ms-5' end={props.fromSuggestion.length}/>
                     </div>
                 </div>
             </div>
+           
         </div>
     )
 }

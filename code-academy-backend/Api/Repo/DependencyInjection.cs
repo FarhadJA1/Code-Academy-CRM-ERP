@@ -21,6 +21,7 @@ namespace Repo
             services.AddScoped<IProfessionRepository, ProfessionRepository>();
             services.AddScoped<IGroupClassTermRepository, GroupClassTermRepository>();
             services.AddScoped<IFinanceRepository, FinanceRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             return services;
         }
     }

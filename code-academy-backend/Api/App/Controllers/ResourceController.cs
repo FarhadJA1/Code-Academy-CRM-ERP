@@ -20,10 +20,14 @@ namespace App.Controllers
         }
         [HttpPost]
         [Route("CreateResource")]
-        public async Task<IActionResult> Create([FromBody] ResourceCreateDto groupCreateDto)
+        public async Task<IActionResult> Create([FromBody] ResourceCreateDto resourceCreateDto)
         {
-            await _resourceService.CreateAsync(groupCreateDto);
-            return Ok();
+            if (resourceCreateDto.Name.Trim() != "")
+            {
+                await _resourceService.CreateAsync(resourceCreateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("DeleteResource/{id}")]
@@ -36,8 +40,13 @@ namespace App.Controllers
         [Route("UpdateResource/{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] ResourceUpdateDto resourceUpdateDto)
         {
-            await _resourceService.UpdateAsync(id, resourceUpdateDto);
-            return Ok();
+            
+            if (resourceUpdateDto.Name.Trim() != "")
+            {
+                await _resourceService.UpdateAsync(id, resourceUpdateDto);
+                return Ok();
+            }
+            return StatusCode(400);
         }
         [HttpGet]
         [Route("ResourceDetails/{id}")]

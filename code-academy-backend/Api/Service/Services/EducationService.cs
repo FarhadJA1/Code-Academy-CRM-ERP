@@ -19,7 +19,7 @@ namespace Service.Services
         }
         public async Task<List<GroupTypeListDto>> GetAllAsync()
         {
-            var model = await _groupTypeRepository.GetAllAsync();
+            var model = await _groupTypeRepository.GetAllGroupTypeDetails();
             return _mapper.Map<List<GroupTypeListDto>>(model);
         }
         public async Task CreateAsync(GroupTypeCreateDto groupTypeCreate)

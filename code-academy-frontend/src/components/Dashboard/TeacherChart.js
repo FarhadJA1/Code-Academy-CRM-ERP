@@ -2,59 +2,44 @@ import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, Title } from 'chart.js/auto'
 import { useState } from 'react'
-
-function TeacherChart() {
-    const UserData = [
+import { useTranslation } from 'react-i18next';
+function TeacherChart(props) {
+    const GroupData = [
         {
-            id: 1,
-            year: 2016,
-            userGain: 10000,
-            userLost: 871
+            name: "Graphic Design - UX/UI",
+            length: props.design?.length
         },
         {
-            id: 2,
-            year: 2017,
-            userGain: 12313,
-            userLost: 122
+            name: "Programming",
+            length: props.programming?.length
         },
         {
-            id: 3,
-            year: 2018,
-            userGain: 43244,
-            userLost: 342
+            name: "Digital Marketing",
+            length: props.marketing?.length
         },
         {
-            id: 4,
-            year: 2019,
-            userGain: 54233,
-            userLost: 234
-        },
-        {
-            id: 5,
-            year: 2020,
-            userGain: 54632,
-            userLost: 453
+            name: "System & Network",
+            length: props.system?.length
         }
+
     ]
+    
 
-    const [chartData, setChartData] = useState({
-        labels: UserData.map((data) => data.year),
-        datasets: [{
-            label: "Users Gained",
-            data: UserData.map((data) => data.userGain),
-            backgroundColor: ["#6b5b95", "#feb236", "#b5e7a0", "#f7786b", "#ffef96"],
-            
-
-        }],
-
-    });
     return (
         <div>
-
             <div style={{ width: 600 }} className='container teacher-chart mt-5 ms-1'>
-                <Pie  data={chartData} />
+                <Pie  data={{
+                    labels: GroupData?.map((data) => data.name),
+                    datasets: [{
+                        label: "Groups",
+                        data: GroupData.map((data) => data.length),
+                        backgroundColor: ["#6b5b95", "#feb236", "#b5e7a0", "#f7786b"],
+                    }],
+                }} />
             </div>
+
         </div>
+
     )
 }
 

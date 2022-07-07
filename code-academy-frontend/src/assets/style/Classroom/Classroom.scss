@@ -1,4 +1,9 @@
 .classroom{
+    .circular{
+        position: absolute;
+        left: 55%;
+        top: 50%;
+    }
     .create-classroom-btn-area {
         display: flex;
         justify-content: end;
@@ -18,6 +23,12 @@
                 width: 100% !important;
             }
         }
+    }
+    .classroom-info-area{
+        text-align: center;
+    }
+    .classroom-list-elements{
+        list-style-type: none;
     }
     .classroom-button {
         box-shadow: none !important;
